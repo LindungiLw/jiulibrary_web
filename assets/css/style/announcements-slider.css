@@ -1,0 +1,195 @@
+/* =========================================
+   SECTION PENGUMUMAN (ANNOUNCEMENTS - JIU STYLE)
+========================================= */
+.announcement-section {
+  padding: 80px 0;
+  position: relative;
+  background-color: #f8fafc; /* Background utama halaman warna putih/abu bersih */
+  overflow: hidden;
+}
+
+/* --- ANIMASI BACKGROUND BUKU & PENA --- */
+.bg-floating-icon {
+  position: absolute;
+  opacity: 0.03;
+  color: var(--clr-blue-1, #0f172a);
+  z-index: 0;
+  animation: floatGraphic 6s ease-in-out infinite;
+}
+.icon-book-bg {
+  top: 10%;
+  left: 5%;
+  width: 150px;
+}
+.icon-pen-bg {
+  bottom: 10%;
+  right: 5%;
+  width: 120px;
+  animation-delay: 2s;
+}
+
+@keyframes floatGraphic {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(15deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* CONTAINER */
+.ann-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+  z-index: 10;
+}
+
+/* --- HEADER --- */
+.ann-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.ann-header-flex h2 {
+  color: var(--clr-blue-1, #0f172a);
+  margin: 0;
+  line-height: 1;
+  font-family: var(--font-primary, "Poppins", sans-serif);
+}
+.btn-view-ann {
+  color: #1e3a8a;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #1e3a8a;
+  padding: 8px 20px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+.btn-view-ann:hover {
+  background-color: #1e3a8a;
+  color: #ffffff;
+}
+
+.jiu-ann-card {
+  display: block;
+  position: relative;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  background-color: #e2e8f0;
+}
+.jiu-ann-card:hover {
+  transform: translateY(-8px);
+}
+
+.jiu-ann-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.jiu-ann-card:hover .jiu-ann-img {
+  transform: scale(1.08);
+}
+
+.jiu-ann-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  padding: 10px 20px;
+  z-index: 2;
+  border-left: none;
+  box-shadow: none;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.jiu-ann-card:hover .jiu-ann-content {
+  height: 35%;
+  background: rgba(30, 58, 138, 0.95);
+}
+
+.jiu-ann-badge {
+  background: var(--clr-yellow-1, #facc15);
+  color: #0f172a;
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+.jiu-ann-title {
+  font-size: 1rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.4s ease;
+}
+.jiu-ann-card:hover .jiu-ann-title {
+  color: #ffffff;
+  -webkit-line-clamp: 2;
+  line-clamp: 3;
+}
+
+.jiu-ann-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+  margin-top: 8px;
+}
+.jiu-ann-card:hover .jiu-ann-hidden {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.jiu-ann-date {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.jiu-ann-desc {
+  font-size: 0.8rem;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.jiu-ann-btn {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clr-yellow-1, #facc15);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: auto;
+}

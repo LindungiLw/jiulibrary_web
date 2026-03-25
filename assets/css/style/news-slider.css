@@ -1,0 +1,135 @@
+/* =========================================
+   SECTION BERITA (DESAIN OVERLAP PREMIUM)
+========================================= */
+.news-section {
+  padding: 80px 0;
+  background-color: var(--clr-blue-1, #0f172a); /* Latar Biru JIU */
+}
+
+.news-container {
+  max-width: 1100px; /* Sejajar dengan Announcements */
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.news-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ini perintah untuk rata tengah vertikal */
+  margin-bottom: 40px;
+}
+
+.news-header-left .section-title {
+  color: white;
+  text-align: left;
+  margin: 0 !important; /* KUNCI 1: Paksa hapus SEMUA margin (atas & bawah) */
+  line-height: 1; /* KUNCI 2: Bikin tinggi kotak pas dengan hurufnya */
+  display: flex;
+  align-items: center; /* KUNCI 3: Pastikan isi judul benar-benar di tengah */
+  font-family: var(--font-primary, "Poppins", sans-serif);
+}
+
+/* KARTU BERITA STYLE OVERLAP */
+.jiu-news-card {
+  position: relative;
+  margin-bottom: 30px;
+  display: block;
+  text-decoration: none;
+}
+
+/* Kotak Gambar */
+.jiu-news-img-box {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+.jiu-news-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.jiu-news-card:hover .jiu-news-img-box img {
+  transform: scale(1.08);
+}
+
+/* Kotak Putih yang Menimpa Gambar (OVERLAP) */
+.jiu-news-content {
+  background: #ffffff;
+  padding: 25px;
+  margin: -60px 20px 0 20px; /* KUNCI OVERLAP: Naik 60px */
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border-bottom: 4px solid transparent;
+}
+.jiu-news-card:hover .jiu-news-content {
+  border-bottom-color: var(--clr-yellow-1, #facc15);
+  transform: translateY(-5px);
+}
+
+
+.jiu-news-title {
+  font-size: 1.15rem;
+  color: var(--clr-blue-1, #0f172a);
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.jiu-news-card:hover .jiu-news-title {
+  color: #3b82f6;
+}
+
+.jiu-news-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 500;
+}
+.jiu-news-meta i {
+  color: #94a3b8;
+  margin-right: 5px;
+}
+
+.jiu-news-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--clr-yellow-1, #facc15);
+  color: var(--clr-blue-1, #0f172a);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.jiu-news-card:hover .jiu-news-btn {
+  background-color: #eab308;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .news-header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .jiu-news-content {
+    margin: -40px 10px 0 10px;
+    padding: 20px;
+  }
+}

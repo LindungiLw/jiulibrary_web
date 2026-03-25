@@ -1,0 +1,21 @@
+:root {
+  --clr-blue-1: #273374;
+  --clr-blue-2: #1e285d;
+  --clr-yellow-1: #e9be2b;
+  --clr-yellow-2: #cfa823;
+
+  --clr-text-main: #1e293b;
+  --clr-text-muted: #64748b;
+  --clr-bg-body: #f8fafc;
+  --clr-bg-card: #ffffff;
+
+  --font-primary: "Poppins", sans-serif;
+
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-pill: 50px;
+}

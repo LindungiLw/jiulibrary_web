@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Healing Corner - Dream Blue Library</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        font-family: sans-serif;
+        background: #1e3a8a;
+      }
+      .pdf-header {
+        background: #1e3a8a;
+        color: white;
+        padding: 15px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .btn-back {
+        text-decoration: none;
+        color: #facc15;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .pdf-container {
+        width: 100%;
+        height: calc(100vh - 60px);
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pdf-header">
+      <div style="font-weight: 700">🌿 Healing Corner</div>
+      <a href="index.php" class="btn-back">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+
+    <div class="pdf-container">
+      <iframe
+        src="assets/documents/healing-corner.pdf#toolbar=0"
+        type="application/pdf"
+      ></iframe>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - Dream Blue Library</title>
+    <link rel="stylesheet" href="assets/css/about.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="about-header">
+      <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <p style="margin-top: 10px; font-size: 1.1rem; opacity: 0.9">
+          Find quick answers to common questions about our library services.
+        </p>
+      </div>
+    </header>
+
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-grid">
+          <div class="faq-image-wrapper">
+            <img
+              src="assets/images/sofia.jpeg"
+              alt="Student searching for answers"
+              class="faq-image"
+            />
+            <div class="faq-badge">
+              <i class="fas fa-lightbulb"></i> We're here to help!
+            </div>
+          </div>
+
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Who can use the Dream Blue Library facilities?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Our library facilities are primarily available to all active
+                  students, faculty, and staff of Jakarta International
+                  University. We also welcome external researchers and guests,
+                  provided they have prior approval from the library
+                  administration.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How do I borrow a book?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  To borrow a book, you must be registered in our system. Simply
+                  bring your physical or digital Student/Staff ID card to the
+                  circulation desk along with the items you wish to borrow. You
+                  can also use our self-service kiosks available on the first
+                  floor.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>What is the "Healing Corner"?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  The Healing Corner is a specialized, quiet space designed
+                  specifically for student well-being and mental health. It
+                  provides a comfortable environment to relax, read non-academic
+                  materials, and recharge your energy between classes.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Can I access online journals from home?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes, absolutely! All active students and faculty can access
+                  our extensive digital databases and e-journals off-campus.
+                  Simply log in to the library portal using your official JIU
+                  email credentials.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>What happens if I lose or damage a borrowed book?</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  If an item is lost or severely damaged, please report it to
+                  the library staff immediately. According to our regulations,
+                  you will be required to replace the item with the exact same
+                  edition or pay a standard replacement fee.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="history-footer">
+      <div class="container">
+        <a href="index.php" class="back-btn"
+          ><i class="fas fa-arrow-left"></i> Back to Home</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      const faqQuestions = document.querySelectorAll(".faq-question");
+
+      faqQuestions.forEach((question) => {
+        question.addEventListener("click", () => {
+          const item = question.parentElement;
+
+          const activeItem = document.querySelector(".faq-item.active");
+          if (activeItem && activeItem !== item) {
+            activeItem.classList.remove("active");
+            activeItem.querySelector(".faq-answer").style.maxHeight = null;
+          }
+
+          item.classList.toggle("active");
+          const answer = item.querySelector(".faq-answer");
+
+          if (item.classList.contains("active")) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = null;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

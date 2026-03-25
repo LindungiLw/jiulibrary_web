@@ -1,0 +1,16 @@
+# Mengabaikan file koneksi database (SANGAT WAJIB!)
+koneksi.php
+
+# Mengabaikan folder admin keseluruhan
+admin/
+
+# Mengabaikan folder login & register member
+assets/auth/
+
+# (Opsional) Mengabaikan folder upload gambar/dokumen dari user agar repository tidak bengkak
+assets/images/uploads/
+assets/documents/uploads/
+
+# Mengabaikan file sistem OS (macOS/Windows)
+.DS_Store
+Thumbs.db
