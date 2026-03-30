@@ -1,16 +1,12 @@
-/* =========================================
-   Section Page Layout (Ultra Premium UI)
-   ========================================= */
-
 body {
   background-color: #f8fafc;
   scroll-behavior: smooth;
 }
 
-/* 1. GLASSMORPHISM NAVBAR (Transparan & Nge-blur) */
+/* --- 1. NAVBAR KACA --- */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.75) !important; /* Semi transparan */
-  backdrop-filter: blur(12px); /* Efek kaca buram */
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
@@ -20,7 +16,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* 2. ANIMATED GRADIENT BACKGROUND (Warna Biru Bergerak) */
+/* --- 2. HEADER DENGAN ANIMASI BACKGROUND --- */
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
@@ -35,10 +31,9 @@ body {
 
 .page-header {
   padding: 80px 0 100px 0;
-  /* Campuran 4 warna biru elegan */
   background: linear-gradient(-45deg, #0f172a, #1e3a8a, #2563eb, #0f172a);
   background-size: 400% 400%;
-  animation: gradientMove 12s ease infinite; /* Animasi berputar terus */
+  animation: gradientMove 12s ease infinite;
   text-align: center;
   color: white;
   position: relative;
@@ -52,7 +47,6 @@ body {
   position: relative;
 }
 
-/* TOMBOL BACK KAPSUL KACA */
 .btn-back-header {
   position: absolute;
   left: 5%;
@@ -84,12 +78,9 @@ body {
 .page-title {
   font-size: 2.8rem;
   font-weight: 800;
-  margin-bottom: 10px;
-  font-family: var(--font-primary, "Poppins", sans-serif);
-  margin-top: 15px;
+  margin: 15px 0 10px 0;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
 .page-subtitle {
   color: #fde047;
   font-size: 1.15rem;
@@ -97,9 +88,7 @@ body {
   opacity: 0.95;
 }
 
-/* =========================================
-   Grid System & Entrance Animation
-   ========================================= */
+/* --- 3. GRID SYSTEM & ANIMASI KARTU --- */
 .section-page-grid {
   max-width: 1100px;
   margin: -60px auto 80px auto;
@@ -111,7 +100,6 @@ body {
   z-index: 5;
 }
 
-/* 3. ANIMASI MUNCUL DARI BAWAH (FADE IN UP) */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -125,17 +113,24 @@ body {
 
 .section-page-grid .jiu-news-card,
 .section-page-grid .jiu-ann-card {
+  background: white; /* Bikin latar belakang kotak jadi putih */
+  border-radius: 16px; /* Ujung melengkung */
+  overflow: hidden; /* Biar foto nggak keluar dari kotak */
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
   margin-bottom: 0;
   height: 100%;
-  opacity: 0; /* Awalnya hilang */
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Efek muncul mulus */
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Delay animasi biar munculnya gantian (berurutan) */
 .section-page-grid > a:nth-child(1) {
   animation-delay: 0.1s;
 }
@@ -161,115 +156,70 @@ body {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* =========================================
-   ULTRA PREMIUM FOOTER
-   ========================================= */
-.premium-footer {
-  background: #0f172a;
-  position: relative;
-  padding: 60px 0 20px 0;
-  margin-top: 100px;
-  color: #cbd5e1;
-  font-family: var(--font-primary, "Poppins", sans-serif);
+/* --- 4. SOLUSI FOTO BERANTAKAN --- */
+
+/* Wadah foto berita */
+.section-page-grid .jiu-news-img-box {
+  width: 100%;
+  height: 200px; /* Tinggi foto dikunci 200px */
+  overflow: hidden;
 }
 
-/* Garis kuning menyala (Glowing) di atas footer */
-.premium-footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #facc15, transparent);
-  box-shadow: 0 0 20px rgba(250, 204, 21, 0.6); /* Efek cahaya */
+/* Aturan untuk foto Berita & Pengumuman */
+.section-page-grid .jiu-news-img-box img,
+.section-page-grid .jiu-ann-img {
+  width: 100%;
+  height: 200px; /* Tinggi dikunci */
+  object-fit: cover; /* ANTI GEPENG & ANTI BERANTAKAN */
+  object-position: center;
+  transition: transform 0.5s ease;
 }
 
-.footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 5%;
+/* Efek Zoom Foto pas Hover */
+.section-page-grid .jiu-news-card:hover .jiu-news-img-box img,
+.section-page-grid .jiu-ann-card:hover .jiu-ann-img {
+  transform: scale(1.1);
+}
+
+/* --- 5. TEKS & KONTEN BAWAH KARTU --- */
+.section-page-grid .jiu-news-content,
+.section-page-grid .jiu-ann-content {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 25px;
+  flex-grow: 1; /* Biar tombol baca selalu di bawah */
 }
 
-/* Logo & Nama Web di Footer */
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.footer-brand img {
-  width: 45px;
-  height: auto;
-  filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.2));
-}
-
-/* Menu Navigasi Cepat */
-.footer-nav {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.footer-nav a {
-  color: #94a3b8;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-
-.footer-nav a:hover {
-  color: #facc15;
-  transform: translateY(-2px);
-}
-
-/* Ikon Sosial Media (Bulat Kaca) */
-.footer-socials {
-  display: flex;
-  gap: 15px;
-  margin-top: 5px;
-}
-
-.footer-socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
+.jiu-news-title,
+.jiu-ann-title {
   font-size: 1.2rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+  /* Mencegah judul terlalu panjang ngerusak layout */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.footer-socials a:hover {
-  background: #facc15;
-  color: #0f172a;
-  transform: translateY(-5px); /* Efek loncat saat kursor diarahkan */
-  box-shadow: 0 5px 20px rgba(250, 204, 21, 0.5);
-  border-color: #facc15;
+.jiu-news-btn,
+.jiu-ann-btn {
+  margin-top: auto; /* Dorong ke paling bawah */
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-/* Garis bawah & Copyright */
-.footer-bottom {
-  margin-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 25px;
-  width: 100%;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #64748b;
+/* Responsif HP */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  .page-header {
+    padding: 40px 0 60px 0;
+  }
+  .section-page-grid {
+    margin-top: -30px;
+  }
 }
