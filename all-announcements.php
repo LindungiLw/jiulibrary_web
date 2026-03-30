@@ -20,9 +20,9 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
     <link rel="stylesheet" href="assets/css/style/variable.css" />
     <link rel="stylesheet" href="assets/css/base.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
-    <link rel="stylesheet" href="assets/css/footer.css" />
-
+    <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
 
     <style>
         body {
@@ -189,9 +189,7 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
 
     </main>
 
-    <footer class="main-footer" style="padding: 20px 0; text-align: center; background: #1e293b; color: #94a3b8;">
-        <p>&copy; 2026 Dream Blue Library, JIU. All rights reserved.</p>
-    </footer>
+    <?php include 'footer.php'; ?>
 
 </body>
 

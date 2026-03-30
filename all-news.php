@@ -20,100 +20,14 @@ $query_semua_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY tang
     <link rel="stylesheet" href="assets/css/base.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/style/news-slider.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
 
-    <style>
-        body {
-            background-color: #f8fafc;
-        }
-
-        .page-header {
-            padding: 60px 0 50px 0;
-            background-color: var(--clr-blue-1, #0f172a);
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .page-header-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 5%;
-            position: relative;
-        }
-
-        .btn-back-header {
-            position: absolute;
-            left: 5%;
-            top: 10px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .btn-back-header:hover {
-            color: var(--clr-yellow-1, #facc15);
-            transform: translateX(-5px);
-        }
-
-        .page-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            font-family: var(--font-primary, 'Poppins', sans-serif);
-            margin-top: 15px;
-        }
-
-        .page-subtitle {
-            color: var(--clr-yellow-1, #facc15);
-            font-size: 1.1rem;
-        }
-
-        .news-grid-page {
-            max-width: 1100px;
-            margin: -30px auto 60px auto;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 40px 30px;
-            position: relative;
-            z-index: 5;
-        }
-
-        .news-grid-page .jiu-news-card {
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .btn-back-header {
-                position: relative;
-                left: 0;
-                top: 0;
-                margin-bottom: 20px;
-                justify-content: center;
-                display: flex;
-            }
-
-            .page-header {
-                padding: 40px 0 30px 0;
-            }
-
-            .page-title {
-                margin-top: 0;
-                font-size: 2rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <header class="site-header" style="background: white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)">
+    <header class="site-header glass-nav">
         <nav class="main-nav" style="justify-content: center">
             <div class="nav-logo">
                 <a href="index.php" class="logo">
@@ -124,12 +38,11 @@ $query_semua_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY tang
         </nav>
     </header>
 
-    <?php // include 'background-grafis.php'; 
+    <?php
     ?>
 
     <header class="page-header">
         <div class="page-header-container">
-
             <a href="index.php" class="btn-back-header">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
@@ -139,7 +52,7 @@ $query_semua_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY tang
         </div>
     </header>
 
-    <main class="news-grid-page">
+    <main class="section-page-grid">
 
         <?php
         if ($query_semua_berita && mysqli_num_rows($query_semua_berita) > 0) {
@@ -188,6 +101,8 @@ $query_semua_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY tang
         ?>
 
     </main>
+
+    <?php include 'footer.php'; ?>
 
 </body>
 
