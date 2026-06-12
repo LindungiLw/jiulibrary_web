@@ -1,38 +1,46 @@
+/* =========================================
+   PREMIUM MODAL POP-UP (COMPACT VERSION)
+   ========================================= */
+
 .modal-hours {
   display: none;
   position: fixed;
-  z-index: 99999;
+  z-index: 100000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(15, 23, 42, 0);
   backdrop-filter: blur(0px);
-  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(0px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   align-items: center;
   justify-content: center;
 }
 
 .modal-hours.show {
-  background-color: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(5px);
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .modal-content-hours {
-  background-color: #ffffff;
-  padding: 30px;
+  background: #ffffff;
+  padding: 25px 30px; /* DIET: Padding dikecilin dari 35px 40px */
   border-radius: 20px;
   width: 90%;
-  max-width: 450px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  max-width: 420px; /* DIET: Lebar maksimal dikurangi sedikit */
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
   position: relative;
-
-  transform: translateY(-50px) scale(0.95);
-  opacity: 0;
-  transition: all 0.3s ease;
-
   max-height: 90vh;
   overflow-y: auto;
+  font-family: var(--font-primary, "Poppins", sans-serif);
+
+  transform: translateY(30px) scale(0.9);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .modal-hours.show .modal-content-hours {
@@ -40,176 +48,232 @@
   opacity: 1;
 }
 
+/* Kustomisasi Scrollbar (Berjaga-jaga kalau layarnya super kecil) */
+.modal-content-hours::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-content-hours::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+.modal-content-hours::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
 .close-modal {
   position: absolute;
   right: 20px;
   top: 15px;
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 22px;
   color: #94a3b8;
   cursor: pointer;
-  transition: color 0.2s;
-  line-height: 1;
+  transition: all 0.3s ease;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
 }
 
 .close-modal:hover {
-  color: #ef4444;
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+  transform: rotate(90deg);
 }
 
+/* Bagian Header Modal */
 .modal-header {
   text-align: center;
-  color: var(--clr-blue-1, #1e40af);
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* DIET */
+  padding-bottom: 15px; /* DIET */
+  border-bottom: 2px dashed #e2e8f0;
 }
 
 .modal-header i {
-  font-size: 2.5rem;
-  color: var(--clr-yellow-1, #facc15);
+  font-size: 2.2rem; /* DIET: Icon header dikecilin */
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 10px;
+  display: inline-block;
 }
 
 .modal-header h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+  color: #0f172a;
+  font-size: 1.3rem; /* DIET */
+  font-weight: 800;
+  margin: 0 0 3px 0;
 }
 
-.schedule-list,
-.collection-stats {
-  margin-top: 15px;
-}
-
-.day-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.day-row:last-child {
-  border-bottom: none;
-}
-
-.day-name {
-  font-weight: 600;
-  color: #334155;
-}
-
-.day-time {
-  text-align: right;
-  color: #1e293b;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.closed .day-time {
-  color: #ef4444;
-  font-weight: bold;
-}
-
-.collection-stats p {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #f1f5f9;
-  margin: 0;
-  color: #334155;
-}
-
+/* --- STYLE RUANG BELAJAR (FOKUS PERBAIKAN DI SINI) --- */
 .room-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 15px;
+  gap: 10px; /* DIET: Jarak antar ruangan dirapatkan */
+  margin-top: 10px;
+  max-height: 50vh; /* Membatasi tinggi agar tidak nabrak layar bawah */
+  overflow-y: auto;
+  padding-right: 5px;
 }
 
 .room-item {
-  display: flex;
-  padding: 15px;
-  background: #f8fafc;
-  border-radius: 12px;
-  border-left: 4px solid var(--clr-blue-1, #1e40af);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px; /* DIET: Padding dalam kotak ruangan dirapatkan */
+  transition: all 0.3s ease;
+}
+
+.room-item:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
 }
 
 .room-flex {
   display: flex;
+  gap: 12px;
   align-items: flex-start;
-  gap: 15px;
-  width: 100%;
 }
 
 .room-icon {
-  font-size: 1.2rem;
-  color: var(--clr-blue-1, #1e40af);
-  background: #dbeafe;
-  padding: 10px;
+  background: #eff6ff;
+  color: #3b82f6;
+  width: 40px; /* DIET: Icon dikecilin */
+  height: 40px; /* DIET */
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .room-info h4 {
-  margin: 0 0 5px 0;
-  font-size: 1.05rem;
+  margin: 0 0 3px 0;
+  color: #0f172a;
+  font-size: 1rem;
   font-weight: 700;
-  color: #1e293b;
 }
-
-.room-info p,
-.room-info small {
-  margin: 0;
+.room-info p {
+  margin: 0 0 2px 0;
   color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.room-info small {
+  color: #64748b;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 6px;
 }
 
 .room-tag {
   display: inline-block;
-  margin-top: 8px;
-  background-color: #e2e8f0;
-  color: #475569;
-  font-size: 0.75rem;
+  background: #fef9c3;
+  color: #ca8a04;
   padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* --- CATATAN FOOTER MODAL --- */
+.modal-footer-note {
+  margin-top: 15px; /* DIET */
+  background: #fffbeb;
+  padding: 12px; /* DIET */
+  border-radius: 12px;
+  border: 1px solid #fde047;
+  text-align: left;
+}
+
+.modal-footer-note p {
+  margin: 0;
+  color: #b45309;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* --- STYLE LAINNYA (JAM & KOLEKSI) TETAP AMAN --- */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.day-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border-left: 4px solid #3b82f6;
+  transition: transform 0.2s ease;
+}
+.day-row:hover {
+  transform: translateX(5px);
+  background: #f1f5f9;
+}
+.day-name {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+.day-time {
+  color: #475569;
+  font-weight: 500;
+  text-align: right;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+.mod-hour-break {
+  color: #ca8a04;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.day-row.closed {
+  border-left-color: #ef4444;
+}
+.day-row.closed .day-time {
+  color: #ef4444;
+  font-weight: 700;
+  background: #fee2e2;
+  padding: 4px 10px;
   border-radius: 20px;
+}
+
+.collection-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+.collection-stats p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 15px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.collection-stats span {
+  font-size: 0.95rem;
+  color: #64748b;
   font-weight: 600;
 }
-
-.modal-footer-note {
-  font-size: 0.8rem;
-  color: #64748b;
-  text-align: center;
-  margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px dashed #cbd5e1;
-}
-
-.search-suggestions-list {
-  margin-top: 15px;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.suggestion-item {
-  padding: 12px 15px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.2s ease;
-  color: #273374;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.suggestion-item:last-child {
-  border-bottom: none;
-}
-
-.suggestion-item:hover {
-  background-color: #facc15;
-  color: #0f172a;
-  transform: translateX(5px);
-}
-
-.suggestion-item i {
-  width: 20px;
-  text-align: center;
-  opacity: 0.7;
+.collection-stats strong {
+  font-size: 1.5rem;
+  color: #1e3a8a;
+  font-weight: 800;
 }

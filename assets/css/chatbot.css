@@ -1,0 +1,253 @@
+/* Chatbot Floating Button */
+.chatbot-toggler {
+  position: relative;
+  outline: none;
+  border: none;
+  height: 75px; /* Sedikit lebih besar agar karakter jelas */
+  width: 75px;
+  background: transparent; /* Hapus background biru */
+  color: #1e3a8a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+.chatbot-toggler:hover {
+  transform: scale(1.1);
+}
+.chatbot-toggler i {
+  font-size: 1.5rem;
+  background: #1e3a8a;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Tooltip Speech Bubble */
+.chatbot-tooltip {
+  position: absolute;
+  bottom: 85px; 
+  right: 10px; 
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 20px 20px 0 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 100;
+  border: 1px solid #e2e8f0;
+}
+.chatbot-tooltip.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.chatbot-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  transform: rotate(45deg);
+}
+
+/* Chatbot Window */
+.chatbot-window {
+  position: fixed;
+  bottom: 30px;
+  right: 110px; /* Di sebelah kiri tombol floating */
+  width: 350px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transform: scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: bottom right;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  border: 1px solid #e2e8f0;
+}
+.chatbot-window.active {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Chatbot Header */
+.chatbot-header {
+  background: var(--primary-color, #1e3a8a);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.chatbot-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chatbot-header h3 i {
+  font-size: 1.4rem;
+}
+.close-btn {
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+.close-btn:hover {
+  color: #cbd5e1;
+}
+
+/* Chatbox Messages */
+.chatbox {
+  padding: 20px;
+  height: 310px; /* Dikurangi sedikit untuk memberi ruang pada quick-replies di bawah */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #f8fafc;
+}
+.chat-msg {
+  display: flex;
+  gap: 10px;
+  max-width: 85%;
+}
+.chat-msg.bot {
+  align-self: flex-start;
+}
+.chat-msg.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+.msg-avatar {
+  width: 30px;
+  height: 30px;
+  background: var(--primary-color, #1e3a8a);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.chat-msg.user .msg-avatar {
+  background: #facc15;
+  color: #1e3a8a;
+}
+.msg-text {
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 12px 12px 12px 0;
+  font-size: 0.9rem;
+  color: #334155;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+}
+.chat-msg.user .msg-text {
+  background: var(--primary-color, #1e3a8a);
+  color: #fff;
+  border-radius: 12px 12px 0 12px;
+  border: none;
+}
+
+/* Quick Replies Container (Sticky di bawah) */
+.quick-replies-container {
+  background: #fff;
+  padding: 10px 15px;
+  border-top: 1px solid #e2e8f0;
+}
+.quick-replies {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 5px;
+}
+/* Menyembunyikan scrollbar agar rapi */
+.quick-replies::-webkit-scrollbar {
+  height: 4px;
+}
+.quick-replies::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.quick-reply-btn {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap; /* Teks tombol tidak akan turun ke bawah (wrap) */
+}
+.quick-reply-btn:hover {
+  background: #bae6fd;
+}
+
+/* Chat Input Area */
+.chat-input {
+  display: flex;
+  padding: 15px;
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+  gap: 10px;
+}
+.chat-input input {
+  flex: 1;
+  border: 1px solid #cbd5e1;
+  padding: 10px 15px;
+  border-radius: 20px;
+  outline: none;
+  font-size: 0.9rem;
+  transition: border 0.3s;
+}
+.chat-input input:focus {
+  border-color: var(--primary-color, #1e3a8a);
+}
+.chat-input button {
+  background: var(--primary-color, #1e3a8a);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.chat-input button:hover {
+  background: #152c66;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .chatbot-window {
+    width: 90%;
+    bottom: 90px;
+    right: 5%;
+  }
+}

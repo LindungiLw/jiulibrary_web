@@ -1,5 +1,6 @@
 <?php
 require 'koneksi.php';
+$koneksi = getKoneksi();
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 

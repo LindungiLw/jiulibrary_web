@@ -1,5 +1,6 @@
 <?php
 require 'koneksi.php';
+$koneksi = getKoneksi();
 
 $query_semua_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY tanggal DESC");
 ?>

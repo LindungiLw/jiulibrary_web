@@ -2,6 +2,7 @@
 session_start();
 
 require 'koneksi.php';
+$koneksi = getKoneksi();
 
 $query_pengumuman = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC LIMIT 5");
 $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LIMIT 5");
@@ -13,7 +14,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dream Blue Library - JIU</title>
+  <title>Dream Blue Library - Jakarta International University</title>
   <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
 
   <link rel="stylesheet" href="assets/css/style/swiper-bundle.min.css" />
@@ -34,6 +35,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
 
   <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
   <link rel="stylesheet" href="assets/css/responsive.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="assets/css/chatbot.css?v=<?php echo time(); ?>" />
 
 </head>
 
@@ -96,7 +98,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
         <a href="index.php" class="logo">
           <img src="assets/images/library-logo.png" alt="JIU Library Logo" />
           <div class="logo-text">
-            Dream Blue Library
+            Dream Blue Library 
             <span>NPP 3216202D0000001</span>
           </div>
         </a>
@@ -364,7 +366,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
               <div class="room-info">
                 <h4>Study Room 2</h4>
                 <p data-i18n="modRmCap2">Capacity: 4 People</p>
-                <small data-i18n="modRmFac2">Facilities: AC, WiFi</small>
+                <small data-i18n="modRmFac2">Facilities: AC, WiFi, Whiteboard</small>
                 <span class="room-tag" data-i18n="modRmTag">On-Site Only</span>
               </div>
             </div>
@@ -375,7 +377,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
               <div class="room-info">
                 <h4>Study Room 3</h4>
                 <p data-i18n="modRmCap2">Capacity: 4 People</p>
-                <small data-i18n="modRmFac2">Facilities: AC, WiFi</small>
+                <small data-i18n="modRmFac2">Facilities: AC, WiFi, Whiteboard</small>
                 <span class="room-tag" data-i18n="modRmTag">On-Site Only</span>
               </div>
             </div>
@@ -531,7 +533,10 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
 
   <div class="floating-actions">
     <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top"><i class="fas fa-arrow-up"></i></button>
-    <a href="https://wa.me/6281260173697" target="_blank" class="whatsapp-btn" title="Chat with Librarian"><i class="fab fa-whatsapp"></i></a>
+    <button class="chatbot-toggler" title="Tanya BlueBot">
+      <div class="chatbot-tooltip">Hi Buddy! Ada yang bisa saya bantu? 👋</div>
+      <img src="assets/images/bluebot_mascot.png" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">
+    </button>
   </div>
 
   <script src="assets/js/style/swiper-bundle.min.js?v=<?php echo time(); ?>"></script>
@@ -598,6 +603,36 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
       });
     });
   </script>
+
+  <!-- BlueBot Chatbot Window -->
+  <div class="chatbot-window">
+    <div class="chatbot-header">
+      <h3><img src="assets/images/bluebot_mascot.png" alt="BlueBot" style="width:28px; height:28px; object-fit:contain;"> BlueBot Assistant</h3>
+      <span class="close-btn"><i class="fas fa-times"></i></span>
+    </div>
+    <div class="chatbox">
+      <div class="chat-msg bot">
+        <div class="msg-avatar" style="background:transparent;"><img src="assets/images/bluebot_mascot.png" alt="Bot" style="width:100%; height:100%; object-fit:contain;"></div>
+        <div class="msg-text">
+          Halo! Saya BlueBot. Ada yang bisa saya bantu hari ini? 
+        </div>
+      </div>
+    </div>
+    <div class="quick-replies-container">
+      <div class="quick-replies">
+        <span class="quick-reply-btn">Jam Buka</span>
+        <span class="quick-reply-btn">Cara Pinjam</span>
+        <span class="quick-reply-btn">OPAC</span>
+        <span class="quick-reply-btn">Hubungi Admin</span>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Tulis pesan..." required />
+      <button><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script src="assets/js/chatbot.js?v=<?php echo time(); ?>"></script>
 </body>
 
 </html>

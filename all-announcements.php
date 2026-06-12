@@ -1,5 +1,6 @@
 <?php
 require 'koneksi.php';
+$koneksi = getKoneksi();
 
 $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC");
 ?>
