@@ -21,7 +21,7 @@ if ($ann) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?= $ann ? $ann['judul'] : 'Not Found' ?> - Dream Blue Library</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/variable.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
@@ -159,7 +159,7 @@ if ($ann) {
     <nav class="main-nav" style="justify-content: center">
       <div class="nav-logo">
         <a href="index.php" class="logo">
-          <img src="assets/images/library-logo.png" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
+          <img loading="lazy" src="assets/images/library-logo.png" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
           <div class="logo-text" style="color: #1e3a8a">
             Dream Blue Library
           </div>
@@ -179,7 +179,7 @@ if ($ann) {
         <div class="detail-layout">
 
           <div class="detail-image-wrapper">
-            <img src="<?= htmlspecialchars($ann['gambar']) ?>" alt="<?= htmlspecialchars($ann['judul']) ?>" class="detail-image">
+            <img loading="lazy" src="<?= htmlspecialchars($ann['gambar']) ?>" alt="<?= htmlspecialchars($ann['judul']) ?>" class="detail-image">
           </div>
 
           <div class="detail-text-wrapper">

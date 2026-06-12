@@ -111,6 +111,27 @@
 .chatbot-header h3 i {
   font-size: 1.4rem;
 }
+.chatbot-status {
+  display: flex;
+  flex-direction: column;
+}
+.chatbot-status span {
+  font-size: 0.75rem;
+  color: #bae6fd;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.chatbot-status span::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #22c55e; /* Hijau online */
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+}
 .close-btn {
   cursor: pointer;
   font-size: 1.2rem;
@@ -134,6 +155,7 @@
   display: flex;
   gap: 10px;
   max-width: 85%;
+  align-items: flex-end; /* Supaya waktu dan avatar sejajar di bawah */
 }
 .chat-msg.bot {
   align-self: flex-start;
@@ -141,6 +163,22 @@
 .chat-msg.user {
   align-self: flex-end;
   flex-direction: row-reverse;
+}
+.msg-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.msg-time {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  margin: 0 4px;
+}
+.chat-msg.bot .msg-time {
+  align-self: flex-start;
+}
+.chat-msg.user .msg-time {
+  align-self: flex-end;
 }
 .msg-avatar {
   width: 30px;
@@ -160,18 +198,48 @@
 }
 .msg-text {
   background: #fff;
-  padding: 10px 15px;
-  border-radius: 12px 12px 12px 0;
+  padding: 12px 16px;
+  border-radius: 16px 16px 16px 4px; /* Gaya modern seperti WhatsApp */
   font-size: 0.9rem;
   color: #334155;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   border: 1px solid #e2e8f0;
+  line-height: 1.5;
 }
 .chat-msg.user .msg-text {
-  background: var(--primary-color, #1e3a8a);
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   color: #fff;
-  border-radius: 12px 12px 0 12px;
+  border-radius: 16px 16px 4px 16px;
   border: none;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+/* Typing Indicator Animation */
+.typing-bg {
+  background: #e2e8f0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 12px 18px !important;
+}
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  height: 14px;
+}
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background: #64748b;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
 }
 
 /* Quick Replies Container (Sticky di bawah) */

@@ -18,7 +18,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
   <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
 
   <link rel="stylesheet" href="assets/css/style/swiper-bundle.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
@@ -52,7 +52,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
       <div class="top-bar-right">
         <div class="dropdown">
           <button class="btn-lang-top" onclick="toggleDropdown(event, 'langMenu')">
-            <img src="https://flagcdn.com/w20/us.png" alt="EN" class="real-flag-icon current-flag-img">
+            <img loading="lazy" src="https://flagcdn.com/w20/us.png" width="20" height="15" alt="EN" class="real-flag-icon current-flag-img">
             <span class="current-lang-text">EN</span>
             <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 2px;"></i>
           </button>
@@ -60,11 +60,11 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
           <div class="dropdown-content compact-dropdown" id="langMenu" style="min-width: 140px; right: 0; left: auto; transform: translateY(10px);">
             <div class="services-grid" style="grid-template-columns: 1fr; gap: 0.2rem;">
               <a href="javascript:void(0)" class="service-item lang-option" onclick="changeLanguage('en', event)">
-                <img src="https://flagcdn.com/w20/us.png" alt="English" class="real-flag-icon">
+                <img loading="lazy" src="https://flagcdn.com/w20/us.png" width="20" height="15" alt="English" class="real-flag-icon">
                 <span class="lang-name">English</span>
               </a>
               <a href="javascript:void(0)" class="service-item lang-option" onclick="changeLanguage('id', event)">
-                <img src="https://flagcdn.com/w20/id.png" alt="Indonesia" class="real-flag-icon">
+                <img loading="lazy" src="https://flagcdn.com/w20/id.png" width="20" height="15" alt="Indonesia" class="real-flag-icon">
                 <span class="lang-name">Indonesia</span>
               </a>
             </div>
@@ -96,7 +96,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
     <nav class="main-nav">
       <div class="nav-logo">
         <a href="index.php" class="logo">
-          <img src="assets/images/library-logo.png" alt="JIU Library Logo" />
+          <img loading="lazy" src="assets/images/library-logo.png" alt="JIU Library Logo" />
           <div class="logo-text">
             Dream Blue Library 
             <span>NPP 3216202D0000001</span>
@@ -278,28 +278,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
       <p data-aos="fade-up" data-aos-delay="100" style="text-align: center; width: 100%;" data-i18n="heroTagline">Literacy Freely, Legacy Fully</p>
     </div>
 
-    <div class="hero-bottom-cards" data-aos="fade-up" data-aos-delay="300">
-      <div class="h-card" onclick="openModal('modalHours')">
-        <i class="fas fa-clock"></i>
-        <div class="h-card-text">
-          <h4 data-i18n="hcHours">Opening Hours</h4>
-        </div>
-      </div>
 
-      <div class="h-card" onclick="openModal('modalCollection')">
-        <i class="fas fa-book-open"></i>
-        <div class="h-card-text">
-          <h4 data-i18n="hcTotal">Total Collection</h4>
-        </div>
-      </div>
-
-      <div class="h-card" onclick="openModal('modalRooms')">
-        <i class="fas fa-chalkboard-teacher"></i>
-        <div class="h-card-text">
-          <h4 data-i18n="hcRooms">Study Rooms</h4>
-        </div>
-      </div>
-    </div>
 
     <div id="modalHours" class="modal-hours">
       <div class="modal-content-hours">
@@ -391,13 +370,34 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
 
     <div class="hero-curve">
       <svg class="animated-wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        <path fill="#f8fafc" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
       </svg>
     </div>
   </section>
 
   <section id="announcements" class="announcement-section">
     <div class="ann-container">
+      <!-- PERTAMINA STYLE STATS SECTION -->
+      <div class="pertamina-stats-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-stat-card" onclick="openModal('modalCollection')" tabindex="0" role="button">
+          <p class="p-stat-label">TOTAL COLLECTION</p>
+          <h3 class="p-stat-number counter" data-target="5642">0</h3>
+          <p class="p-stat-desc">Total books & media collection</p>
+        </div>
+
+        <div class="p-stat-card" tabindex="0" role="region">
+          <p class="p-stat-label">ACTIVE MEMBERS</p>
+          <h3 class="p-stat-number counter" data-target="200">0</h3>
+          <p class="p-stat-desc">Registered and active users</p>
+        </div>
+
+        <div class="p-stat-card" onclick="openModal('modalRooms')" tabindex="0" role="button">
+          <p class="p-stat-label">STUDY ROOMS</p>
+          <h3 class="p-stat-number counter" data-target="4">0</h3>
+          <p class="p-stat-desc">Available for booking</p>
+        </div>
+      </div>
+
       <div class="ann-header-flex">
         <div class="ann-header-left">
           <h2 class="section-title" style="text-align: left;">
@@ -421,7 +421,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
           ?>
               <div class="swiper-slide">
                 <a href="detail-announcement.php?id=<?= $row['id'] ?>" class="jiu-ann-card">
-                  <img src="<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>" class="jiu-ann-img" />
+                  <img loading="lazy" src="<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>" class="jiu-ann-img" />
                   <div class="jiu-ann-content">
                     <?php if (!empty($row['kategori'])) { ?>
                       <span class="jiu-ann-badge"><?= htmlspecialchars($row['kategori']) ?></span>
@@ -478,7 +478,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
               <div class="swiper-slide">
                 <a href="detail-news.php?id=<?= $row['id'] ?>" class="jiu-news-card">
                   <div class="jiu-news-img-box">
-                    <img src="<?= $gambar_fix ?>" alt="<?= htmlspecialchars($row['judul']) ?>" />
+                    <img loading="lazy" src="<?= $gambar_fix ?>" alt="<?= htmlspecialchars($row['judul']) ?>" />
                   </div>
                   <div class="jiu-news-content">
                     <h3 class="jiu-news-title"><?= htmlspecialchars($row['judul']) ?></h3>
@@ -515,15 +515,15 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
     <div class="networking-canvas">
       <div class="swiper swiper-network-right">
         <div class="swiper-wrapper">
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/HGU.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/Digido.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/FKIP.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/FPPTI.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/Grammedia.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/USK.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/ITSB.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/UBP.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img src="assets/images/partnership/UINSSC.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png" alt="Partner" /></div>
+          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png" alt="Partner" /></div>
         </div>
       </div>
     </div>
@@ -535,7 +535,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
     <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top"><i class="fas fa-arrow-up"></i></button>
     <button class="chatbot-toggler" title="Tanya BlueBot">
       <div class="chatbot-tooltip">Hi Buddy! Ada yang bisa saya bantu? 👋</div>
-      <img src="assets/images/bluebot_mascot.png" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">
+      <img loading="lazy" src="assets/images/bluebot_mascot.png" width="50" height="50" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">
     </button>
   </div>
 
@@ -604,17 +604,60 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
     });
   </script>
 
+  <!-- Script for Animated Counters (Data Visualization) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200; // Semakin kecil semakin cepat
+
+      const animateCounters = () => {
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+              counter.innerText = Math.ceil(count + inc);
+              setTimeout(updateCount, 20);
+            } else {
+              counter.innerText = target.toLocaleString('id-ID'); // Format angka ribuan
+            }
+          };
+          updateCount();
+        });
+      };
+
+      // Trigger animasi saat hero section terlihat
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      const heroCards = document.querySelector('.pertamina-stats-container');
+      if (heroCards) observer.observe(heroCards);
+    });
+  </script>
+
   <!-- BlueBot Chatbot Window -->
   <div class="chatbot-window">
     <div class="chatbot-header">
-      <h3><img src="assets/images/bluebot_mascot.png" alt="BlueBot" style="width:28px; height:28px; object-fit:contain;"> BlueBot Assistant</h3>
+      <div class="chatbot-status">
+        <h3><img loading="lazy" src="assets/images/bluebot_mascot.png" width="28" height="28" alt="BlueBot" style="width:28px; height:28px; object-fit:contain;"> BlueBot Assistant</h3>
+        <span>Online</span>
+      </div>
       <span class="close-btn"><i class="fas fa-times"></i></span>
     </div>
     <div class="chatbox">
       <div class="chat-msg bot">
-        <div class="msg-avatar" style="background:transparent;"><img src="assets/images/bluebot_mascot.png" alt="Bot" style="width:100%; height:100%; object-fit:contain;"></div>
-        <div class="msg-text">
-          Halo! Saya BlueBot. Ada yang bisa saya bantu hari ini? 
+        <div class="msg-avatar" style="background:transparent;"><img loading="lazy" src="assets/images/bluebot_mascot.png" width="30" height="30" alt="Bot" style="width:100%; height:100%; object-fit:contain;"></div>
+        <div class="msg-wrapper">
+          <div class="msg-text">Halo! Saya BlueBot. Ada yang bisa saya bantu hari ini?</div>
+          <div class="msg-time">Online</div>
         </div>
       </div>
     </div>
@@ -631,6 +674,9 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
       <button><i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
+
+  <!-- Accessibility Widget -->
+  <?php include 'a11y-widget.php'; ?>
 
   <script src="assets/js/chatbot.js?v=<?php echo time(); ?>"></script>
 </body>

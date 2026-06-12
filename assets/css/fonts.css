@@ -1,0 +1,52 @@
+/* SELF-HOSTED FONTS */
+/* PRETENDARD */
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Pretendard-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/Pretendard-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/Pretendard-SemiBold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/Pretendard-Bold.woff2') format('woff2');
+}
+
+/* POPPINS */
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/Poppins-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/Poppins-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/Poppins-SemiBold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/Poppins-Bold.woff2') format('woff2');
+}

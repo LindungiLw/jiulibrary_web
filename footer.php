@@ -5,7 +5,7 @@
             <p class="footer-subtitle" data-i18n="ftrSubtitle">Digital Library JIU</p>
             <div class="footer-qr-inline">
                 <div class="qr-mini-card">
-                    <img src="assets/images/qr-idream.png" alt="QR iDream JIU">
+                    <img loading="lazy" src="assets/images/qr-idream.png" alt="QR iDream JIU">
                     <a href="https://uijakarta.perpustakaan.co.id" target="_blank" class="qr-mini-overlay">
                         <i class="fas fa-external-link-alt"></i>
                     </a>

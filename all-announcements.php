@@ -14,7 +14,7 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
     <title>All Announcements - Dream Blue Library</title>
     <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <link rel="stylesheet" href="assets/css/style/variable.css" />
@@ -31,7 +31,7 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
         <nav class="main-nav" style="justify-content: center">
             <div class="nav-logo">
                 <a href="index.php" class="logo">
-                    <img src="assets/images/library-logo.png" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
+                    <img loading="lazy" src="assets/images/library-logo.png" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
                     <div class="logo-text" style="color: #1e3a8a">Dream Blue Library</div>
                 </a>
             </div>
@@ -67,7 +67,7 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
         ?>
 
                 <a href="detail-announcement.php?id=<?= $row['id'] ?>" class="jiu-ann-card">
-                    <img src="<?= $gambar_fix ?>" alt="<?= htmlspecialchars($row['judul']) ?>" class="jiu-ann-img" />
+                    <img loading="lazy" src="<?= $gambar_fix ?>" alt="<?= htmlspecialchars($row['judul']) ?>" class="jiu-ann-img" />
 
                     <div class="jiu-ann-content">
                         <?php if (!empty($row['kategori'])) { ?>
@@ -98,6 +98,9 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
     </main>
 
     <?php include 'footer.php'; ?>
+
+    <!-- Accessibility Widget -->
+    <?php include 'a11y-widget.php'; ?>
 
 </body>
 

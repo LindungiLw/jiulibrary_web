@@ -80,10 +80,14 @@
 .btn-login-top:hover {
   background: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
 }
 
 .main-nav {
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
   padding: 0.5rem 5%;
   display: flex;
   justify-content: space-between;
@@ -475,170 +479,76 @@
   }
 }
 
-.hero-bottom-cards {
+/* =========================================================
+   PERTAMINA-STYLE STATS (NO CONTAINER, NO BORDERS, PURE TYPOGRAPHY)
+   ========================================================= */
+.pertamina-stats-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  position: relative;
-  z-index: 100;
-  padding: 0 5%;
-}
-
-.h-card {
-  background-color: #273374;
-  color: white;
-  padding: 20px 25px;
-  border-radius: 15px;
-  display: flex;
+  justify-content: center; /* Center the whole block */
   align-items: center;
-  justify-content: center;
-  gap: 15px;
-  cursor: pointer;
-  transition: 0.3s;
-  flex: 1;
-  max-width: 350px;
+  flex-wrap: wrap; /* Prevent overflow clipping */
+  width: 100%;
+  box-sizing: border-box; /* Prevent 100% + padding overflow */
+  max-width: 1100px;
+  margin: -40px auto 60px auto;
+  position: relative;
+  z-index: 10;
+  gap: 120px; /* Big gap between stats */
+  padding: 0 20px;
 }
 
-.h-card:hover {
+.p-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align text */
+  text-align: center; /* Center align text */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  min-width: 250px; /* Ensure they don't get too squished */
+}
+
+.p-stat-card:hover {
   transform: translateY(-5px);
-  background-color: #1e2961;
 }
 
-.h-card i.fas {
-  font-size: 2.2rem;
-  color: #facc15;
-}
-
-.h-card-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 4px;
-}
-
-.h-card-text h4 {
-  margin: 0;
-  font-size: 1.1rem;
+.p-stat-label {
+  font-size: 0.75rem;
   font-weight: 700;
-  white-space: nowrap;
+  color: #2563eb; /* Blue label */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px 0;
 }
 
-.h-card-text p {
+.p-stat-number {
+  font-size: 4rem; /* HUGE number */
+  font-weight: 300; /* Very thin/light weight */
+  color: #0f172a; /* Dark text */
+  margin: 0 0 10px 0;
+  line-height: 1;
+  letter-spacing: -2px; /* Tighter letter spacing for big thin numbers */
+}
+
+.p-stat-desc {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #475569; /* Gray subtext */
   margin: 0;
-  font-size: 0.85rem;
-  color: #facc15;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  line-height: 1.4;
 }
 
-.modal-hours {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(5px);
-}
-
-.modal-content-hours {
-  background-color: white;
-  margin: 10% auto;
-  padding: 30px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 420px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  position: relative;
-  animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+/* Tablet Layout */
+@media (max-width: 1024px) {
+  .pertamina-stats-container {
+    gap: 40px;
   }
 }
 
-.close-modal {
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #64748b;
-  cursor: pointer;
+/* Mobile Layout */
+@media (max-width: 768px) {
+  .pertamina-stats-container {
+    flex-direction: column;
+    gap: 50px;
+  }
 }
 
-.modal-header {
-  text-align: center;
-  color: #1e40af;
-  margin-bottom: 20px;
-}
-
-.modal-header i {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.room-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.room-item {
-  display: flex;
-  padding: 18px;
-  background: #f8fafc;
-  border-radius: 15px;
-  border-left: 5px solid #1e40af;
-}
-
-.room-flex {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  width: 100%;
-}
-
-.room-icon {
-  font-size: 1.2rem;
-  color: #1e40af;
-  background: #dbeafe;
-  padding: 10px;
-  border-radius: 10px;
-  min-width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.room-info h4 {
-  margin: 0 0 5px 0;
-  font-size: 1.05rem;
-  color: #1e293b;
-}
-
-.day-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.closed .day-time {
-  color: #ef4444;
-  font-weight: bold;
-}

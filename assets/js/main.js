@@ -45,41 +45,6 @@ function initHeroSlider() {
   }, 5000);
 }
 
-function openLoginModal() {
-  const modal = document.getElementById("loginModal");
-  if (modal) modal.style.display = "flex";
-}
-
-function closeLoginModal() {
-  const modal = document.getElementById("loginModal");
-  if (modal) modal.style.display = "none";
-}
-
-function handleLogin() {
-  const user = document.getElementById("username").value;
-  const pass = document.getElementById("password").value;
-
-  if (user === "admin" && pass === "admin123") {
-    localStorage.setItem("userRole", "Admin");
-    window.location.href = "admin.html";
-  } else if (user === "librarian" && pass === "lib123") {
-    localStorage.setItem("userRole", "Librarian");
-    window.location.href = "admin.html";
-  } else {
-    alert(
-      typeof currentLang !== "undefined" && currentLang === "id"
-        ? "Username atau Password salah!"
-        : "Invalid Username or Password!",
-    );
-  }
-}
-
-window.addEventListener("click", function (event) {
-  const modal = document.getElementById("loginModal");
-  if (event.target === modal) {
-    closeLoginModal();
-  }
-});
 
 const backToTopBtn = document.getElementById("backToTopBtn");
 
@@ -160,7 +125,7 @@ window.addEventListener("load", () => {
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
-    modal.style.display = "block";
+    modal.style.display = "flex";
     setTimeout(() => {
       modal.classList.add("show");
     }, 10);

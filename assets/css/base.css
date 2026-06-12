@@ -1,3 +1,5 @@
+@import url('fonts.css');
+
 html,
 body {
   margin: 0;
@@ -10,6 +12,128 @@ body {
 body {
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(39, 51, 116, 0.04)' stroke-width='1'%3E%3Cpath d='M10 30 C 20 40, 30 40, 40 30 V 50 C 30 60, 20 60, 10 50 Z' /%3E%3Cpath d='M40 30 C 50 40, 60 40, 70 30 V 50 C 60 60, 50 60, 40 50 Z' /%3E%3Cpath d='M80 10 L 90 10 L 85 30 Z' /%3E%3Crect x='82' y='2' width='6' height='8' /%3E%3Crect x='10' y='70' width='60' height='10' /%3E%3Cline x1='15' y1='70' x2='15' y2='75' /%3E%3Cline x1='25' y1='70' x2='25' y2='75' /%3E%3Cline x1='35' y1='70' x2='35' y2='75' /%3E%3Cline x1='45' y1='70' x2='45' y2='75' /%3E%3Cline x1='55' y1='70' x2='55' y2='75' /%3E%3Cline x1='65' y1='70' x2='65' y2='75' /%3E%3Crect x='60' y='40' width='20' height='5' rx='1'/%3E%3Crect x='62' y='35' width='18' height='5' rx='1'/%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
+  font-family: var(--font-secondary);
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #273374;
+}
+
+/* Accessibility Widget */
+.a11y-widget {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 9999;
+}
+.a11y-toggler {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.a11y-toggler:hover {
+  background: #facc15;
+  color: #1e3a8a;
+}
+.a11y-menu {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+  transform: scale(0);
+  transform-origin: bottom left;
+  opacity: 0;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .a11y-widget {
+    left: 15px;
+    bottom: 20px;
+  }
+  .a11y-toggler {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
+
+.a11y-menu.show {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.a11y-menu h4 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  color: #1e3a8a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 5px;
+}
+.a11y-menu button {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.2s;
+}
+.a11y-menu button:hover {
+  background: #e2e8f0;
+}
+
+/* A11y Modes */
+body.a11y-high-contrast {
+  filter: contrast(150%) grayscale(100%);
+}
+body.a11y-large-text {
+  zoom: 1.1;
+}
+body.a11y-dyslexia * {
+  font-family: 'Comic Sans MS', 'OpenDyslexic', sans-serif !important;
+  letter-spacing: 0.15em !important;
+  word-spacing: 0.3em !important;
+  line-height: 1.8 !important;
+}
+body.a11y-highlight-links a {
+  background-color: #fde047 !important;
+  color: #0f172a !important;
+  text-decoration: underline !important;
+  font-weight: bold !important;
+  border-radius: 4px;
 }
 
 .global-bg-wrapper {

@@ -69,12 +69,27 @@ document.addEventListener('DOMContentLoaded', () => {
         "default": "Maaf, BlueBot masih belajar! Silakan hubungi Pustakawan di meja layanan atau gunakan form kontak untuk bantuan lebih lanjut."
     };
 
-    const createChatLi = (message, className) => {
+    const createChatLi = (message, className, isTyping = false) => {
         const li = document.createElement('div');
         li.classList.add('chat-msg', className);
+        
+        // Buat timestamp real-time
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
         let content = className === 'user' ?
-            `<div class="msg-text">${message}</div><div class="msg-avatar"><i class="fas fa-user"></i></div>` :
-            `<div class="msg-avatar" style="background:transparent;"><img src="assets/images/bluebot_mascot.png" alt="Bot" style="width:100%; height:100%; object-fit:contain;"></div><div class="msg-text">${message}</div>`;
+            `<div class="msg-wrapper">
+               <div class="msg-text">${message}</div>
+               <div class="msg-time">${timeString}</div>
+             </div>
+             <div class="msg-avatar"><i class="fas fa-user"></i></div>` :
+            `<div class="msg-avatar" style="background:transparent;">
+               <img src="assets/images/bluebot_mascot.png" alt="Bot" style="width:100%; height:100%; object-fit:contain;">
+             </div>
+             <div class="msg-wrapper">
+               <div class="msg-text ${isTyping ? 'typing-bg' : ''}">${message}</div>
+               ${!isTyping ? `<div class="msg-time">${timeString}</div>` : ''}
+             </div>`;
         li.innerHTML = content;
         return li;
     };
@@ -104,10 +119,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
                 }
             }
-
-            chatbox.appendChild(createChatLi(response, 'bot'));
+            
+            // Tampilkan animasi mengetik terlebih dahulu
+            const typingMsg = createChatLi('<div class="typing-indicator"><span></span><span></span><span></span></div>', 'bot', true);
+            chatbox.appendChild(typingMsg);
             chatbox.scrollTo(0, chatbox.scrollHeight);
-        }, 600);
+
+            // Simulasikan delay API
+            setTimeout(() => {
+                chatbox.removeChild(typingMsg);
+                chatbox.appendChild(createChatLi(response, 'bot'));
+                chatbox.scrollTo(0, chatbox.scrollHeight);
+            }, 1000);
+
+        }, 500);
     };
 
     sendBtn.addEventListener('click', handleChat);
