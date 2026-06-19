@@ -49,6 +49,7 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
         </div>
     </header>
 
+
     <main class="section-page-grid">
 
         <?php

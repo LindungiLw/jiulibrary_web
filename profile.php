@@ -26,13 +26,15 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'Guest';
     <title>My Profile - Dream Blue Library</title>
     <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Load FontAwesome Asynchronously (Local) -->
+    <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/all.min.css"></noscript>
 
     <link rel="stylesheet" href="assets/css/style/variable.css" />
-    <link rel="stylesheet" href="assets/css/base.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
-    <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
-    <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/style/section-page.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
 
     <style>
         .profile-container {

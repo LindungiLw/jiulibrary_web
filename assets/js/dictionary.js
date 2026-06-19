@@ -239,6 +239,7 @@ let currentLang = "en";
 function changeLanguage(lang, event) {
   if (event) event.preventDefault();
   currentLang = lang;
+  localStorage.setItem('library_lang', lang);
 
   document.querySelectorAll(".current-lang-text").forEach((txt) => {
     txt.innerText = lang.toUpperCase();
@@ -298,3 +299,8 @@ function changeLanguage(lang, event) {
   const langMenu = document.getElementById("langMenu");
   if (langMenu) langMenu.classList.remove("show");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem('library_lang') || 'en';
+  changeLanguage(savedLang);
+});

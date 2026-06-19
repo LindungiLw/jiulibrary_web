@@ -22,8 +22,9 @@ if ($news) {
     <title><?= $news ? htmlspecialchars($news['judul']) : 'Not Found' ?> - JIU Library News</title>
     <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Load FontAwesome Asynchronously (Local) -->
+    <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/all.min.css"></noscript>
 
     <style>
         body {

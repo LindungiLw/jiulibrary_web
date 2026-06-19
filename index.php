@@ -18,25 +18,34 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
   <title>Dream Blue Library - Jakarta International University</title>
   <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
 
+  <!-- Preload Critical Fonts -->
+  <link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <link rel="stylesheet" href="assets/css/fonts.css" />
   <link rel="stylesheet" href="assets/css/style/swiper-bundle.min.css" />
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Load FontAwesome Asynchronously (Local) -->
+  <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/all.min.css"></noscript>
+  
+  <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
 
-  <link rel="stylesheet" href="assets/css/style/variable.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="assets/css/base.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
 
-  <link rel="stylesheet" href="assets/css/navbar.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="assets/css/style/modal.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="assets/css/hero.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="assets/css/navbar.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
-  <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="assets/css/sections.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/sections.css?v=1.1" />
 
-  <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="assets/css/responsive.css?v=<?php echo time(); ?>" />
-  <link rel="stylesheet" href="assets/css/chatbot.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/responsive.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/chatbot.css?v=1.1" />
   
   <!-- Script Google Identity Services untuk SSO -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -414,7 +423,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
             <img src="assets/images/library-logo.png" alt="Logo">
           </div>
           <h3 data-i18n="modLoginTitle">Welcome Back!</h3>
-          <p data-i18n="modLoginDesc">Login menggunakan akun Google Anda untuk mengakses koleksi digital dan layanan perpustakaan.</p>
+          <p data-i18n="modLoginDesc">Please log in using your Google account to access digital collections and library services.</p>
         </div>
         
         <?php if (isset($_SESSION['error_msg'])): ?>
@@ -429,11 +438,16 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
           </script>
         <?php endif; ?>
 
+        <?php 
+          $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+          $domain = $_SERVER['HTTP_HOST'];
+          $absolute_login_uri = $protocol . $domain . BASE_URL . "/assets/auth/google_auth.php";
+        ?>
         <div id="g_id_onload"
            data-client_id="<?php echo GOOGLE_CLIENT_ID; ?>"
            data-context="signin"
            data-ux_mode="popup"
-           data-login_uri="<?= BASE_URL ?>/assets/auth/google_auth.php"
+           data-login_uri="<?php echo $absolute_login_uri; ?>"
            data-auto_prompt="true">
         </div>
 
@@ -450,7 +464,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
         </div>
 
         <div class="login-footer-info" style="text-align: center; justify-content: center;">
-          <span data-i18n="modLoginFooterDesc">Silakan masuk menggunakan akun Google institusi Anda. Akses tidak diizinkan untuk email publik.</span>
+          <span data-i18n="modLoginFooterDesc">Please log in using your institutional Google account. Public email addresses are not permitted.</span>
         </div>
       </div>
     </div>
@@ -626,16 +640,16 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
     </button>
   </div>
 
-  <script src="assets/js/style/swiper-bundle.min.js?v=<?php echo time(); ?>"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js?v=<?php echo time(); ?>"></script>
+  <script defer src="assets/js/style/swiper-bundle.min.js?v=1.1"></script>
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js?v=1.1"></script>
   <script>
     window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
   </script>
-  <script src="assets/js/dictionary.js?v=<?php echo time(); ?>"></script>
-  <script src="assets/js/news.js?v=<?php echo time(); ?>"></script>
-  <script src="assets/js/announcements.js?v=<?php echo time(); ?>"></script>
-  <script src="assets/js/search.js?v=<?php echo time(); ?>"></script>
-  <script src="assets/js/main.js?v=<?php echo time(); ?>"></script>
+  <script defer src="assets/js/dictionary.js?v=1.1"></script>
+  <script defer src="assets/js/news.js?v=1.1"></script>
+  <script defer src="assets/js/announcements.js?v=1.1"></script>
+  <script defer src="assets/js/search.js?v=1.1"></script>
+  <script defer src="assets/js/main.js?v=1.1"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var swiperAnnouncements = new Swiper(".swiper-announcements", {
@@ -768,7 +782,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
   <!-- Accessibility Widget -->
   <?php include 'a11y-widget.php'; ?>
 
-  <script src="assets/js/chatbot.js?v=<?php echo time(); ?>"></script>
+  <script defer src="assets/js/chatbot.js?v=1.1"></script>
 </body>
 
 </html>
