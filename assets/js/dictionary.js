@@ -5,7 +5,8 @@ const dict = {
     btnGuest: "Guest",
     btnMember: "Member",
     btnLogout: "Logout",
-    btnLogin: "Login",
+    btnLogin: "Sign In",
+    modLoginFooterDesc: "Please log in using your institutional Google account. Public email addresses are not permitted.",
 
     // --- NAV MENU: MAIN ---
     navHome: "Home",
@@ -122,6 +123,7 @@ const dict = {
     btnMember: "Anggota",
     btnLogout: "Keluar",
     btnLogin: "Masuk",
+    modLoginFooterDesc: "Silakan masuk menggunakan akun Google institusi Anda. Akses tidak diizinkan untuk email publik.",
 
     // --- NAV MENU: MAIN ---
     navHome: "Beranda",
@@ -243,10 +245,11 @@ function changeLanguage(lang, event) {
   });
 
   document.querySelectorAll(".current-flag-img").forEach((img) => {
+    const baseUrl = window.BASE_URL || "";
     if (lang === "en") {
-      img.src = "https://flagcdn.com/w20/us.png";
+      img.src = baseUrl + "/assets/images/flags/gb.png";
     } else {
-      img.src = "https://flagcdn.com/w20/id.png";
+      img.src = baseUrl + "/assets/images/flags/id.png";
     }
   });
 

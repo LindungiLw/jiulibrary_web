@@ -284,3 +284,114 @@
   color: #1e3a8a;
   font-weight: 800;
 }
+
+/* --- PREMIUM LOGIN MODAL --- */
+.modal-login-premium {
+  padding: 0;
+  max-width: 420px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.login-decoration-top {
+  height: 8px;
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #facc15);
+}
+
+.modal-login-premium .close-modal {
+  top: 20px;
+  right: 20px;
+  background: white;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.modal-login-header {
+  padding: 40px 30px 20px;
+  text-align: center;
+}
+
+.login-logo-wrapper {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 10px 25px rgba(39, 51, 116, 0.1);
+  border: 1px solid #f1f5f9;
+}
+
+.login-logo-wrapper img {
+  height: 45px;
+  object-fit: contain;
+}
+
+.modal-login-header h3 {
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.modal-login-header p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.google-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 10px 30px 30px;
+}
+
+.login-footer-info {
+  background: #f8fafc;
+  padding: 20px 25px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  text-align: left;
+  border-top: 1px solid #e2e8f0;
+}
+
+.login-footer-info i {
+  color: #3b82f6;
+  font-size: 1.4rem;
+  margin-top: 2px;
+}
+
+.login-footer-info strong {
+  display: block;
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.login-footer-info span {
+  display: block;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.login-error-box {
+  margin: 0 30px 20px;
+  padding: 12px 15px;
+  background: #fef2f2;
+  border-left: 4px solid #ef4444;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: left;
+}

@@ -55,42 +55,58 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
       <div class="top-bar-right">
         <div class="dropdown">
           <button class="btn-lang-top" onclick="toggleDropdown(event, 'langMenu')">
-            <img loading="lazy" src="https://flagcdn.com/w20/us.png" width="20" height="15" alt="EN" class="real-flag-icon current-flag-img">
-            <span class="current-lang-text">EN</span>
-            <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 2px;"></i>
+            <img loading="lazy" src="<?php echo BASE_URL; ?>/assets/images/flags/gb.png" alt="EN" class="real-flag-icon current-flag-img" style="width: 18px; height: 13px; object-fit: cover; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+            <span class="current-lang-text" style="font-size: 0.8rem; font-weight: 700;">EN</span>
+            <i class="fas fa-chevron-down" style="font-size: 0.5rem; margin-left: 2px;"></i>
           </button>
 
           <div class="dropdown-content compact-dropdown" id="langMenu" style="min-width: 140px; right: 0; left: auto; transform: translateY(10px);">
             <div class="services-grid" style="grid-template-columns: 1fr; gap: 0.2rem;">
               <a href="javascript:void(0)" class="service-item lang-option" onclick="changeLanguage('en', event)">
-                <img loading="lazy" src="https://flagcdn.com/w20/us.png" width="20" height="15" alt="English" class="real-flag-icon">
+                <img loading="lazy" src="<?php echo BASE_URL; ?>/assets/images/flags/gb.png" alt="EN" class="real-flag-icon" style="width: 20px; height: 15px; border-radius: 2px;">
                 <span class="lang-name">English</span>
               </a>
               <a href="javascript:void(0)" class="service-item lang-option" onclick="changeLanguage('id', event)">
-                <img loading="lazy" src="https://flagcdn.com/w20/id.png" width="20" height="15" alt="Indonesia" class="real-flag-icon">
+                <img loading="lazy" src="<?php echo BASE_URL; ?>/assets/images/flags/id.png" alt="ID" class="real-flag-icon" style="width: 20px; height: 15px; border-radius: 2px;">
                 <span class="lang-name">Indonesia</span>
               </a>
             </div>
           </div>
         </div>
 
-        <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] == "login"): ?>
+        <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] == "login"): 
+          $firstName = explode(' ', trim($_SESSION['user_name']))[0];
+        ?>
           <div class="dropdown">
-            <button class="btn-login-top" onclick="toggleDropdown(event, 'userMenu')" style="background-color: #facc15; color: #0f172a; border: none;">
-              <i class="fas fa-user-check"></i> <span data-i18n="<?= ($_SESSION['user_role'] == 'JIU Member') ? 'btnMember' : 'btnGuest'; ?>"><?php echo ($_SESSION['user_role'] == 'JIU Member') ? 'Member' : 'Guest'; ?></span>
-              <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 3px"></i>
+            <button class="btn-login-top" onclick="toggleDropdown(event, 'userMenu')" style="height: 24px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: white; padding: 2px 8px; cursor: pointer; transition: background 0.3s;">
+            <?php 
+              $avatar_url = isset($_SESSION['user_picture']) && $_SESSION['user_picture'] !== 'assets/images/default-avatar.png' ? $_SESSION['user_picture'] : 'https://ui-avatars.com/api/?name=' . urlencode($firstName) . '&background=f8fafc&color=475569&rounded=true';
+            ?>
+            <img loading="lazy" src="<?php echo $avatar_url; ?>" alt="Profile" style="width: 16px; height: 16px; border-radius: 50%; object-fit: cover;">
+              <span style="font-weight: 600; font-size: 0.8rem;"><?php echo htmlspecialchars($firstName); ?></span>
+              <i class="fas fa-chevron-down" style="font-size: 0.5rem; color: #64748b;"></i>
             </button>
-            <div class="dropdown-content compact-dropdown" id="userMenu" style="min-width: 120px; right: 0; left: auto; transform: translateY(10px);">
+            <div class="dropdown-content compact-dropdown" id="userMenu" style="min-width: 140px; right: 0; left: auto; transform: translateY(10px);">
               <div class="simple-vertical-menu">
-                <a href="assets/auth/logout.php" class="service-item" style="color: #ef4444; font-weight: 600; text-align: center;" data-i18n="btnLogout">
+                <a href="profile.php" class="service-item" style="font-weight: 500;" data-i18n="btnProfile">
+                  <i class="far fa-id-badge"></i> My Profile
+                </a>
+                <div class="dropdown-divider" style="height: 1px; background: #f1f5f9; margin: 5px 15px;"></div>
+                <a href="<?= BASE_URL ?>/assets/auth/logout.php" class="service-item" style="color: #ef4444; font-weight: 600;" data-i18n="btnLogout">
                   <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
               </div>
             </div>
           </div>
         <?php else: ?>
-          <button class="btn-login-top" onclick="openModal('modalLogin')" data-i18n="btnLogin">
-            <i class="far fa-user"></i> Login
+          <button class="btn-login-top" onclick="openModal('modalLogin')" style="background-color: white; color: #475569; border: 1px solid #e2e8f0; padding: 2px 10px; border-radius: 20px; font-weight: 600; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); transition: 0.3s; font-size: 0.8rem; height: 24px; box-sizing: border-box;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="12px" height="12px">
+              <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+              <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+              <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+              <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+            </svg>
+            <span data-i18n="btnLogin" style="color: #1e293b;">Sign In</span>
           </button>
         <?php endif; ?>
       </div>
@@ -389,18 +405,23 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
 
     <!-- Modal Login SSO -->
     <div id="modalLogin" class="modal-hours">
-      <div class="modal-content-hours" style="text-align: center; max-width: 400px; padding: 40px 20px;">
+      <div class="modal-content-hours modal-login-premium">
+        <div class="login-decoration-top"></div>
         <span class="close-modal" onclick="closeModal('modalLogin')">&times;</span>
-        <div class="modal-header" style="justify-content: center; margin-bottom: 20px;">
-          <img src="assets/images/library-logo.png" alt="Logo" style="height: 50px; margin-bottom: 10px;">
-          <h3 style="color: #0f172a;">Welcome Back!</h3>
-          <p style="font-size: 0.9rem; color: #64748b; font-weight: normal;">Login menggunakan akun Google Anda</p>
+        
+        <div class="modal-login-header">
+          <div class="login-logo-wrapper">
+            <img src="assets/images/library-logo.png" alt="Logo">
+          </div>
+          <h3 data-i18n="modLoginTitle">Welcome Back!</h3>
+          <p data-i18n="modLoginDesc">Login menggunakan akun Google Anda untuk mengakses koleksi digital dan layanan perpustakaan.</p>
         </div>
         
         <?php if (isset($_SESSION['error_msg'])): ?>
-          <p style="color: #ef4444; background: #fee2e2; padding: 10px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 15px;">
-            <?php echo $_SESSION['error_msg']; unset($_SESSION['error_msg']); ?>
-          </p>
+          <div class="login-error-box">
+            <i class="fas fa-exclamation-circle"></i>
+            <span><?php echo $_SESSION['error_msg']; unset($_SESSION['error_msg']); ?></span>
+          </div>
           <script>
             document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(function() { openModal('modalLogin'); }, 500);
@@ -412,24 +433,25 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
            data-client_id="<?php echo GOOGLE_CLIENT_ID; ?>"
            data-context="signin"
            data-ux_mode="popup"
-           data-login_uri="assets/auth/google_auth.php"
+           data-login_uri="<?= BASE_URL ?>/assets/auth/google_auth.php"
            data-auto_prompt="true">
         </div>
 
-        <div style="display: flex; justify-content: center; margin-top: 10px;">
+        <div class="google-btn-wrapper">
           <div class="g_id_signin"
                data-type="standard"
-               data-shape="rectangular"
+               data-shape="pill"
                data-theme="outline"
                data-text="signin_with"
                data-size="large"
-               data-logo_alignment="left">
+               data-logo_alignment="left"
+               data-width="280">
           </div>
         </div>
 
-        <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 25px;">
-          *Email @jiu.ac akan otomatis menjadi JIU Member.<br>Email lain akan menjadi Guest.
-        </p>
+        <div class="login-footer-info" style="text-align: center; justify-content: center;">
+          <span data-i18n="modLoginFooterDesc">Silakan masuk menggunakan akun Google institusi Anda. Akses tidak diizinkan untuk email publik.</span>
+        </div>
       </div>
     </div>
 
@@ -606,6 +628,9 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
 
   <script src="assets/js/style/swiper-bundle.min.js?v=<?php echo time(); ?>"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js?v=<?php echo time(); ?>"></script>
+  <script>
+    window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
+  </script>
   <script src="assets/js/dictionary.js?v=<?php echo time(); ?>"></script>
   <script src="assets/js/news.js?v=<?php echo time(); ?>"></script>
   <script src="assets/js/announcements.js?v=<?php echo time(); ?>"></script>
