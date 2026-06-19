@@ -24,10 +24,10 @@ if ($ann) {
   <!-- Load FontAwesome Asynchronously (Local) -->
   <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="assets/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="assets/css/variable.css" />
+  <link rel="stylesheet" href="assets/css/style/variable.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/navbar.css" />
-  <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
+  <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
   <style>
     .detail-container {
@@ -160,7 +160,7 @@ if ($ann) {
     <nav class="main-nav" style="justify-content: center">
       <div class="nav-logo">
         <a href="index.php" class="logo">
-          <img loading="lazy" src="assets/images/library-logo.png" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
+          <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
           <div class="logo-text" style="color: #1e3a8a">
             Dream Blue Library
           </div>

@@ -20,7 +20,7 @@ if ($news) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= $news ? htmlspecialchars($news['judul']) : 'Not Found' ?> - JIU Library News</title>
-    <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
+    <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
     <!-- Load FontAwesome Asynchronously (Local) -->
     <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -159,7 +159,7 @@ if ($news) {
     <header style="position: fixed; top:0; width:100%; background: white; z-index:1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
         <div style="max-width: 1050px; margin: 0 auto; padding: 15px 20px; display: flex; align-items: center; justify-content: center;">
             <a href="index.php" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img loading="lazy" src="assets/images/library-logo.png" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
+                <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
                 <span style="font-weight: 800; color: #1e3a8a; font-size: 1.2rem;">Dream Blue Library</span>
             </a>
         </div>

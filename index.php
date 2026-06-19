@@ -16,7 +16,11 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dream Blue Library - Jakarta International University</title>
-  <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
+  <link rel="icon" type="image/webp" href="assets/images/library-logo.webp" />
+  
+  <!-- Preload Critical Images for LCP Optimization -->
+  <link rel="preload" as="image" href="assets/images/image.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/library-logo.webp" fetchpriority="high">
 
   <!-- Preload Critical Fonts -->
   <link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
@@ -124,7 +128,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
     <nav class="main-nav">
       <div class="nav-logo">
         <a href="index.php" class="logo">
-          <img loading="lazy" src="assets/images/library-logo.png" alt="JIU Library Logo" />
+          <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
           <div class="logo-text">
             Dream Blue Library 
             <span>NPP 3216202D0000001</span>
@@ -247,24 +251,24 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
                 <div class="simple-vertical-menu">
                   <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] == "login"): ?>
                     <?php if ($_SESSION['user_role'] == 'JIU Member'): ?>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJFjBYd-pllbZrjgzn0vXJFtExG2-81rLLD3DeQNhsHVClpg/viewform" class="service-item" data-i18n="subPaper">Research Paper</a>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6kRDwAQKxRkBXAt46LdfnuP7wGgRev7D98ihGuQmfABqCzQ/viewform" class="service-item" data-i18n="subThesis">Thesis</a>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaSY-IB9yl2RKJQUWiILFvLW6E7ra-KhgMzHYtk0u5NUmkUw/viewform" class="service-item" data-i18n="subProject">Final Project</a>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjSby1jCVrFU_Zr6uqetOG4GdTKeGpKG5Ux5KCR8DckSMrTg/viewform" class="service-item" data-i18n="subIntern">Internship Report</a>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdijIME3IRl3eK7bGUIwJiSVRisf6zGXSIQR1rSMqhCY4DF0w/viewform" class="service-item" data-i18n="subIntern">Portfolio</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSequLLEem6oikEgpUQxwsZSQjbN9wMpn-K96_ExIxjjV9mMFg/viewform?usp=sharing&ouid=111410603355060184073" class="service-item" data-i18n="subPaper">Research Paper</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfz138cLSHqkzgde63u_6HxphErBC-vvKiaFY5JMkQeQfFLzw/viewform?usp=sharing&ouid=111410603355060184073" class="service-item" data-i18n="subThesis">Thesis</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3blcJpmcKfrIzAv6FzvAQFfeAugnh1Gj79nqQYDH56eHa1g/viewform?usp=sharing&ouid=111410603355060184073" class="service-item" data-i18n="subProject">Final Project</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5YMD97SgI2wSRKuBJ9X6fwxTRuzfm4E7SOa92aCmIql7WVQ/viewform?usp=sharing&ouid=111410603355060184073" class="service-item" data-i18n="subIntern">Internship Report</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdijIME3IRl3eK7bGUIwJiSVRisf6zGXSIQR1rSMqhCY4DF0w/viewform" class="service-item" data-i18n="subPortfolio">Portfolio</a>
                     <?php else: ?>
                       <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subPaper">Research Paper</a>
                       <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subThesis">Thesis</a>
                       <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subProject">Final Project</a>
                       <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subIntern">Internship Report</a>
-                      <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subIntern">Portfolio</a>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subPortfolio">Portfolio</a>
                     <?php endif; ?>
                   <?php else: ?>
                     <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subPaper">Research Paper</a>
                     <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subThesis">Thesis</a>
                     <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subProject">Final Project</a>
                     <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subIntern">Internship Report</a>
-                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subIntern">Portfolio</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subPortfolio">Portfolio</a>
                   <?php endif; ?>
                 </div>
               </div>
@@ -310,9 +314,9 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
 
   <section id="hero-modern" class="hero-full-bg">
     <div class="hero-slider-bg">
-      <div class="slide-bg active" style="background-image: url('assets/images/image.png'); background-size: 100% auto; background-position: center 45%;"></div>
-      <div class="slide-bg" style="background-image: url('assets/images/picture1.jpg')"></div>
-      <div class="slide-bg" style="background-image: url('assets/images/picture2.jpg')"></div>
+      <div class="slide-bg active" style="background-image: url('assets/images/image.webp'); background-size: 100% auto; background-position: center 45%;"></div>
+      <div class="slide-bg" style="background-image: url('assets/images/picture1.webp')"></div>
+      <div class="slide-bg" style="background-image: url('assets/images/picture2.webp')"></div>
     </div>
 
     <div class="hero-overlay"></div>
@@ -420,7 +424,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
         
         <div class="modal-login-header">
           <div class="login-logo-wrapper">
-            <img src="assets/images/library-logo.png" alt="Logo">
+            <img src="assets/images/library-logo.webp" alt="Logo">
           </div>
           <h3 data-i18n="modLoginTitle">Welcome Back!</h3>
           <p data-i18n="modLoginDesc">Please log in using your Google account to access digital collections and library services.</p>
@@ -636,7 +640,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
     <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top"><i class="fas fa-arrow-up"></i></button>
     <button class="chatbot-toggler" title="Tanya BlueBot">
       <div class="chatbot-tooltip">Hi Buddy! Ada yang bisa saya bantu? 👋</div>
-      <img loading="lazy" src="assets/images/bluebot_mascot.png" width="50" height="50" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">
+      <img loading="lazy" src="assets/images/bluebot_mascot.webp" width="50" height="50" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">
     </button>
   </div>
 
@@ -751,14 +755,14 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
   <div class="chatbot-window">
     <div class="chatbot-header">
       <div class="chatbot-status">
-        <h3><img loading="lazy" src="assets/images/bluebot_mascot.png" width="28" height="28" alt="BlueBot" style="width:28px; height:28px; object-fit:contain;"> BlueBot Assistant</h3>
+        <h3><img loading="lazy" src="assets/images/bluebot_mascot.webp" width="28" height="28" alt="BlueBot" style="width:28px; height:28px; object-fit:contain;"> BlueBot Assistant</h3>
         <span>Online</span>
       </div>
       <span class="close-btn"><i class="fas fa-times"></i></span>
     </div>
     <div class="chatbox">
       <div class="chat-msg bot">
-        <div class="msg-avatar" style="background:transparent;"><img loading="lazy" src="assets/images/bluebot_mascot.png" width="30" height="30" alt="Bot" style="width:100%; height:100%; object-fit:contain;"></div>
+        <div class="msg-avatar" style="background:transparent;"><img loading="lazy" src="assets/images/bluebot_mascot.webp" width="30" height="30" alt="Bot" style="width:100%; height:100%; object-fit:contain;"></div>
         <div class="msg-wrapper">
           <div class="msg-text">Halo! Saya BlueBot. Ada yang bisa saya bantu hari ini?</div>
           <div class="msg-time">Online</div>

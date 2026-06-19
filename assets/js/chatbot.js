@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tooltip) tooltip.classList.remove('show'); // Hide tooltip if opened
 
         if (chatbotToggler.querySelector('i')) { // It's currently an X icon
-            chatbotToggler.innerHTML = '<div class="chatbot-tooltip"></div><img src="assets/images/bluebot_mascot.png" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">';
+            chatbotToggler.innerHTML = '<div class="chatbot-tooltip"></div><img src="assets/images/bluebot_mascot.webp" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">';
         } else {
             chatbotToggler.innerHTML = '<i class="fas fa-times"></i>';
         }
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeBtn.addEventListener('click', () => {
         chatbotWindow.classList.remove('active');
-        chatbotToggler.innerHTML = '<div class="chatbot-tooltip"></div><img src="assets/images/bluebot_mascot.png" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">';
+        chatbotToggler.innerHTML = '<div class="chatbot-tooltip"></div><img src="assets/images/bluebot_mascot.webp" alt="Mascot" style="width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); transition: opacity 0.3s;">';
     });
 
     // Responses Database
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
              </div>
              <div class="msg-avatar"><i class="fas fa-user"></i></div>` :
             `<div class="msg-avatar" style="background:transparent;">
-               <img src="assets/images/bluebot_mascot.png" alt="Bot" style="width:100%; height:100%; object-fit:contain;">
+               <img src="assets/images/bluebot_mascot.webp" alt="Bot" style="width:100%; height:100%; object-fit:contain;">
              </div>
              <div class="msg-wrapper">
                <div class="msg-text ${isTyping ? 'typing-bg' : ''}">${message}</div>

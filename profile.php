@@ -24,7 +24,7 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'Guest';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - Dream Blue Library</title>
-    <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
+    <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
     <!-- Load FontAwesome Asynchronously (Local) -->
     <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -174,7 +174,7 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'Guest';
         <nav class="main-nav" style="justify-content: center">
             <div class="nav-logo">
                 <a href="index.php" class="logo">
-                    <img loading="lazy" src="assets/images/library-logo.png" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
+                    <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
                     <div class="logo-text" style="color: #1e3a8a">Dream Blue Library</div>
                 </a>
             </div>

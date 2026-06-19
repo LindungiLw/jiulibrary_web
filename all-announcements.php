@@ -12,7 +12,7 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Announcements - Dream Blue Library</title>
-    <link rel="icon" type="image/png" href="assets/images/library-logo.png" />
+    <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -31,7 +31,7 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
         <nav class="main-nav" style="justify-content: center">
             <div class="nav-logo">
                 <a href="index.php" class="logo">
-                    <img loading="lazy" src="assets/images/library-logo.png" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
+                    <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
                     <div class="logo-text" style="color: #1e3a8a">Dream Blue Library</div>
                 </a>
             </div>
