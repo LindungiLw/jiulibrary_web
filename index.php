@@ -1,7 +1,8 @@
 <?php
 session_start();
+require_once 'config.php';
+require_once 'koneksi.php';
 
-require 'koneksi.php';
 $koneksi = getKoneksi();
 
 $query_pengumuman = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC LIMIT 5");
@@ -36,7 +37,9 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
   <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
   <link rel="stylesheet" href="assets/css/responsive.css?v=<?php echo time(); ?>" />
   <link rel="stylesheet" href="assets/css/chatbot.css?v=<?php echo time(); ?>" />
-
+  
+  <!-- Script Google Identity Services untuk SSO -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -86,7 +89,7 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
             </div>
           </div>
         <?php else: ?>
-          <button class="btn-login-top" onclick="window.location.href = 'assets/auth/login.php'" data-i18n="btnLogin">
+          <button class="btn-login-top" onclick="openModal('modalLogin')" data-i18n="btnLogin">
             <i class="far fa-user"></i> Login
           </button>
         <?php endif; ?>
@@ -119,13 +122,19 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
                   <a href="https://uijakarta.perpustakaan.co.id/home.ks" class="service-item" data-i18n="colDigital">Digital Library</a>
 
                   <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] == "login"): ?>
-                    <a href="https://drive.google.com/drive/folders/1KMCkxdgPSOMMBdWr_BnM8475t3VP6OG4" class="service-item" data-i18n="colJournal">Journal Reference</a>
-                    <a href="https://drive.google.com/drive/folders/1Mgq_euWpGEavBQ5dxE6cH8CKX74NfV61" class="service-item" data-i18n="colRepo">Repository</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1PppbqbFnpDUUjIkUJUPPEaHwfisXSx-4Ei3fe4j8IUk/edit?gid=427307104#gid=427307104" class="service-item" data-i18n="colDvd">DVD's Collection</a>
+                    <?php if ($_SESSION['user_role'] == 'JIU Member'): ?>
+                      <a href="https://drive.google.com/drive/folders/1KMCkxdgPSOMMBdWr_BnM8475t3VP6OG4" class="service-item" data-i18n="colJournal">Journal Reference</a>
+                      <a href="https://drive.google.com/drive/folders/1Mgq_euWpGEavBQ5dxE6cH8CKX74NfV61" class="service-item" data-i18n="colRepo">Repository</a>
+                      <a href="https://docs.google.com/spreadsheets/d/1PppbqbFnpDUUjIkUJUPPEaHwfisXSx-4Ei3fe4j8IUk/edit?gid=427307104#gid=427307104" class="service-item" data-i18n="colDvd">DVD's Collection</a>
+                    <?php else: ?>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can access this collection.')" class="service-item" data-i18n="colJournal">Journal Reference</a>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can access this collection.')" class="service-item" data-i18n="colRepo">Repository</a>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can access this collection.')" class="service-item" data-i18n="colDvd">DVD's Collection</a>
+                    <?php endif; ?>
                   <?php else: ?>
-                    <a href="assets/auth/login.php?redirect=https://drive.google.com/drive/folders/1KMCkxdgPSOMMBdWr_BnM8475t3VP6OG4" class="service-item" data-i18n="colJournal">Journal Reference</a>
-                    <a href="assets/auth/login.php?redirect=https://drive.google.com/drive/folders/1Mgq_euWpGEavBQ5dxE6cH8CKX74NfV61" class="service-item" data-i18n="colRepo">Repository</a>
-                    <a href="assets/auth/login.php?redirect=https://docs.google.com/spreadsheets/d/1PppbqbFnpDUUjIkUJUPPEaHwfisXSx-4Ei3fe4j8IUk/edit?gid=427307104#gid=427307104" class="service-item" data-i18n="colDvd">DVD's Collection</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="colJournal">Journal Reference</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="colRepo">Repository</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="colDvd">DVD's Collection</a>
                   <?php endif; ?>
 
                   <a href="healingcorner.html" class="service-item" data-i18n="colHealing">Healing Corner</a>
@@ -212,15 +221,25 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
               <div class="dropdown-content auto-width-dropdown" id="submitMenu">
                 <div class="simple-vertical-menu">
                   <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] == "login"): ?>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJFjBYd-pllbZrjgzn0vXJFtExG2-81rLLD3DeQNhsHVClpg/viewform" class="service-item" data-i18n="subPaper">Research Paper</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6kRDwAQKxRkBXAt46LdfnuP7wGgRev7D98ihGuQmfABqCzQ/viewform" class="service-item" data-i18n="subThesis">Thesis</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaSY-IB9yl2RKJQUWiILFvLW6E7ra-KhgMzHYtk0u5NUmkUw/viewform" class="service-item" data-i18n="subProject">Final Project</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjSby1jCVrFU_Zr6uqetOG4GdTKeGpKG5Ux5KCR8DckSMrTg/viewform" class="service-item" data-i18n="subIntern">Internship Report</a>
+                    <?php if ($_SESSION['user_role'] == 'JIU Member'): ?>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJFjBYd-pllbZrjgzn0vXJFtExG2-81rLLD3DeQNhsHVClpg/viewform" class="service-item" data-i18n="subPaper">Research Paper</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6kRDwAQKxRkBXAt46LdfnuP7wGgRev7D98ihGuQmfABqCzQ/viewform" class="service-item" data-i18n="subThesis">Thesis</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaSY-IB9yl2RKJQUWiILFvLW6E7ra-KhgMzHYtk0u5NUmkUw/viewform" class="service-item" data-i18n="subProject">Final Project</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjSby1jCVrFU_Zr6uqetOG4GdTKeGpKG5Ux5KCR8DckSMrTg/viewform" class="service-item" data-i18n="subIntern">Internship Report</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdijIME3IRl3eK7bGUIwJiSVRisf6zGXSIQR1rSMqhCY4DF0w/viewform" class="service-item" data-i18n="subIntern">Portfolio</a>
+                    <?php else: ?>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subPaper">Research Paper</a>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subThesis">Thesis</a>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subProject">Final Project</a>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subIntern">Internship Report</a>
+                      <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subIntern">Portfolio</a>
+                    <?php endif; ?>
                   <?php else: ?>
-                    <a href="assets/auth/login.php?redirect=https://docs.google.com/forms/d/e/1FAIpQLSfJFjBYd-pllbZrjgzn0vXJFtExG2-81rLLD3DeQNhsHVClpg/viewform" class="service-item" data-i18n="subPaper">Research Paper</a>
-                    <a href="assets/auth/login.php?redirect=https://docs.google.com/forms/d/e/1FAIpQLSc6kRDwAQKxRkBXAt46LdfnuP7wGgRev7D98ihGuQmfABqCzQ/viewform" class="service-item" data-i18n="subThesis">Thesis</a>
-                    <a href="assets/auth/login.php?redirect=https://docs.google.com/forms/d/e/1FAIpQLSdaSY-IB9yl2RKJQUWiILFvLW6E7ra-KhgMzHYtk0u5NUmkUw/viewform" class="service-item" data-i18n="subProject">Final Project</a>
-                    <a href="assets/auth/login.php?redirect=https://docs.google.com/forms/d/e/1FAIpQLSdjSby1jCVrFU_Zr6uqetOG4GdTKeGpKG5Ux5KCR8DckSMrTg/viewform" class="service-item" data-i18n="subIntern">Internship Report</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subPaper">Research Paper</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subThesis">Thesis</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subProject">Final Project</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subIntern">Internship Report</a>
+                    <a href="javascript:void(0)" onclick="openModal('modalLogin')" class="service-item" data-i18n="subIntern">Portfolio</a>
                   <?php endif; ?>
                 </div>
               </div>
@@ -365,6 +384,52 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
         <div class="modal-footer-note">
           <p><i class="fas fa-info-circle"></i> <strong data-i18n="modRmNoteInfo">Information:</strong> <span data-i18n="modRmNoteText">Room usage is based on a "First Come, First Served" system.</span></p>
         </div>
+      </div>
+    </div>
+
+    <!-- Modal Login SSO -->
+    <div id="modalLogin" class="modal-hours">
+      <div class="modal-content-hours" style="text-align: center; max-width: 400px; padding: 40px 20px;">
+        <span class="close-modal" onclick="closeModal('modalLogin')">&times;</span>
+        <div class="modal-header" style="justify-content: center; margin-bottom: 20px;">
+          <img src="assets/images/library-logo.png" alt="Logo" style="height: 50px; margin-bottom: 10px;">
+          <h3 style="color: #0f172a;">Welcome Back!</h3>
+          <p style="font-size: 0.9rem; color: #64748b; font-weight: normal;">Login menggunakan akun Google Anda</p>
+        </div>
+        
+        <?php if (isset($_SESSION['error_msg'])): ?>
+          <p style="color: #ef4444; background: #fee2e2; padding: 10px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 15px;">
+            <?php echo $_SESSION['error_msg']; unset($_SESSION['error_msg']); ?>
+          </p>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                setTimeout(function() { openModal('modalLogin'); }, 500);
+            });
+          </script>
+        <?php endif; ?>
+
+        <div id="g_id_onload"
+           data-client_id="<?php echo GOOGLE_CLIENT_ID; ?>"
+           data-context="signin"
+           data-ux_mode="popup"
+           data-login_uri="assets/auth/google_auth.php"
+           data-auto_prompt="true">
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+          <div class="g_id_signin"
+               data-type="standard"
+               data-shape="rectangular"
+               data-theme="outline"
+               data-text="signin_with"
+               data-size="large"
+               data-logo_alignment="left">
+          </div>
+        </div>
+
+        <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 25px;">
+          *Email @jiu.ac akan otomatis menjadi JIU Member.<br>Email lain akan menjadi Guest.
+        </p>
       </div>
     </div>
 

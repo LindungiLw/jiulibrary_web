@@ -1,5 +1,6 @@
 # Mengabaikan file koneksi database (SANGAT WAJIB!)
 koneksi.php
+config.php
 
 # Mengabaikan folder admin keseluruhan
 admin/
@@ -14,3 +15,7 @@ assets/documents/uploads/
 # Mengabaikan file sistem OS (macOS/Windows)
 .DS_Store
 Thumbs.db
+
+plan_update.MD
+
+.vscode/
