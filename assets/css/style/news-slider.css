@@ -1,13 +1,13 @@
 /* =========================================
-   SECTION BERITA (DESAIN OVERLAP PREMIUM)
+   SECTION BERITA (BENTO GRID DESIGN)
 ========================================= */
 .news-section {
   padding: 80px 0;
-  background-color: var(--clr-blue-1, #0f172a); /* Latar Biru JIU */
+  background-color: var(--clr-blue-1, #0f172a); 
 }
 
 .news-container {
-  max-width: 1100px; /* Sejajar dengan Announcements */
+  max-width: 1200px; 
   margin: 0 auto;
   padding: 0 5%;
 }
@@ -15,34 +15,48 @@
 .news-header-flex {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Ini perintah untuk rata tengah vertikal */
+  align-items: center;
   margin-bottom: 40px;
 }
 
 .news-header-left .section-title {
   color: white;
   text-align: left;
-  margin: 0 !important; /* KUNCI 1: Paksa hapus SEMUA margin (atas & bawah) */
-  line-height: 1; /* KUNCI 2: Bikin tinggi kotak pas dengan hurufnya */
+  margin: 0 !important;
+  line-height: 1;
   display: flex;
-  align-items: center; /* KUNCI 3: Pastikan isi judul benar-benar di tengah */
+  align-items: center;
   font-family: var(--font-primary, "Poppins", sans-serif);
 }
 
-/* KARTU BERITA STYLE OVERLAP */
-.jiu-news-card {
-  position: relative;
-  margin-bottom: 30px;
-  display: block;
-  text-decoration: none;
+/* GRID LAYOUT */
+.news-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 280px);
+  gap: 20px;
+  padding-bottom: 40px;
 }
 
-/* Kotak Gambar */
-.jiu-news-img-box {
-  width: 100%;
-  height: 250px;
+/* BASE CARD STYLE */
+.jiu-news-card {
+  text-decoration: none;
+  display: flex;
+  position: relative;
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background: #ffffff; 
+}
+.jiu-news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.jiu-news-img-box {
+  flex-shrink: 0;
+  overflow: hidden;
 }
 .jiu-news-img-box img {
   width: 100%;
@@ -54,72 +68,165 @@
   transform: scale(1.08);
 }
 
-/* Kotak Putih yang Menimpa Gambar (OVERLAP) */
 .jiu-news-content {
-  background: #ffffff;
   padding: 25px;
-  margin: -60px 20px 0 20px; /* KUNCI OVERLAP: Naik 60px */
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  border-bottom: 4px solid transparent;
-}
-.jiu-news-card:hover .jiu-news-content {
-  border-bottom-color: var(--clr-yellow-1, #facc15);
-  transform: translateY(-5px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: #ffffff;
 }
 
-
+/* TYPOGRAPHY */
 .jiu-news-title {
+  font-family: var(--font-primary, "Poppins", sans-serif);
   font-size: 1.15rem;
-  color: var(--clr-blue-1, #0f172a);
+  color: #1e3a8a;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin: 0 0 15px 0;
   line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  transition: color 0.3s ease;
-}
-.jiu-news-card:hover .jiu-news-title {
-  color: #3b82f6;
 }
 
 .jiu-news-meta {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 15px;
+  font-family: var(--font-primary, "Poppins", sans-serif);
   font-size: 0.85rem;
   color: #64748b;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 20px;
   font-weight: 500;
 }
 .jiu-news-meta i {
+  margin-right: 6px;
   color: #94a3b8;
-  margin-right: 5px;
 }
 
 .jiu-news-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: var(--clr-yellow-1, #facc15);
-  color: var(--clr-blue-1, #0f172a);
-  padding: 8px 16px;
-  border-radius: 6px;
+  background-color: #facc15;
+  color: #0f172a;
+  font-family: var(--font-primary, "Poppins", sans-serif);
   font-weight: 700;
   font-size: 0.85rem;
-  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: auto;
   transition: all 0.3s ease;
+}
+.jiu-news-btn i {
+  margin-left: 6px;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
 }
 .jiu-news-card:hover .jiu-news-btn {
   background-color: #eab308;
   color: #ffffff;
+}
+.jiu-news-card:hover .jiu-news-btn i {
+  transform: translateX(4px);
+}
+
+/* SPECIFIC BENTO ITEMS */
+
+/* Item 1: Large Vertical (Left) */
+.bento-item-1 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+  background: transparent;
+  box-shadow: none;
+}
+.bento-item-1:hover {
+  box-shadow: none;
+}
+.bento-item-1 .jiu-news-img-box {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 40px;
+  width: 100%; height: calc(100% - 40px);
+  z-index: 1;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.bento-item-1 .jiu-news-content {
+  position: absolute;
+  bottom: 0;
+  left: 25px;
+  right: 25px;
+  z-index: 2;
+  border-radius: 16px;
+  height: auto;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.bento-item-1 .jiu-news-title {
+  font-size: 1.5rem;
+}
+
+/* Item 2: Horizontal (Top Right) */
+.bento-item-2 {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 1;
+  flex-direction: row;
+}
+.bento-item-2 .jiu-news-img-box {
+  width: 45%;
+  height: 100%;
+}
+.bento-item-2 .jiu-news-content {
+  width: 55%;
+  justify-content: center;
+}
+
+/* Items 3 & 4: Small Vertical (Bottom Right) */
+.bento-item-3 {
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 1;
+  flex-direction: column;
+}
+.bento-item-4 {
+  grid-column: 4 / span 1;
+  grid-row: 2 / span 1;
+  flex-direction: column;
+}
+.bento-item-3 .jiu-news-img-box,
+.bento-item-4 .jiu-news-img-box {
+  width: 100%;
+  height: 45%;
+}
+.bento-item-3 .jiu-news-title,
+.bento-item-4 .jiu-news-title {
+  font-size: 1.05rem;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .news-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .bento-item-1 {
+    grid-column: 1 / span 2;
+    grid-row: auto;
+    min-height: 450px;
+  }
+  .bento-item-2 {
+    grid-column: 1 / span 2;
+    grid-row: auto;
+  }
+  .bento-item-3, .bento-item-4 {
+    grid-column: span 1;
+    grid-row: auto;
+    min-height: 380px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -128,8 +235,32 @@
     align-items: flex-start;
     gap: 15px;
   }
-  .jiu-news-content {
-    margin: -40px 10px 0 10px;
-    padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .news-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-item-1, .bento-item-2, .bento-item-3, .bento-item-4 {
+    grid-column: 1 / -1;
+  }
+  .bento-item-1 {
+    min-height: 400px;
+  }
+  .bento-item-1 .jiu-news-title {
+    font-size: 1.25rem;
+  }
+  .bento-item-2 {
+    flex-direction: column;
+  }
+  .bento-item-2 .jiu-news-img-box {
+    width: 100%;
+    height: 200px;
+  }
+  .bento-item-2 .jiu-news-content {
+    width: 100%;
+  }
+  .bento-item-3, .bento-item-4 {
+    min-height: 380px;
   }
 }

@@ -16,6 +16,10 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dream Blue Library - Jakarta International University</title>
+  <meta name="description" content="Welcome to Dream Blue Library, the official library of Jakarta International University (JIU). Access various information, news, book collections, and e-journals for students and researchers." />
+  <meta property="og:title" content="Dream Blue Library - Jakarta International University" />
+  <meta property="og:description" content="Welcome to Dream Blue Library, the official library of Jakarta International University (JIU)." />
+  <meta property="og:image" content="assets/images/library-logo.webp" />
   <link rel="icon" type="image/webp" href="assets/images/library-logo.webp" />
   
   <!-- Preload Critical Images for LCP Optimization -->
@@ -39,13 +43,14 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
 
-  <link rel="stylesheet" href="assets/css/navbar.css?v=2.0" />
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.1" />
   <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
-  <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=1.1" />
-  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=1.1" />
-  <link rel="stylesheet" href="assets/css/sections.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/style/stats-strip.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=2.0" />
+  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.1" />
+  <link rel="stylesheet" href="assets/css/sections.css?v=1.4" />
 
   <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/responsive.css?v=2.0" />
@@ -128,7 +133,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
     <nav class="main-nav">
       <div class="nav-logo">
         <a href="index.php" class="logo">
-          <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
+          <img loading="lazy" src="assets/images/library-logo.webp" alt="Dream Blue Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
           <div class="logo-text">
             Dream Blue Library 
             <span>NPP 3216202D0000001</span>
@@ -480,75 +485,81 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
     </div>
   </section>
 
-  <section id="announcements" class="announcement-section">
-    <div class="ann-container">
-      <!-- PERTAMINA STYLE STATS SECTION -->
-      <div class="pertamina-stats-container" data-aos="fade-up" data-aos-delay="100">
-        <div class="p-stat-card" onclick="openModal('modalCollection')" tabindex="0" role="button">
-          <p class="p-stat-label">TOTAL COLLECTION</p>
-          <h3 class="p-stat-number counter" data-target="5642">0</h3>
-          <p class="p-stat-desc">Total books & media collection</p>
-        </div>
+  <!-- ═══ STATS STRIP ═══════════════════════════════════════════════ -->
+  <section class="stats-strip-section">
+    <div class="stats-strip-inner" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="p-stat-card" tabindex="0" role="region">
-          <p class="p-stat-label">ACTIVE MEMBERS</p>
-          <h3 class="p-stat-number counter" data-target="200">0</h3>
-          <p class="p-stat-desc">Registered and active users</p>
-        </div>
-
-        <div class="p-stat-card" onclick="openModal('modalRooms')" tabindex="0" role="button">
-          <p class="p-stat-label">STUDY ROOMS</p>
-          <h3 class="p-stat-number counter" data-target="4">0</h3>
-          <p class="p-stat-desc">Available for booking</p>
-        </div>
+      <div class="p-stat-card" onclick="openModal('modalCollection')" tabindex="0" role="button">
+        <h3 class="p-stat-number counter" data-target="5642">0</h3>
+        <p class="p-stat-label" data-i18n="statLabelCollection">TOTAL COLLECTION</p>
+        <p class="p-stat-desc" data-i18n="statDescCollection">Total books &amp; media collection</p>
       </div>
 
-      <div class="ann-header-flex">
+      <div class="stats-divider"></div>
+
+      <div class="p-stat-card" tabindex="0" role="region">
+        <h3 class="p-stat-number counter" data-target="200">0</h3>
+        <p class="p-stat-label" data-i18n="statLabelMembers">ACTIVE MEMBERS</p>
+        <p class="p-stat-desc" data-i18n="statDescMembers">Registered and active users</p>
+      </div>
+
+      <div class="stats-divider"></div>
+
+      <div class="p-stat-card" onclick="openModal('modalRooms')" tabindex="0" role="button">
+        <h3 class="p-stat-number counter" data-target="4">0</h3>
+        <p class="p-stat-label" data-i18n="statLabelRooms">STUDY ROOMS</p>
+        <p class="p-stat-desc" data-i18n="statDescRooms">Available for booking</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="announcements" class="announcement-section">
+    <div class="ann-container">
+
+      <!-- Header Flex -->
+      <div class="ann-header-flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
         <div class="ann-header-left">
-          <h2 class="section-title" style="text-align: left;">
-            <span data-i18n="annTitlePrefix">Library</span> <span class="highlight-text-yellow" data-i18n="annTitleSuffix">Announcements</span>
+          <h2 class="section-title" style="margin: 0 !important; font-family: var(--font-primary, 'Poppins', sans-serif); line-height: 1;">
+            <span style="color: var(--clr-blue-1, #1e3a8a);">Library</span> <span style="color: var(--clr-yellow-1, #facc15);">Announcements</span>
           </h2>
         </div>
         <div class="ann-header-right">
-          <a href="all-announcements.php" class="btn-view-ann" data-i18n="annBtnViewAll">
+          <a href="all-announcements.php" class="btn-view-ann-pill">
             View All Announcements <i class="fas fa-arrow-right"></i>
           </a>
         </div>
       </div>
 
-      <div class="swiper swiper-announcements" style="padding-bottom: 50px;">
-        <div class="swiper-wrapper">
+      <div class="ann-grid">
           <?php
           if (isset($query_pengumuman) && $query_pengumuman->rowCount() > 0) {
+            $i = 0;
             while ($row = $query_pengumuman->fetch()) {
-              $isi_pendek = substr(strip_tags($row['isi']), 0, 50) . '...';
-              $tgl = date('d M Y', strtotime($row['tanggal']));
+              if ($i >= 3) break; // Limit to 3 items
+              
+              $isi_pendek = substr(strip_tags($row['isi']), 0, 90) . '...';
+              $kategori = !empty($row['kategori']) ? htmlspecialchars($row['kategori']) : 'Announcement';
           ?>
-              <div class="swiper-slide">
-                <a href="detail-announcement.php?id=<?= $row['id'] ?>" class="jiu-ann-card">
+              <a href="detail-announcement.php?id=<?= $row['id'] ?>" class="jiu-ann-card">
+                <div class="jiu-ann-img-wrapper">
                   <img loading="lazy" src="<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>" class="jiu-ann-img" />
-                  <div class="jiu-ann-content">
-                    <?php if (!empty($row['kategori'])) { ?>
-                      <span class="jiu-ann-badge"><?= htmlspecialchars($row['kategori']) ?></span>
-                    <?php } ?>
-                    <h3 class="jiu-ann-title"><?= htmlspecialchars($row['judul']) ?></h3>
-                    <div class="jiu-ann-hidden">
-                      <div class="jiu-ann-date"><i class="far fa-calendar-alt"></i> <?= $tgl ?></div>
-                      <p class="jiu-ann-desc"><?= $isi_pendek ?></p>
-                      <div class="jiu-ann-btn" data-i18n="annBtnDetail">View Detail <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+                  <span class="jiu-ann-category-badge"><?= $kategori ?></span>
+                </div>
+                <div class="jiu-ann-content">
+                  <h3 class="jiu-ann-title"><?= htmlspecialchars($row['judul']) ?></h3>
+                  <p class="jiu-ann-desc"><?= $isi_pendek ?></p>
+                </div>
+              </a>
           <?php
+              $i++;
             }
           } else {
-            echo "<div style='width: 100%; text-align: center; color: #cbd5e1; padding: 40px;' data-i18n='annEmpty'>No recent announcements at this time.</div>";
+            echo "<div style='grid-column: 1 / -1; text-align: center; color: #cbd5e1; padding: 40px;' data-i18n='annEmpty'>No recent announcements at this time.</div>";
           }
           ?>
-        </div>
-        <div class="swiper-pagination"></div>
       </div>
+
     </div>
   </section>
 
@@ -567,11 +578,13 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
         </div>
       </div>
 
-      <div class="swiper swiper-news" style="padding-bottom: 50px; padding-top: 10px;">
-        <div class="swiper-wrapper">
+      <div class="news-bento-grid">
           <?php
           if (isset($query_berita) && $query_berita->rowCount() > 0) {
+            $i = 1;
             while ($row = $query_berita->fetch()) {
+              if ($i > 4) break; // Limit to 4 items for the bento layout
+              
               $tgl = date('d F Y', strtotime($row['tanggal']));
               $gambar_db = $row['gambar'];
               if (empty($gambar_db) || !file_exists($gambar_db)) {
@@ -579,36 +592,33 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
               } else {
                 $gambar_fix = $gambar_db;
               }
+              
+              $kategori = !empty($row['kategori']) ? htmlspecialchars($row['kategori']) : 'News';
           ?>
-              <div class="swiper-slide">
-                <a href="detail-news.php?id=<?= $row['id'] ?>" class="jiu-news-card">
-                  <div class="jiu-news-img-box">
-                    <img loading="lazy" src="<?= $gambar_fix ?>" alt="<?= htmlspecialchars($row['judul']) ?>" />
+              <a href="detail-news.php?id=<?= $row['id'] ?>" class="jiu-news-card bento-item-<?= $i ?>">
+                <div class="jiu-news-img-box">
+                  <img loading="lazy" src="<?= $gambar_fix ?>" alt="<?= htmlspecialchars($row['judul']) ?>" />
+                </div>
+                <div class="jiu-news-content">
+                  <h3 class="jiu-news-title"><?= htmlspecialchars($row['judul']) ?></h3>
+                  
+                  <div class="jiu-news-meta">
+                    <span class="meta-date"><i class="far fa-calendar-alt"></i> <?= $tgl ?></span>
+                    <span class="meta-category"><i class="far fa-folder"></i> <?= $kategori ?></span>
                   </div>
-                  <div class="jiu-news-content">
-                    <h3 class="jiu-news-title"><?= htmlspecialchars($row['judul']) ?></h3>
-                    <div class="jiu-news-meta">
-                      <span><i class="far fa-calendar-alt"></i> <?= $tgl ?></span>
-                      <?php if (!empty($row['kategori'])) { ?>
-                        <span><i class="fas fa-file-alt"></i> <?= htmlspecialchars($row['kategori']) ?></span>
-                      <?php } else { ?>
-                        <span><i class="fas fa-newspaper"></i> <span data-i18n="newsLibNews">Library News</span></span>
-                      <?php } ?>
-                    </div>
-                    <div class="jiu-news-btn" data-i18n="newsBtnRead">
-                      <i class="fas fa-arrow-circle-right"></i> Read More
-                    </div>
+                  
+                  <div class="jiu-news-btn" data-i18n="newsBtnRead">
+                    Read More <i class="fas fa-chevron-right"></i>
                   </div>
-                </a>
-              </div>
+                </div>
+              </a>
           <?php
+              $i++;
             }
           } else {
-            echo "<div style='width: 100%; text-align: center; color: white;'><p data-i18n='newsEmpty'>No news published yet.</p></div>";
+            echo "<div style='grid-column: 1 / -1; text-align: center; color: white;'><p data-i18n='newsEmpty'>No news published yet.</p></div>";
           }
           ?>
-        </div>
-        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -618,19 +628,32 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
       <h2 class="section-title"><span data-i18n="netTitlePrefix">Our</span> <span class="highlight-text-yellow" data-i18n="netTitleSuffix">Network</span></h2>
     </div>
     <div class="networking-canvas">
-      <div class="swiper swiper-network-right">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png" alt="Partner" /></div>
-          <div class="swiper-slide partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png" alt="Partner" /></div>
+
+      <!-- ROW 1 — scroll kanan ke kiri -->
+      <div class="marquee-track" aria-hidden="true">
+        <div class="marquee-inner marquee-left">
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png" alt="HGU" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png" alt="Digido" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png" alt="FKIP" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png" alt="FPPTI" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png" alt="Gramedia" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png" alt="USK" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png" alt="ITSB" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png" alt="UBP" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png" alt="UINSSC" /></div>
+          <!-- Duplicate for seamless loop -->
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png" alt="HGU" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png" alt="Digido" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png" alt="FKIP" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png" alt="FPPTI" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png" alt="Gramedia" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png" alt="USK" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png" alt="ITSB" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png" alt="UBP" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png" alt="UINSSC" /></div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -652,8 +675,8 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <script defer src="assets/js/dictionary.js?v=1.1"></script>
   <script defer src="assets/js/news.js?v=1.1"></script>
   <script defer src="assets/js/announcements.js?v=1.1"></script>
-  <script defer src="assets/js/search.js?v=1.1"></script>
-  <script defer src="assets/js/main.js?v=1.1"></script>
+  <script defer src="assets/js/search.js?v=2.1"></script>
+  <script defer src="assets/js/main.js?v=1.6"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var swiperAnnouncements = new Swiper(".swiper-announcements", {

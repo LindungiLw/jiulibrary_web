@@ -19,20 +19,76 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
+  position: relative;
 }
 
-.swiper-network-right .swiper-wrapper {
-  transition-timing-function: linear !important;
+/* Fade-out edges */
+.networking-canvas::before,
+.networking-canvas::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+.networking-canvas::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff 40%, transparent);
+}
+.networking-canvas::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff 40%, transparent);
 }
 
+/* Marquee track — overflow hidden, single row */
+.marquee-track {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* The inner strip — wide enough to hold 2× all logos side by side */
+.marquee-inner {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 50px;
+  /* width auto — each logo is fixed 160px so total = 18 × (160+50) = 3780px, animation translates exactly -50% */
+  will-change: transform;
+}
+
+/* Scroll left (right-to-left) */
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-left {
+  animation: marqueeLeft 28s linear infinite;
+}
+
+
+/* Individual logo card */
 .partner-logo {
-  width: 160px !important;
-  height: 70px !important;
+  width: 160px;
+  height: 70px;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: grab;
-  margin-right: 40px;
+  animation: floatPartner 4s ease-in-out infinite;
+}
+.partner-logo:nth-child(2n)  { animation-delay: 0.6s; }
+.partner-logo:nth-child(3n)  { animation-delay: 1.2s; }
+.partner-logo:nth-child(4n)  { animation-delay: 1.8s; }
+.partner-logo:nth-child(5n)  { animation-delay: 2.4s; }
+.partner-logo:nth-child(6n)  { animation-delay: 3.0s; }
+
+@keyframes floatPartner {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
 }
 
 .partner-logo img {
@@ -41,17 +97,18 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: grayscale(0%);
-  opacity: 1;
-  transition: all 0.4s ease;
+  filter: grayscale(20%);
+  opacity: 0.85;
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
   pointer-events: none;
+  user-select: none;
 }
-
 .partner-logo:hover img {
   filter: grayscale(0%);
   opacity: 1;
   transform: scale(1.1);
 }
+
 
 .footer-container,
 .footer-bottom,
