@@ -4,8 +4,9 @@ $koneksi = getKoneksi();
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-$query = $koneksi->query("SELECT * FROM pengumuman WHERE id = $id");
-$ann = $query->fetch();
+$stmt = $koneksi->prepare("SELECT * FROM pengumuman WHERE id = ?");
+$stmt->execute([$id]);
+$ann = $stmt->fetch();
 
 $tanggal_cantik = "";
 if ($ann) {

@@ -9,6 +9,10 @@ if (mobileMenu && navLinks) {
 
 function toggleDropdown(event, menuId) {
   event.preventDefault();
+  
+  // Desktop mengandalkan CSS :hover murni, klik JS hanya untuk versi mobile
+  if (window.innerWidth >= 992) return;
+
   const dropdowns = document.getElementsByClassName("dropdown-content");
   for (let i = 0; i < dropdowns.length; i++) {
     if (dropdowns[i].id !== menuId) {
@@ -60,6 +64,18 @@ if (backToTopBtn) {
     }
   });
 }
+
+// Add scrolled class to header
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".site-header");
+  if (header) {
+    if (window.scrollY > 150) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }
+});
 
 function scrollToTop() {
   window.scrollTo({

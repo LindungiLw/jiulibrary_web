@@ -39,7 +39,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
 
-  <link rel="stylesheet" href="assets/css/navbar.css?v=1.3" />
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.0" />
   <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
@@ -48,7 +48,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/sections.css?v=1.1" />
 
   <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
-  <link rel="stylesheet" href="assets/css/responsive.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/responsive.css?v=2.0" />
   <link rel="stylesheet" href="assets/css/chatbot.css?v=1.1" />
   
   <!-- Script Google Identity Services untuk SSO -->
@@ -91,11 +91,11 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
           $firstName = explode(' ', trim($_SESSION['user_name']))[0];
         ?>
           <div class="dropdown">
-            <button class="btn-login-top" onclick="toggleDropdown(event, 'userMenu')" style="height: 24px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: white; padding: 2px 8px; cursor: pointer; transition: background 0.3s;">
+            <button class="btn-profile-top" onclick="toggleDropdown(event, 'userMenu')" style="height: 26px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 20px; color: white; padding: 2px 10px; cursor: pointer; transition: background 0.3s;">
             <?php 
-              $avatar_url = isset($_SESSION['user_picture']) && $_SESSION['user_picture'] !== 'assets/images/default-avatar.png' ? $_SESSION['user_picture'] : 'https://ui-avatars.com/api/?name=' . urlencode($firstName) . '&background=f8fafc&color=475569&rounded=true';
+              $avatar_url = !empty($_SESSION['user_picture']) && $_SESSION['user_picture'] !== 'assets/images/default-avatar.png' ? $_SESSION['user_picture'] : 'https://ui-avatars.com/api/?name=' . urlencode($firstName) . '&background=f8fafc&color=475569&rounded=true';
             ?>
-            <img loading="lazy" src="<?php echo $avatar_url; ?>" alt="Profile" style="width: 16px; height: 16px; border-radius: 50%; object-fit: cover;">
+            <img loading="lazy" src="<?php echo htmlspecialchars($avatar_url); ?>" alt="Profile" style="width: 16px; height: 16px; border-radius: 50%; object-fit: cover;" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=<?php echo urlencode($firstName); ?>&background=f8fafc&color=475569&rounded=true';">
               <span style="font-weight: 600; font-size: 0.8rem;"><?php echo htmlspecialchars($firstName); ?></span>
               <i class="fas fa-chevron-down" style="font-size: 0.5rem; color: #64748b;"></i>
             </button>
@@ -305,7 +305,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
           <div id="navSearchSuggestions" class="nav-search-results"></div>
         </div>
 
-        <div id="mobile-menu" class="menu-toggle" style="display: none">
+        <div id="mobile-menu" class="menu-toggle">
           <i class="fas fa-bars"></i>
         </div>
       </div>
@@ -787,6 +787,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <?php include 'a11y-widget.php'; ?>
 
   <script defer src="assets/js/chatbot.js?v=1.1"></script>
+  <script src="assets/js/main.js?v=2.0"></script>
 </body>
 
 </html>

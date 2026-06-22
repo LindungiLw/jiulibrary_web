@@ -15,6 +15,26 @@ $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'User';
 $user_email = isset($_SESSION['user_email']) ? $_SESSION['user_email'] : '-';
 $user_picture = isset($_SESSION['user_picture']) ? $_SESSION['user_picture'] : 'assets/images/default-avatar.png';
 $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'Guest';
+
+// CSRF Token Generation
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+// Dummy Stats Removed
+
+
+$success_msg = '';
+$error_msg = '';
+
+if (isset($_SESSION['success_msg'])) {
+    $success_msg = $_SESSION['success_msg'];
+    unset($_SESSION['success_msg']);
+}
+if (isset($_SESSION['error_msg'])) {
+    $error_msg = $_SESSION['error_msg'];
+    unset($_SESSION['error_msg']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,146 +46,15 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'Guest';
     <title>My Profile - Dream Blue Library</title>
     <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
-    <!-- Load FontAwesome Asynchronously (Local) -->
+    <!-- Load FontAwesome Asynchronously -->
     <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="assets/css/all.min.css"></noscript>
 
     <link rel="stylesheet" href="assets/css/style/variable.css" />
     <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
-    <link rel="stylesheet" href="assets/css/navbar.css" />
-    <link rel="stylesheet" href="assets/css/style/section-page.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/navbar.css?v=1.3" />
     <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
-
-    <style>
-        .profile-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-
-        .profile-header-bg {
-            height: 150px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            position: relative;
-        }
-
-        .profile-content {
-            padding: 0 40px 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .profile-avatar-wrapper {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid white;
-            background: white;
-            margin: -60px auto 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile-name {
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .profile-role {
-            display: inline-block;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .profile-role.member {
-            background: rgba(16, 185, 129, 0.1);
-            color: #10b981;
-        }
-
-        .profile-info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            text-align: left;
-            margin-top: 30px;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 30px;
-        }
-
-        .info-item {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .info-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .info-text h4 {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .info-text p {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .btn-logout-profile {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #ef4444;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-logout-profile:hover {
-            background: #dc2626;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/profile.css?v=1.0" />
 </head>
 
 <body>
@@ -181,55 +70,88 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'Guest';
         </nav>
     </header>
 
-    <header class="page-header">
-        <div class="page-header-container">
-            <a href="index.php" class="btn-back-header">
-                <i class="fas fa-arrow-left"></i> Back to Home
-            </a>
-            <h1 class="page-title">My <span style="color: #facc15;">Profile</span></h1>
-        </div>
-    </header>
-
-    <main class="section-page-grid" style="display: block; padding: 40px 20px 80px;">
-        <div class="profile-container">
-            <div class="profile-header-bg"></div>
-            <div class="profile-content">
-                <div class="profile-avatar-wrapper">
-                    <img src="<?php echo htmlspecialchars($user_picture); ?>" alt="Profile" class="profile-avatar" onerror="this.src='https://ui-avatars.com/api/?name=<?php echo urlencode($user_name); ?>&background=random'">
-                </div>
-                
-                <h2 class="profile-name"><?php echo htmlspecialchars($user_name); ?></h2>
-                <div class="profile-role <?php echo ($user_role == 'JIU Member') ? 'member' : ''; ?>">
-                    <i class="fas <?php echo ($user_role == 'JIU Member') ? 'fa-check-circle' : 'fa-user'; ?>"></i> 
-                    <?php echo htmlspecialchars($user_role); ?>
-                </div>
-
-                <div class="profile-info-grid">
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="info-text">
-                            <h4>Email Address</h4>
-                            <p><?php echo htmlspecialchars($user_email); ?></p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-id-card"></i></div>
-                        <div class="info-text">
-                            <h4>Account Status</h4>
-                            <p>Active</p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="<?= BASE_URL ?>/assets/auth/logout.php" class="btn-logout-profile">
-                    <i class="fas fa-sign-out-alt"></i> Logout Account
-                </a>
+    <div class="profile-layout">
+        <!-- Sidebar -->
+        <aside class="profile-sidebar">
+            <div class="sidebar-menu-header">
+                <i class="fas fa-user-circle"></i> Profile Menu
             </div>
-        </div>
-    </main>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-item active">
+                    <i class="fas fa-id-badge"></i> Profile Info
+                </a>
+                
+                <a href="<?= BASE_URL ?>/assets/auth/logout.php" class="sidebar-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="profile-main">
+            <!-- Banner -->
+            <div class="profile-banner">
+                <div class="banner-user-info">
+                    <img src="<?php echo htmlspecialchars($user_picture); ?>" alt="Profile" class="banner-avatar" onerror="this.src='https://ui-avatars.com/api/?name=<?php echo urlencode($user_name); ?>&background=random'">
+                    <div class="banner-details">
+                        <h2><?php echo htmlspecialchars($user_name); ?></h2>
+                        <p>Library Member</p>
+                        <div class="banner-badges">
+                            <span class="badge yellow"><i class="fas fa-star"></i> <?php echo htmlspecialchars($user_role); ?></span>
+                            <span class="badge dark-blue">Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <?php if (!empty($success_msg)): ?>
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> <?= htmlspecialchars($success_msg) ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($error_msg)): ?>
+                <div class="alert alert-error">
+                    <i class="fas fa-exclamation-circle"></i> <?= htmlspecialchars($error_msg) ?>
+                </div>
+            <?php endif; ?>
+
+            <!-- Form Details -->
+            <div class="profile-section">
+                <form action="update_profile.php" method="POST">
+                    <div class="section-header">
+                        <h3>Profile Details</h3>
+                        <button type="submit" class="btn-primary-sm">
+                            <i class="fas fa-save"></i> Save Profile
+                        </button>
+                    </div>
+
+                    <div class="form-grid">
+                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                        <div class="form-group">
+                            <label for="full_name">Full Name</label>
+                            <input type="text" id="full_name" name="full_name" class="form-control" value="<?php echo htmlspecialchars($user_name); ?>" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Google Account Email</label>
+                            <input type="email" id="email" class="form-control" value="<?php echo htmlspecialchars($user_email); ?>" disabled title="Your email is synced with Google SSO and cannot be changed here.">
+                        </div>
+                        
+                        <div class="form-group full-width" style="margin-top: 10px;">
+                            <div class="alert" style="background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; margin-bottom: 0;">
+                                <i class="fas fa-shield-alt" style="color: #3b82f6;"></i>
+                                <span><strong>Data Privacy & Security:</strong> Your personal data is synced with your campus Google Account. Email address changes must be done via Google.</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
 
     <?php include 'footer.php'; ?>
 
 </body>
-
 </html>
