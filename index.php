@@ -39,7 +39,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
 
-  <link rel="stylesheet" href="assets/css/navbar.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/navbar.css?v=1.3" />
   <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
@@ -99,13 +99,13 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
               <span style="font-weight: 600; font-size: 0.8rem;"><?php echo htmlspecialchars($firstName); ?></span>
               <i class="fas fa-chevron-down" style="font-size: 0.5rem; color: #64748b;"></i>
             </button>
-            <div class="dropdown-content compact-dropdown" id="userMenu" style="min-width: 140px; right: 0; left: auto; transform: translateY(10px);">
-              <div class="simple-vertical-menu">
-                <a href="profile.php" class="service-item" style="font-weight: 500;" data-i18n="btnProfile">
-                  <i class="far fa-id-badge"></i> My Profile
+            <div class="dropdown-content user-profile-dropdown" id="userMenu" style="right: 0; left: auto;">
+              <div class="simple-vertical-menu" style="gap: 0;">
+                <a href="profile.php" class="profile-menu-item" data-i18n="btnProfile">
+                  <i class="fas fa-user-circle"></i> My Profile
                 </a>
-                <div class="dropdown-divider" style="height: 1px; background: #f1f5f9; margin: 5px 15px;"></div>
-                <a href="<?= BASE_URL ?>/assets/auth/logout.php" class="service-item" style="color: #ef4444; font-weight: 600;" data-i18n="btnLogout">
+                <div class="profile-dropdown-divider"></div>
+                <a href="<?= BASE_URL ?>/assets/auth/logout.php" class="profile-menu-item logout-item" data-i18n="btnLogout">
                   <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
               </div>
