@@ -12,11 +12,34 @@
   padding: 0 5%;
 }
 
+/* --- VIEW ALL BUTTON (PILL YELLOW) --- */
+.btn-view-news-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #facc15;
+  color: #1e3a8a;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-primary, "Poppins", sans-serif);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.2);
+}
+.btn-view-news-pill:hover {
+  background-color: #eab308;
+  color: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(250, 204, 21, 0.4);
+}
+
 .news-header-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .news-header-left .section-title {
@@ -218,6 +241,10 @@
     grid-row: auto;
     min-height: 450px;
   }
+  .bento-item-1 .jiu-news-img-box,
+  .bento-item-1 .jiu-news-content {
+    width: auto;
+  }
   .bento-item-2 {
     grid-column: 1 / span 2;
     grid-row: auto;
@@ -230,6 +257,13 @@
 }
 
 @media (max-width: 768px) {
+  .news-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-item-1, .bento-item-2, .bento-item-3, .bento-item-4 {
+    grid-column: span 1;
+    grid-row: auto;
+  }
   .news-header-flex {
     flex-direction: column;
     align-items: flex-start;

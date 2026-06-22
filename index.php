@@ -49,7 +49,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
 
   <link rel="stylesheet" href="assets/css/style/stats-strip.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=2.0" />
-  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.1" />
+  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.5" />
   <link rel="stylesheet" href="assets/css/sections.css?v=1.4" />
 
   <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
@@ -572,7 +572,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
           </h2>
         </div>
         <div class="news-header-right">
-          <a href="all-news.php" class="btn-view-all" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #facc15; border: 2px solid #facc15; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s;" data-i18n="newsBtnViewAll">
+          <a href="all-news.php" class="btn-view-news-pill" data-i18n="newsBtnViewAll">
             View All News <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -769,8 +769,8 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
         });
       }, { threshold: 0.5 });
 
-      const heroCards = document.querySelector('.pertamina-stats-container');
-      if (heroCards) observer.observe(heroCards);
+      const statsSection = document.querySelector('.stats-strip-section');
+      if (statsSection) observer.observe(statsSection);
     });
   </script>
 
