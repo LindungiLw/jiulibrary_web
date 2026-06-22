@@ -2,7 +2,7 @@
 require 'koneksi.php';
 $koneksi = getKoneksi();
 
-$query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC");
+$query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
 ?>
 
 <!doctype html>
@@ -53,8 +53,8 @@ $query_semua = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC
     <main class="section-page-grid">
 
         <?php
-        if (mysqli_num_rows($query_semua) > 0) {
-            while ($row = mysqli_fetch_assoc($query_semua)) {
+        if ($query_semua->rowCount() > 0) {
+            while ($row = $query_semua->fetch()) {
 
                 $isi_pendek = substr(strip_tags($row['isi']), 0, 50) . '...';
                 $tgl = date('d M Y', strtotime($row['tanggal']));

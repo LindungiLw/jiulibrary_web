@@ -4,8 +4,8 @@ $koneksi = getKoneksi();
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-$query = mysqli_query($koneksi, "SELECT * FROM berita WHERE id = $id");
-$news = mysqli_fetch_assoc($query);
+$query = $koneksi->query("SELECT * FROM berita WHERE id = $id");
+$news = $query->fetch();
 
 $tanggal_cantik = "";
 if ($news) {

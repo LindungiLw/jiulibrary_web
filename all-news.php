@@ -2,7 +2,7 @@
 require 'koneksi.php';
 $koneksi = getKoneksi();
 
-$query_semua_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY tanggal DESC");
+$query_semua_berita = $koneksi->query("SELECT * FROM berita ORDER BY tanggal DESC");
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +40,6 @@ $query_semua_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY tang
         </nav>
     </header>
 
-    <?php
-    ?>
-
     <header class="page-header">
         <div class="page-header-container">
             <a href="index.php" class="btn-back-header">
@@ -57,8 +54,8 @@ $query_semua_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY tang
     <main class="section-page-grid">
 
         <?php
-        if ($query_semua_berita && mysqli_num_rows($query_semua_berita) > 0) {
-            while ($row = mysqli_fetch_assoc($query_semua_berita)) {
+        if ($query_semua_berita && $query_semua_berita->rowCount() > 0) {
+            while ($row = $query_semua_berita->fetch()) {
                 $tgl = date('d F Y', strtotime($row['tanggal']));
 
                 $gambar_db = $row['gambar'];

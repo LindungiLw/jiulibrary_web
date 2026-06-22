@@ -5,8 +5,8 @@ require_once 'koneksi.php';
 
 $koneksi = getKoneksi();
 
-$query_pengumuman = mysqli_query($koneksi, "SELECT * FROM pengumuman ORDER BY id DESC LIMIT 5");
-$query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LIMIT 5");
+$query_pengumuman = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC LIMIT 5");
+$query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5");
 
 ?>
 <!doctype html>
@@ -519,8 +519,8 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
       <div class="swiper swiper-announcements" style="padding-bottom: 50px;">
         <div class="swiper-wrapper">
           <?php
-          if (isset($query_pengumuman) && mysqli_num_rows($query_pengumuman) > 0) {
-            while ($row = mysqli_fetch_assoc($query_pengumuman)) {
+          if (isset($query_pengumuman) && $query_pengumuman->rowCount() > 0) {
+            while ($row = $query_pengumuman->fetch()) {
               $isi_pendek = substr(strip_tags($row['isi']), 0, 50) . '...';
               $tgl = date('d M Y', strtotime($row['tanggal']));
           ?>
@@ -570,8 +570,8 @@ $query_berita = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY id DESC LI
       <div class="swiper swiper-news" style="padding-bottom: 50px; padding-top: 10px;">
         <div class="swiper-wrapper">
           <?php
-          if (isset($query_berita) && mysqli_num_rows($query_berita) > 0) {
-            while ($row = mysqli_fetch_assoc($query_berita)) {
+          if (isset($query_berita) && $query_berita->rowCount() > 0) {
+            while ($row = $query_berita->fetch()) {
               $tgl = date('d F Y', strtotime($row['tanggal']));
               $gambar_db = $row['gambar'];
               if (empty($gambar_db) || !file_exists($gambar_db)) {
