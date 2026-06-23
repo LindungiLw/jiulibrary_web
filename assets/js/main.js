@@ -90,97 +90,100 @@ function initNetworkingSlider() {
   const track = document.querySelector(".marquee-track");
   if (!inner || !track) return;
 
-  // Remove CSS animation — JS takes over
-  inner.style.animation = "none";
-  inner.style.willChange = "transform";
-  track.style.cursor = "grab";
+  // ── Auto-clone for seamless loop (replaces HTML duplicates) ───────
+  // Browser downloads each image ONCE; clone just duplicates DOM nodes
+  const clone = inner.cloneNode(true);
+  clone.setAttribute("aria-hidden", "true");
+  clone.removeAttribute("id");
 
-  // Hide scrollbar (track stays overflow:hidden so no scrollLeft needed)
+  // Wrap both sets in a single flex container (one translateX = seamless)
+  const wrapper = document.createElement("div");
+  wrapper.style.cssText = "display:flex;flex-wrap:nowrap;will-change:transform;";
+  // Move inner into wrapper, then append clone
+  track.appendChild(wrapper);
+  wrapper.appendChild(inner);
+  wrapper.appendChild(clone);
+
+  inner.style.animation = "none";
+  clone.style.animation = "none";
+  track.style.cursor = "grab";
   track.style.overflow = "hidden";
 
   // ── State ──────────────────────────────────────────────────────────
-  let pos        = 0;          // current translateX in px (always negative → moves left)
-  const speed    = 0.6;        // base px per frame  (~36px/s at 60fps)
-  let extraVel   = 0;          // drag-added velocity (positive = dragged right, negative = dragged left)
-  const friction = 0.92;       // how quickly drag momentum decays each frame
+  let pos        = 0;
+  const speed    = 0.6;        // ~36px/s at 60fps
+  let extraVel   = 0;
+  const friction = 0.92;
+  let rafId      = null;
+  let isVisible  = true;
 
   let isDragging = false;
-  let dragStartX = 0;
   let lastDragX  = 0;
-  let dragDelta  = 0;
 
-  // Total width of ONE set of logos (half of inner, since inner = 2× duplicated)
-  // We calculate it dynamically once layout is ready
-  let halfWidth  = 0;
-
-  function getHalfWidth() {
-    halfWidth = inner.scrollWidth / 2;
+  let setWidth = 0;
+  function getSetWidth() {
+    setWidth = inner.scrollWidth;  // width of ONE set
   }
-  getHalfWidth();
-  // Recalculate on resize
-  window.addEventListener("resize", getHalfWidth);
+  window.addEventListener("load", () => {
+    getSetWidth();
+    startRAF();
+  });
+  window.addEventListener("resize", getSetWidth);
 
-  // ── Animation loop ────────────────────────────────────────────────
+  // ── Animation loop (pauses when section off-screen → saves mobile CPU) ──
   function tick() {
-    // Base auto-scroll (always runs, never stops)
     pos -= speed;
-
-    // Apply drag momentum (decays each frame via friction)
     pos += extraVel;
     extraVel *= friction;
 
-    // Seamless loop: when we've scrolled one full set width, jump back silently
-    if (Math.abs(pos) >= halfWidth) {
-      pos += halfWidth;  // snap back to equivalent position
-    }
+    // Seamless: when scrolled one full set width, jump back silently
+    if (pos <= -setWidth) pos += setWidth;
 
-    inner.style.transform = `translateX(${pos}px)`;
-    requestAnimationFrame(tick);
+    wrapper.style.transform = `translateX(${pos}px)`;
+    rafId = requestAnimationFrame(tick);
   }
-  requestAnimationFrame(tick);
+
+  function startRAF() { if (!rafId && isVisible) rafId = requestAnimationFrame(tick); }
+  function stopRAF()  { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+
+  // Pause when section scrolled off-screen → saves battery on mobile
+  const section = document.getElementById("networking");
+  if (section && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+      isVisible ? startRAF() : stopRAF();
+    }, { threshold: 0 });
+    io.observe(section);
+  }
+
 
   // ── Drag helpers ──────────────────────────────────────────────────
   function onDragStart(x) {
     isDragging = true;
-    dragStartX = x;
     lastDragX  = x;
-    dragDelta  = 0;
+    extraVel   = 0;
     track.style.cursor = "grabbing";
   }
-
   function onDragMove(x) {
     if (!isDragging) return;
-    dragDelta  = x - lastDragX;   // movement this frame
-    extraVel   = dragDelta;        // feed directly into velocity each frame
-    lastDragX  = x;
+    dragDelta = x - lastDragX;
+    extraVel  = dragDelta;
+    lastDragX = x;
   }
-
   function onDragEnd() {
     isDragging = false;
     track.style.cursor = "grab";
-    // extraVel keeps the momentum going then decays naturally via friction
   }
 
   // ── Mouse events ──────────────────────────────────────────────────
-  track.addEventListener("mousedown", (e) => {
-    e.preventDefault();
-    onDragStart(e.clientX);
-  });
-  window.addEventListener("mousemove", (e) => {
-    if (isDragging) onDragMove(e.clientX);
-  });
-  window.addEventListener("mouseup", () => {
-    if (isDragging) onDragEnd();
-  });
+  track.addEventListener("mousedown", (e) => { e.preventDefault(); onDragStart(e.clientX); });
+  window.addEventListener("mousemove", (e) => { if (isDragging) onDragMove(e.clientX); });
+  window.addEventListener("mouseup",   ()  => { if (isDragging) onDragEnd(); });
 
   // ── Touch events ──────────────────────────────────────────────────
-  track.addEventListener("touchstart", (e) => {
-    onDragStart(e.touches[0].clientX);
-  }, { passive: true });
-  track.addEventListener("touchmove", (e) => {
-    onDragMove(e.touches[0].clientX);
-  }, { passive: true });
-  track.addEventListener("touchend", onDragEnd);
+  track.addEventListener("touchstart", (e) => { onDragStart(e.touches[0].clientX); }, { passive: true });
+  track.addEventListener("touchmove",  (e) => { onDragMove(e.touches[0].clientX);  }, { passive: true });
+  track.addEventListener("touchend",   onDragEnd);
 }
 
 
@@ -194,6 +197,7 @@ window.addEventListener("load", () => {
 
   initHeroSlider();
   initNetworkingSlider();
+  initCounters();
 });
 
 function openModal(modalId) {
@@ -225,50 +229,60 @@ window.addEventListener("click", function (event) {
 });
 
 // ── Number Counter Animation ──
-document.addEventListener("DOMContentLoaded", () => {
+function initCounters() {
   const counters = document.querySelectorAll(".counter");
   if (counters.length === 0) return;
 
   const animateCounter = (counter) => {
-    const target = +counter.getAttribute("data-target");
-    if (!target) return;
-    
-    const duration = 2500; // 2.5 seconds
+    const target = parseInt(counter.getAttribute("data-target"), 10);
+    // Fix: explicit NaN check instead of falsy (target=0 would wrongly skip)
+    if (isNaN(target)) return;
+
+    // Reset to 0 first (in case it already showed a number)
+    counter.innerText = "0";
+
+    const duration = 2000; // 2 seconds
     const startTime = performance.now();
 
     const updateCount = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing function (easeOutExpo) for a smooth slow-down at the end
+
+      // easeOutExpo — fast start, smooth slow-down
       const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const currentVal = Math.ceil(easeOut * target);
-      
-      counter.innerText = currentVal.toLocaleString('id-ID');
-      
+
+      counter.innerText = currentVal.toLocaleString("id-ID");
+
       if (progress < 1) {
         requestAnimationFrame(updateCount);
       } else {
-        counter.innerText = target.toLocaleString('id-ID');
+        counter.innerText = target.toLocaleString("id-ID");
       }
     };
     requestAnimationFrame(updateCount);
   };
 
-  const observerOptions = {
-    threshold: 0.5 // Trigger when 50% of the element is visible
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
+  // Fix: threshold 0.1 (10% visible is enough to trigger)
+  // Lower threshold prevents missing trigger when stats strip is already in viewport on page load
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target); // Only animate once
+        const counter = entry.target;
+        obs.unobserve(counter); // Animate once only
+
+        // Fix: wait for AOS fade-in to finish (AOS duration = 800ms + delay)
+        // so the element is fully visible before we start counting
+        const aosParent = counter.closest("[data-aos]");
+        const aosDelay  = aosParent ? parseInt(aosParent.getAttribute("data-aos-delay") || "0", 10) : 0;
+        const aosDefer  = aosParent ? 850 + aosDelay : 0; // 800ms AOS duration + buffer
+
+        setTimeout(() => animateCounter(counter), aosDefer);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.1 });
 
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-});
+  counters.forEach(counter => observer.observe(counter));
+}
+
+// initCounters() is called from the main window load handler above

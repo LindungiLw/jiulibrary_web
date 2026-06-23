@@ -21,4 +21,21 @@ plan_update.MD
 .vscode/
 
 # File proxy AI / API — jangan di-push
-gemini-proxy.php
+gemini-proxy.php
+
+# Node.js — hanya dipakai untuk tools lokal (kompresi gambar dll), tidak perlu di-push
+node_modules/
+package.json
+package-lock.json
+
+# Gambar partnership lama (PNG) — sudah diganti dengan WebP yang lebih kecil
+assets/images/partnership/Digido.png
+assets/images/partnership/FKIP.png
+assets/images/partnership/FPPTI.png
+assets/images/partnership/Grammedia.png
+assets/images/partnership/HGU.png
+assets/images/partnership/ITSB.png
+assets/images/partnership/UBP.png
+assets/images/partnership/UINSSC.png
+assets/images/partnership/USK.png
+

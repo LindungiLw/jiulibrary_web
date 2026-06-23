@@ -44,14 +44,14 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/base.css?v=1.2" />
 
   <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
-  <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
+  <!-- Defer Non-Critical CSS for Mobile Speed -->
+  <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/style/stats-strip.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=2.1" />
   <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.7" />
   <link rel="stylesheet" href="assets/css/sections.css?v=2.4" />
-
   <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
   
@@ -422,28 +422,18 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
     </div>
     <div class="networking-canvas">
 
-      <!-- ROW 1 — scroll kanan ke kiri -->
+      <!-- ROW 1 — scroll kanan ke kiri (JS will auto-clone for seamless loop) -->
       <div class="marquee-track" aria-hidden="true">
-        <div class="marquee-inner marquee-left">
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png?v=2" alt="HGU" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png?v=2" alt="Digido" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png?v=2" alt="FKIP" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png?v=2" alt="FPPTI" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png?v=2" alt="Gramedia" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png?v=2" alt="USK" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png?v=2" alt="ITSB" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png?v=2" alt="UBP" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png?v=2" alt="UINSSC" /></div>
-          <!-- Duplicate for seamless loop -->
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png?v=2" alt="HGU" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png?v=2" alt="Digido" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png?v=2" alt="FKIP" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png?v=2" alt="FPPTI" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png?v=2" alt="Gramedia" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png?v=2" alt="USK" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png?v=2" alt="ITSB" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png?v=2" alt="UBP" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png?v=2" alt="UINSSC" /></div>
+        <div class="marquee-inner marquee-left" id="partner-logos-set">
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.webp" alt="HGU" width="150" height="80" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.webp" alt="Digido" width="150" height="80" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.webp" alt="FKIP" width="150" height="80" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.webp" alt="FPPTI" width="150" height="80" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.webp" alt="Gramedia" width="150" height="80" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.webp" alt="USK" width="150" height="80" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.webp" alt="ITSB" width="150" height="80" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.webp" alt="UBP" width="150" height="80" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.webp" alt="UINSSC" width="150" height="80" /></div>
         </div>
       </div>
 
