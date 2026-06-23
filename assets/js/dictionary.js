@@ -94,13 +94,28 @@ const dict = {
     // --- ANNOUNCEMENT SECTION ---
     annTitlePrefix: "Library",
     annTitleSuffix: "Announcements",
+    annSubtitle: "Stay informed with the latest official library updates.",
     annBtnViewAll: "View All Announcements",
     annEmpty: "No recent announcements at this time.",
     annBtnDetail: "View Detail",
 
+    // --- BLUEBOT WIDGET ---
+    botStatus: "Online & ready to help!",
+    botQRLabel: "Popular questions",
+    botQRHours: "Opening Hours",
+    botQRBorrow: "How to Borrow",
+    botQRFine: "Fines",
+    botQRWiFi: "WiFi",
+    botQROPAC: "OPAC",
+    botQRContact: "Contact Librarian",
+    botInputPh: "Type your question here...",
+    botTooltip: "Hi Buddy! 👋 How can I help?",
+    botWelcome: "I am BlueBot, the Dream Blue Library assistant. How can I help you today?",
+
     // --- NEWS SECTION ---
     newsTitlePrefix: "Library",
     newsTitleSuffix: "News & Articles",
+    newsSubtitle: "Catch up on the latest updates, events, and resources.",
     newsBtnViewAll: "View All News",
     newsEmpty: "No news published yet.",
     newsLibNews: "Library News",
@@ -230,17 +245,32 @@ const dict = {
     // --- ANNOUNCEMENT SECTION ---
     annTitlePrefix: "Pengumuman",
     annTitleSuffix: "Perpustakaan",
+    annSubtitle: "Tetap terinformasi dengan pembaruan resmi terbaru perpustakaan.",
     annBtnViewAll: "Lihat Semua Pengumuman",
     annEmpty: "Belum ada pengumuman terbaru saat ini.",
     annBtnDetail: "Lihat Detail",
 
     // --- NEWS SECTION ---
-    newsTitlePrefix: "Berita & Artikel",
-    newsTitleSuffix: "Perpustakaan",
+    newsTitlePrefix: "Berita",
+    newsTitleSuffix: "& Artikel",
+    newsSubtitle: "Simak pembaruan, acara, dan sumber daya terbaru.",
     newsBtnViewAll: "Lihat Semua Berita",
     newsEmpty: "Belum ada berita dipublikasikan.",
     newsLibNews: "Berita Perpustakaan",
     newsBtnRead: "Baca Selengkapnya",
+
+    // --- BLUEBOT WIDGET ---
+    botStatus: "Online & siap bantu!",
+    botQRLabel: "Pertanyaan populer",
+    botQRHours: "Jam Buka",
+    botQRBorrow: "Cara Pinjam",
+    botQRFine: "Denda",
+    botQRWiFi: "WiFi",
+    botQROPAC: "OPAC",
+    botQRContact: "Hubungi Pustakawan",
+    botInputPh: "Ketik pertanyaanmu di sini...",
+    botTooltip: "Hi Buddy! Ada yang bisa saya bantu? 👋",
+    botWelcome: "Saya BlueBot, asisten perpustakaan Dream Blue Library. Ada yang bisa saya bantu hari ini?",
 
     // --- NETWORK SECTION ---
     netTitlePrefix: "Jejaring",
@@ -316,6 +346,14 @@ function changeLanguage(lang, event) {
       } else {
         elem.innerText = dict[lang][key];
       }
+    }
+  });
+
+  // Handle placeholders
+  document.querySelectorAll("[data-i18n-ph]").forEach((elem) => {
+    const key = elem.getAttribute("data-i18n-ph");
+    if (dict[lang] && dict[lang][key]) {
+      elem.placeholder = dict[lang][key];
     }
   });
 

@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once 'config.php';
 require 'koneksi.php';
 $koneksi = getKoneksi();
 
@@ -13,13 +15,16 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Announcements - Dream Blue Library</title>
     <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
-
+    
+    <!-- Preload LCP Header Image for Maximum Speed -->
+    <link rel="preload" href="assets/images/header all-annoucment.jpg" as="image">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <link rel="stylesheet" href="assets/css/style/variable.css" />
     <link rel="stylesheet" href="assets/css/base.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/style/news-slider.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
@@ -27,25 +32,12 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
 
 <body>
 
-    <header class="site-header glass-nav">
-        <nav class="main-nav" style="justify-content: center">
-            <div class="nav-logo">
-                <a href="index.php" class="logo">
-                    <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
-                    <div class="logo-text" style="color: #1e3a8a">Dream Blue Library</div>
-                </a>
-            </div>
-        </nav>
-    </header>
+    <?php include 'navbar.php'; ?>
 
-    <header class="page-header">
+    <header class="page-header header-announcements">
         <div class="page-header-container">
-            <a href="index.php" class="btn-back-header">
-                <i class="fas fa-arrow-left"></i> Back to Home
-            </a>
-
-            <h1 class="page-title">Library <span style="color: #facc15;">News & Articles</span></h1>
-            <p class="page-subtitle">Catch up on the latest updates, events, and resources.</p>
+            <h1 class="page-title"><span data-i18n="annTitlePrefix">Library</span> <span style="color: #facc15;" data-i18n="annTitleSuffix">Announcements</span></h1>
+            <p class="page-subtitle" data-i18n="annSubtitle">Stay informed with the latest official library updates.</p>
         </div>
     </header>
 
@@ -80,7 +72,7 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
                         <div class="jiu-ann-hidden">
                             <div class="jiu-ann-date"><i class="far fa-calendar-alt"></i> <?= $tgl ?></div>
                             <p class="jiu-ann-desc"><?= $isi_pendek ?></p>
-                            <div class="jiu-ann-btn">View Detail <i class="fas fa-arrow-right"></i></div>
+                            <div class="jiu-ann-btn"><span data-i18n="annBtnDetail">View Detail</span> <i class="fas fa-arrow-right"></i></div>
                         </div>
                     </div>
                 </a>
@@ -88,10 +80,10 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
         <?php
             }
         } else {
-            echo "
-      <div style='grid-column: 1 / -1; text-align: center; padding: 50px; color: #64748b;'>
+            echo 
+            " <div style='grid-column: 1 / -1; text-align: center; padding: 50px; color: #64748b;'>
         <i class='fas fa-box-open' style='font-size: 3rem; margin-bottom: 15px; color:#cbd5e1;'></i>
-        <h2 style='color:#475569;'>Belum ada pengumuman</h2>
+        <h2 style='color:#475569;' data-i18n='annEmpty'>Belum ada pengumuman</h2>
       </div>";
         }
         ?>
@@ -100,9 +92,17 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
 
     <?php include 'footer.php'; ?>
 
-    <!-- Accessibility Widget -->
+    <!-- BlueBot & A11y Widgets -->
+    <?php include 'chatbot-widget.php'; ?>
     <?php include 'a11y-widget.php'; ?>
 
+    <!-- Scripts needed for navbar -->
+    <script>
+      window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
+    </script>
+    <script defer src="assets/js/dictionary.js?v=1.3"></script>
+    <script defer src="assets/js/main.js?v=2.0"></script>
+    <script defer src="assets/js/chatbot.js?v=1.8"></script>
 </body>
 
 </html>

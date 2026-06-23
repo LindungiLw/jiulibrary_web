@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once 'config.php';
 require 'koneksi.php';
 $koneksi = getKoneksi();
 
@@ -28,6 +30,7 @@ if ($ann) {
   <link rel="stylesheet" href="assets/css/style/variable.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/navbar.css" />
+  <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
   <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
   <style>
@@ -157,18 +160,7 @@ if ($ann) {
 </head>
 
 <body style="background-color: #f8fafc">
-  <header class="site-header" style="background: white; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)">
-    <nav class="main-nav" style="justify-content: center">
-      <div class="nav-logo">
-        <a href="index.php" class="logo">
-          <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
-          <div class="logo-text" style="color: #1e3a8a">
-            Dream Blue Library
-          </div>
-        </a>
-      </div>
-    </nav>
-  </header>
+  <?php include 'navbar.php'; ?>
 
   <main class="container">
     <div class="detail-container">
@@ -213,6 +205,20 @@ if ($ann) {
 
     </div>
   </main>
+
+  <?php include 'footer.php'; ?>
+
+  <!-- BlueBot & A11y Widgets -->
+  <?php include 'chatbot-widget.php'; ?>
+  <?php include 'a11y-widget.php'; ?>
+
+  <!-- Scripts needed for navbar -->
+  <script>
+    window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
+  </script>
+  <script defer src="assets/js/dictionary.js?v=1.3"></script>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/chatbot.js?v=1.8"></script>
 
 </body>
 

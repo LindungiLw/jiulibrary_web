@@ -173,12 +173,13 @@
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
+  gap: 8px; /* Menambah jarak antara ikon dan teks */
   margin-top: auto;
   transition: all 0.3s ease;
 }
 .jiu-news-btn i {
-  margin-left: 6px;
-  font-size: 0.8rem;
+  margin-right: 8px; /* Pastikan selalu ada jarak meskipun tanpa flex gap */
+  font-size: 0.95rem;
   transition: transform 0.3s ease;
 }
 .jiu-news-card:hover .jiu-news-btn {

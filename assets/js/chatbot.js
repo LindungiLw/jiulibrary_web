@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Tooltip ─────────────────────────────────────────────
     if (tooltip) {
         const getTooltipMessages = () => {
-            const lang = localStorage.getItem("preferredLang") || "en";
+            const lang = localStorage.getItem("library_lang") || "en";
             if (lang === 'en') {
                 return [
-                    "Hello, Buddy! 👋 How can I help?",
+                    dict["en"]["botTooltip"],
                     "Looking for a book? Ask me! 📚",
                     "Need info on hours or fines? Here! 😊",
                     "Don't forget to check our new collections! 🌟"
                 ];
             }
             return [
-                "Hallo, Buddy! 👋 Ada yang bisa dibantu?",
+                dict["id"]["botTooltip"],
                 "Cari buku? Yuk tanya aku! 📚",
                 "Butuh info jam buka atau denda? Sini! 😊",
                 "Jangan lupa cek koleksi terbaru! 🌟"
@@ -355,6 +355,26 @@ Jika tidak tahu, minta hubungi pustakawan WA 6281260173697. Jawab maks 3 kalimat
     };
 
     // ── Handle Chat ──────────────────────────────────────────
+    const getResponse = (input) => {
+        const lang = localStorage.getItem('library_lang') || 'en';
+        const responses = botResponses[lang] || botResponses.en;
+        
+        let cleaned = input.toLowerCase()
+            .replace(/[^\w\s]/g, '')
+            .trim();
+
+        // Cek exact match dulu
+        if (responses[cleaned]) return responses[cleaned];
+
+        // Cek partial match (keyword)
+        for (const [key, value] of Object.entries(responses)) {
+            if (key !== 'default' && cleaned.includes(key)) {
+                return value;
+            }
+        }
+        return responses['default'];
+    };
+
     const handleChat = async (messageText) => {
         const message = typeof messageText === 'string'
             ? messageText.trim()

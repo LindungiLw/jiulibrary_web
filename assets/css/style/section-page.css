@@ -16,28 +16,36 @@ body {
   transition: all 0.3s ease;
 }
 
-/* --- 2. HEADER DENGAN ANIMASI BACKGROUND --- */
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* --- 2. HEADER DENGAN BACKGROUND GAMBAR --- */
 .page-header {
-  padding: 80px 0 100px 0;
-  background: linear-gradient(-45deg, #0f172a, #1e3a8a, #2563eb, #0f172a);
-  background-size: 400% 400%;
-  animation: gradientMove 12s ease infinite;
+  padding: 150px 0 120px 0;
   text-align: center;
   color: white;
   position: relative;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+}
+
+/* Header Khusus Pengumuman (Melengkung) */
+.header-announcements {
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.15), rgba(15, 23, 42, 0.65)), url('../../images/header all-annoucment.jpg') center/cover no-repeat;
+  border-radius: 0 0 60px 60px;
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.15);
+}
+
+/* Header Khusus Berita (Lengkungan Masuk di Tengah) */
+.header-news {
+  background: linear-gradient(to bottom right, rgba(15, 23, 42, 0.15), rgba(30, 58, 138, 0.65)), url('../../images/header all-news.jpg') center/cover no-repeat;
+  position: relative;
+  /* Hapus box-shadow agar curve pseudo-element tidak terlihat aneh */
+}
+.header-news::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Hindari garis tipis */
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #f8fafc; /* Sama dengan warna body */
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
 .page-header-container {
@@ -47,39 +55,11 @@ body {
   position: relative;
 }
 
-.btn-back-header {
-  position: absolute;
-  left: 5%;
-  top: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 8px 20px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.btn-back-header:hover {
-  background: #facc15;
-  color: #0f172a;
-  border-color: #facc15;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(250, 204, 21, 0.4);
-}
-
 .page-title {
   font-size: 2.8rem;
   font-weight: 800;
   margin: 15px 0 10px 0;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
 }
 .page-subtitle {
   color: #fde047;
@@ -211,13 +191,22 @@ body {
   font-size: 0.9rem;
 }
 
+.jiu-ann-btn i {
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+.section-page-grid .jiu-ann-card:hover .jiu-ann-btn i {
+  transform: translateX(4px);
+}
+
 /* Responsif HP */
 @media (max-width: 768px) {
   .page-title {
     font-size: 2rem;
   }
   .page-header {
-    padding: 40px 0 60px 0;
+    padding: 110px 0 60px 0;
   }
   .section-page-grid {
     margin-top: -30px;

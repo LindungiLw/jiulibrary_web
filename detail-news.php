@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once 'config.php';
 require 'koneksi.php';
 $koneksi = getKoneksi();
 
@@ -22,6 +24,8 @@ if ($news) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= $news ? htmlspecialchars($news['judul']) : 'Not Found' ?> - JIU Library News</title>
     <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
 
     <!-- Load FontAwesome Asynchronously (Local) -->
     <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -157,14 +161,7 @@ if ($news) {
 </head>
 
 <body>
-    <header style="position: fixed; top:0; width:100%; background: white; z-index:1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-        <div style="max-width: 1050px; margin: 0 auto; padding: 15px 20px; display: flex; align-items: center; justify-content: center;">
-            <a href="index.php" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
-                <span style="font-weight: 800; color: #1e3a8a; font-size: 1.2rem;">Dream Blue Library</span>
-            </a>
-        </div>
-    </header>
+    <?php include 'navbar.php'; ?>
 
     <main>
         <div class="detail-container">
@@ -203,6 +200,19 @@ if ($news) {
 
         </div>
     </main>
+    <?php include 'footer.php'; ?>
+
+    <!-- BlueBot & A11y Widgets -->
+    <?php include 'chatbot-widget.php'; ?>
+    <?php include 'a11y-widget.php'; ?>
+
+    <!-- Scripts needed for navbar -->
+    <script>
+      window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
+    </script>
+    <script defer src="assets/js/dictionary.js?v=1.3"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/chatbot.js?v=1.8"></script>
 </body>
 
 </html>

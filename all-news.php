@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once 'config.php';
 require 'koneksi.php';
 $koneksi = getKoneksi();
 
@@ -14,40 +16,31 @@ $query_semua_berita = $koneksi->query("SELECT * FROM berita ORDER BY tanggal DES
     <title>All News & Articles - Dream Blue Library</title>
     <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
+    <!-- Preload LCP Header Image for Maximum Speed -->
+    <link rel="preload" href="assets/images/header all-news.jpg" as="image">
+
     <!-- Load FontAwesome Asynchronously (Local) -->
     <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="assets/css/all.min.css"></noscript>
 
     <link rel="stylesheet" href="assets/css/style/variable.css" />
-    <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/base.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
-    <link rel="stylesheet" href="assets/css/style/news-slider.css?v=1.1" />
-    <link rel="stylesheet" href="assets/css/style/section-page.css?v=1.1" />
-    <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/style/modal.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/style/news-slider.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
 
 </head>
 
 <body>
 
-    <header class="site-header glass-nav">
-        <nav class="main-nav" style="justify-content: center">
-            <div class="nav-logo">
-                <a href="index.php" class="logo">
-                    <img loading="lazy" src="assets/images/library-logo.webp" alt="JIU Library Logo" style="width: 40px; height: auto; object-fit: contain;" />
-                    <div class="logo-text" style="color: #1e3a8a">Dream Blue Library</div>
-                </a>
-            </div>
-        </nav>
-    </header>
+    <?php include 'navbar.php'; ?>
 
-    <header class="page-header">
+    <header class="page-header header-news">
         <div class="page-header-container">
-            <a href="index.php" class="btn-back-header">
-                <i class="fas fa-arrow-left"></i> Back to Home
-            </a>
-
-            <h1 class="page-title">Library <span style="color: #facc15;">News & Articles</span></h1>
-            <p class="page-subtitle">Catch up on the latest updates, events, and resources.</p>
+            <h1 class="page-title"><span data-i18n="newsTitlePrefix">Library</span> <span style="color: #facc15;" data-i18n="newsTitleSuffix">News & Articles</span></h1>
+            <p class="page-subtitle" data-i18n="newsSubtitle">Catch up on the latest updates, events, and resources.</p>
         </div>
     </header>
 
@@ -78,11 +71,11 @@ $query_semua_berita = $koneksi->query("SELECT * FROM berita ORDER BY tanggal DES
                             <?php if (!empty($row['kategori'])) { ?>
                                 <span><i class="fas fa-file-alt"></i> <?= htmlspecialchars($row['kategori']) ?></span>
                             <?php } else { ?>
-                                <span><i class="fas fa-newspaper"></i> Library News</span>
+                                <span><i class="fas fa-newspaper"></i> <span data-i18n="newsLibNews">Library News</span></span>
                             <?php } ?>
                         </div>
                         <div class="jiu-news-btn">
-                            <i class="fas fa-arrow-circle-right"></i> Read More
+                            <i class="fas fa-arrow-circle-right"></i> <span data-i18n="newsBtnRead">Read More</span>
                         </div>
                     </div>
                 </a>
@@ -93,8 +86,7 @@ $query_semua_berita = $koneksi->query("SELECT * FROM berita ORDER BY tanggal DES
             echo "
       <div style='text-align: center; grid-column: 1 / -1; padding: 50px;'>
         <i class='fas fa-folder-open' style='font-size: 3rem; color: #cbd5e1; margin-bottom: 15px;'></i>
-        <h3 style='color: #64748b;'>No News Available</h3>
-        <p style='color: #94a3b8;'>Belum ada berita yang diterbitkan saat ini.</p>
+        <h3 style='color: #64748b;' data-i18n='newsEmpty'>No News Available</h3>
       </div>";
         }
         ?>
@@ -102,6 +94,18 @@ $query_semua_berita = $koneksi->query("SELECT * FROM berita ORDER BY tanggal DES
     </main>
 
     <?php include 'footer.php'; ?>
+
+    <!-- BlueBot & A11y Widgets -->
+    <?php include 'chatbot-widget.php'; ?>
+    <?php include 'a11y-widget.php'; ?>
+
+    <!-- Scripts needed for navbar -->
+    <script>
+      window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
+    </script>
+    <script defer src="assets/js/dictionary.js?v=1.3"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/chatbot.js?v=1.8"></script>
 
 </body>
 
