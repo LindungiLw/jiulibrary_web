@@ -1,5 +1,9 @@
 <!-- Floating Actions (Back to Top & BlueBot Toggler) -->
-<link rel="preload" href="assets/css/chatbot.css?v=1.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<style id="fouc-prevention">
+  .chatbot-window:not(.active) { display: none !important; opacity: 0 !important; }
+  .floating-actions { display: none !important; }
+</style>
+<link rel="preload" href="assets/css/chatbot.css?v=1.0" as="style" onload="this.onload=null;this.rel='stylesheet'; document.getElementById('fouc-prevention').remove();">
 <noscript><link rel="stylesheet" href="assets/css/chatbot.css?v=1.0"></noscript>
   <div class="floating-actions">
     <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top"><i class="fas fa-arrow-up"></i></button>

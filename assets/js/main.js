@@ -231,21 +231,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const animateCounter = (counter) => {
     const target = +counter.getAttribute("data-target");
-    let count = 0;
-    // Animation duration = 5s. Frame interval ~16ms. Total frames ~312
-    const increment = target / 312;
+    if (!target) return;
+    
+    const duration = 2500; // 2.5 seconds
+    const startTime = performance.now();
 
-    const updateCount = () => {
-      count += increment;
-      if (count < target) {
-        // Use Indonesian locale to get dot separators (e.g. 5.642)
-        counter.innerText = Math.ceil(count).toLocaleString('id-ID'); 
+    const updateCount = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function (easeOutExpo) for a smooth slow-down at the end
+      const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const currentVal = Math.ceil(easeOut * target);
+      
+      counter.innerText = currentVal.toLocaleString('id-ID');
+      
+      if (progress < 1) {
         requestAnimationFrame(updateCount);
       } else {
         counter.innerText = target.toLocaleString('id-ID');
       }
     };
-    updateCount();
+    requestAnimationFrame(updateCount);
   };
 
   const observerOptions = {
