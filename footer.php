@@ -38,7 +38,7 @@
         <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
             <h4 data-i18n="ftrContact">Contact Us</h4>
             <ul class="contact-info">
-                <li><i class="fas fa-map-marker-alt"></i><span data-i18n="ftrAddress">Jl. Ganesha 2, Lot B1, Deltamas, Pasirranji, Central Cikarang, Bekasi Regency, West Java 17530</span></li>
+                <li><i class="fas fa-map-marker-alt" style="margin-top: 5px;"></i><a href="https://www.google.com/maps/search/?api=1&query=Jl.+Ganesha+2,+Lot+B1,+Deltamas,+Pasirranji,+Central+Cikarang,+Bekasi+Regency,+West+Java+17530" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#facc15'" onmouseout="this.style.color='inherit'"><span data-i18n="ftrAddress">Jl. Ganesha 2, Lot B1, Deltamas, Pasirranji, Central Cikarang, Bekasi Regency, West Java 17530</span></a></li>
                 <li><i class="fas fa-phone-alt"></i> <span>(021) 22157254</span></li>
                 <li><i class="fas fa-envelope"></i> <span>library@jiu.ac</span></li>
             </ul>

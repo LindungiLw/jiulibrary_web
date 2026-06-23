@@ -4,12 +4,12 @@
     <i class="fas fa-universal-access"></i>
   </button>
   <div class="a11y-menu">
-    <h4>Aksesibilitas Web</h4>
-    <button onclick="document.body.classList.toggle('a11y-high-contrast')"><i class="fas fa-adjust"></i> Kontras Tinggi</button>
-    <button onclick="document.body.classList.toggle('a11y-large-text')"><i class="fas fa-search-plus"></i> Perbesar Teks</button>
-    <button onclick="document.body.classList.toggle('a11y-dyslexia')"><i class="fas fa-font"></i> Mode Disleksia</button>
-    <button onclick="document.body.classList.toggle('a11y-highlight-links')"><i class="fas fa-link"></i> Sorot Tautan</button>
-    <button onclick="toggleTTS()" id="btn-tts"><i class="fas fa-volume-up"></i> Pembaca Suara (TTS)</button>
+    <h4 data-i18n="a11yTitle">Aksesibilitas Web</h4>
+    <button onclick="document.body.classList.toggle('a11y-high-contrast')"><i class="fas fa-adjust"></i> <span data-i18n="a11yHighContrast">Kontras Tinggi</span></button>
+    <button onclick="document.body.classList.toggle('a11y-large-text')"><i class="fas fa-search-plus"></i> <span data-i18n="a11yLargeText">Perbesar Teks</span></button>
+    <button onclick="document.body.classList.toggle('a11y-dyslexia')"><i class="fas fa-font"></i> <span data-i18n="a11yDyslexia">Mode Disleksia</span></button>
+    <button onclick="document.body.classList.toggle('a11y-highlight-links')"><i class="fas fa-link"></i> <span data-i18n="a11yHighlight">Sorot Tautan</span></button>
+    <button onclick="toggleTTS()" id="btn-tts"><i class="fas fa-volume-up"></i> <span data-i18n="a11yTTS">Pembaca Suara (TTS)</span></button>
   </div>
 </div>
 
@@ -18,11 +18,18 @@
   function toggleTTS() {
     ttsEnabled = !ttsEnabled;
     const btn = document.getElementById('btn-tts');
+    let currentLang = localStorage.getItem("preferredLang") || "en";
+    
     if(ttsEnabled) {
       btn.style.background = '#1e3a8a';
       btn.style.color = '#ffffff';
       document.body.style.cursor = 'help';
-      alert('Fitur Pembaca Suara (Text-to-Speech) Aktif!\nKlik pada teks apa saja di layar untuk mendengarkannya.');
+      
+      if (currentLang === 'id') {
+          alert('Fitur Pembaca Suara (Text-to-Speech) Aktif!\nKlik pada teks apa saja di layar untuk mendengarkannya.');
+      } else {
+          alert('Text-to-Speech Feature Active!\nClick on any text on the screen to hear it.');
+      }
     } else {
       btn.style.background = '';
       btn.style.color = '';
@@ -52,7 +59,8 @@
     if(text && text.trim().length > 0) {
       text = text.trim().substring(0, 500); 
       let utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'id-ID'; // Bahasa Indonesia
+      let currentLang = localStorage.getItem("preferredLang") || "en";
+      utterance.lang = currentLang === 'id' ? 'id-ID' : 'en-US';
       
       // Efek visual menyorot teks yang dibaca
       let originalBg = e.target.style.backgroundColor;

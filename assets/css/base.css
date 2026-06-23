@@ -143,7 +143,7 @@ body.a11y-high-contrast {
 body.a11y-large-text {
   zoom: 1.1;
 }
-body.a11y-dyslexia * {
+body.a11y-dyslexia *:not(i):not(.fa):not(.fas):not(.fab):not(.far) {
   font-family: 'Comic Sans MS', 'OpenDyslexic', sans-serif !important;
   letter-spacing: 0.15em !important;
   word-spacing: 0.3em !important;

@@ -420,11 +420,7 @@
 /* AI thinking state */
 .chat-input button.loading {
   pointer-events: none;
-  opacity: 0.7;
-  animation: spin 1s linear infinite;
-}
-@keyframes spin {
-  to { transform: rotate(360deg); }
+  opacity: 0.6;
 }
 
 /* --- Responsive --- */

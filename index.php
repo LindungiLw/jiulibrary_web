@@ -576,7 +576,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
               <div class="feat-icon-box bg-soft-blue-dark">
                 <i class="fas fa-layer-group text-blue-dark"></i>
               </div>
-              <span data-i18n="videoFeat3">Card Games (Truth or Dare, etc)</span>
+              <span data-i18n="videoFeat3">Healing Corner (Card Game, Chess, Puzzle etc)</span>
             </li>
           </ul>
         </div>
@@ -585,7 +585,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
         <div class="video-player-side">
           <div class="video-frame">
             <div class="youtube-wrapper">
-              <iframe src="https://www.youtube.com/embed/6JL5vO379yM?si=CLF5Fta2MvOBRki4&rel=0" title="The Heart Of Knowledge: Dream Blue Library" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/6JL5vO379yM?si=CLF5Fta2MvOBRki4&rel=0" title="The Heart Of Knowledge: Dream Blue Library" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
         </div>
@@ -835,45 +835,6 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
     });
   </script>
 
-  <!-- Script for Animated Counters (Data Visualization) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const counters = document.querySelectorAll('.counter');
-      const speed = 200; // Semakin kecil semakin cepat
-
-      const animateCounters = () => {
-        counters.forEach(counter => {
-          const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const inc = target / speed;
-
-            if (count < target) {
-              counter.innerText = Math.ceil(count + inc);
-              setTimeout(updateCount, 20);
-            } else {
-              counter.innerText = target.toLocaleString('id-ID'); // Format angka ribuan
-            }
-          };
-          updateCount();
-        });
-      };
-
-      // Trigger animasi saat hero section terlihat
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounters();
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      const statsSection = document.querySelector('.stats-strip-section');
-      if (statsSection) observer.observe(statsSection);
-    });
-  </script>
-
   <!-- BlueBot Chatbot Window -->
   <?php
     $chat_user_name    = isset($_SESSION['user_name'])    ? htmlspecialchars($_SESSION['user_name'])    : 'Kamu';
@@ -925,7 +886,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <!-- Accessibility Widget -->
   <?php include 'a11y-widget.php'; ?>
   <script defer src="assets/js/chatbot.js?v=1.8"></script>
-  <script src="assets/js/main.js?v=2.0"></script>
+  <script defer src="assets/js/main.js?v=2.0"></script>
 </body>
 
 </html>

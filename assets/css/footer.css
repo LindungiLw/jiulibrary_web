@@ -1,7 +1,7 @@
 .main-footer {
   background-color: var(--clr-blue-1);
   color: white;
-  padding: 5rem 5% 2rem;
+  padding: 1.5rem 5% 2rem;
 
   font-family: var(--font-primary, "Poppins", sans-serif) !important;
   text-align: left !important;

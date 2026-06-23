@@ -86,9 +86,9 @@ const dict = {
     mqExplore: "Explore Our Spaces",
     mqBorrow: "Digital & Physical Borrowing",
     videoDesc: "Join our virtual tour to explore exciting activities at Dream Blue Library—from finding books via OPAC and storing your belongings securely, to unwinding in our gaming area.",
-    videoFeat1: "OPAC (Koha) Smart Search",
+    videoFeat1: "OPAC Catalog",
     videoFeat2: "Easy Book Borrowing",
-    videoFeat3: "Card Games (Truth or Dare, etc)",
+    videoFeat3: "Healing Corner (Card Game, Chess, Puzzle etc)",
 
     // --- ANNOUNCEMENT SECTION ---
     annTitlePrefix: "Library",
@@ -124,6 +124,14 @@ const dict = {
     ftrAddress:
       "Jl. Ganesha 2, Lot B1, Deltamas, Pasirranji, Central Cikarang, Bekasi Regency, West Java 17530",
     ftrCopyright: "All rights reserved.",
+
+    // --- ACCESSIBILITY WIDGET ---
+    a11yTitle: "Web Accessibility",
+    a11yHighContrast: "High Contrast",
+    a11yLargeText: "Large Text",
+    a11yDyslexia: "Dyslexia Mode",
+    a11yHighlight: "Highlight Links",
+    a11yTTS: "Text-to-Speech (TTS)",
   },
 
   id: {
@@ -213,9 +221,9 @@ const dict = {
     mqExplore: "Jelajahi Ruangan Kami",
     mqBorrow: "Peminjaman Digital & Fisik",
     videoDesc: "Ikuti tur virtual kami untuk menjelajahi berbagai aktivitas seru di Dream Blue Library—mulai dari mencari buku lewat OPAC dan menyimpan barang dengan aman, hingga bersantai di area hiburan kami.",
-    videoFeat1: "Pencarian Cerdas OPAC (Koha)",
+    videoFeat1: "OPAC Katalog",
     videoFeat2: "Peminjaman Buku Praktis",
-    videoFeat3: "Main Kartu (Truth or Dare, dll)",
+    videoFeat3: "Healing Corner (Card Game, Chess, Puzzle dll)",
 
     // --- ANNOUNCEMENT SECTION ---
     annTitlePrefix: "Pengumuman",
@@ -251,6 +259,14 @@ const dict = {
     ftrAddress:
       "Jl. Ganesha 2, Lot B1, Deltamas, Pasirranji, Cikarang Pusat, Kab. Bekasi, Jawa Barat 17530",
     ftrCopyright: "Hak cipta dilindungi.",
+
+    // --- ACCESSIBILITY WIDGET ---
+    a11yTitle: "Aksesibilitas Web",
+    a11yHighContrast: "Kontras Tinggi",
+    a11yLargeText: "Perbesar Teks",
+    a11yDyslexia: "Mode Disleksia",
+    a11yHighlight: "Sorot Tautan",
+    a11yTTS: "Pembaca Suara (TTS)",
   },
 };
 

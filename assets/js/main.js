@@ -232,8 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const animateCounter = (counter) => {
     const target = +counter.getAttribute("data-target");
     let count = 0;
-    // Animation duration ~6s. Frame interval ~16ms. Total frames ~360
-    const increment = target / 360;
+    // Animation duration = 5s. Frame interval ~16ms. Total frames ~312
+    const increment = target / 312;
 
     const updateCount = () => {
       count += increment;
