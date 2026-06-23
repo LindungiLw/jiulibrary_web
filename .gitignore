@@ -19,3 +19,6 @@ Thumbs.db
 plan_update.MD
 
 .vscode/
+
+# File proxy AI / API — jangan di-push
+gemini-proxy.php
