@@ -54,7 +54,6 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
 
   <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
-  <link rel="stylesheet" href="assets/css/chatbot.css?v=1.5" />
   
   <!-- Script Google Identity Services untuk SSO -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -463,7 +462,6 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <script defer src="assets/js/news.js?v=1.1"></script>
   <script defer src="assets/js/announcements.js?v=1.1"></script>
   <script defer src="assets/js/search.js?v=2.1"></script>
-  <script defer src="assets/js/main.js?v=1.6"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var swiperAnnouncements = new Swiper(".swiper-announcements", {

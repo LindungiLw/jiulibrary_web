@@ -1,5 +1,6 @@
 <!-- Floating Actions (Back to Top & BlueBot Toggler) -->
-<link rel="stylesheet" href="assets/css/chatbot.css?v=<?php echo time(); ?>" />
+<link rel="preload" href="assets/css/chatbot.css?v=1.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/css/chatbot.css?v=1.0"></noscript>
   <div class="floating-actions">
     <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top"><i class="fas fa-arrow-up"></i></button>
     <button class="chatbot-toggler" title="Tanya BlueBot">
