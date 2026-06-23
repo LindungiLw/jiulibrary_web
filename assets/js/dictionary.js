@@ -5,6 +5,7 @@ const dict = {
     btnGuest: "Guest",
     btnMember: "Member",
     btnLogout: "Logout",
+    btnProfile: "My Profile",
     btnLogin: "Sign In",
     modLoginFooterDesc: "Please log in using your institutional Google account. Public email addresses are not permitted.",
 
@@ -140,6 +141,7 @@ const dict = {
     btnGuest: "Tamu",
     btnMember: "Anggota",
     btnLogout: "Keluar",
+    btnProfile: "Profil Saya",
     btnLogin: "Masuk",
     modLoginFooterDesc: "Silakan masuk menggunakan akun Google institusi Anda. Akses tidak diizinkan untuk email publik.",
 

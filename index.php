@@ -732,25 +732,25 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
       <!-- ROW 1 — scroll kanan ke kiri -->
       <div class="marquee-track" aria-hidden="true">
         <div class="marquee-inner marquee-left">
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png" alt="HGU" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png" alt="Digido" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png" alt="FKIP" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png" alt="FPPTI" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png" alt="Gramedia" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png" alt="USK" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png" alt="ITSB" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png" alt="UBP" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png" alt="UINSSC" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png?v=2" alt="HGU" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png?v=2" alt="Digido" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png?v=2" alt="FKIP" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png?v=2" alt="FPPTI" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png?v=2" alt="Gramedia" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png?v=2" alt="USK" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png?v=2" alt="ITSB" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png?v=2" alt="UBP" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png?v=2" alt="UINSSC" /></div>
           <!-- Duplicate for seamless loop -->
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png" alt="HGU" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png" alt="Digido" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png" alt="FKIP" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png" alt="FPPTI" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png" alt="Gramedia" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png" alt="USK" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png" alt="ITSB" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png" alt="UBP" /></div>
-          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png" alt="UINSSC" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/HGU.png?v=2" alt="HGU" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Digido.png?v=2" alt="Digido" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FKIP.png?v=2" alt="FKIP" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/FPPTI.png?v=2" alt="FPPTI" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/Grammedia.png?v=2" alt="Gramedia" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/USK.png?v=2" alt="USK" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/ITSB.png?v=2" alt="ITSB" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UBP.png?v=2" alt="UBP" /></div>
+          <div class="partner-logo"><img loading="lazy" src="assets/images/partnership/UINSSC.png?v=2" alt="UINSSC" /></div>
         </div>
       </div>
 
@@ -772,7 +772,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <script>
     window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
   </script>
-  <script defer src="assets/js/dictionary.js?v=1.2"></script>
+  <script defer src="assets/js/dictionary.js?v=1.3"></script>
   <script defer src="assets/js/news.js?v=1.1"></script>
   <script defer src="assets/js/announcements.js?v=1.1"></script>
   <script defer src="assets/js/search.js?v=2.1"></script>
