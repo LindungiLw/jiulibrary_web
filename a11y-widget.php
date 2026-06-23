@@ -32,6 +32,14 @@
   }
 
   document.addEventListener('click', function(e) {
+    // 1. Close a11y menu if clicked outside
+    const a11yWidget = document.querySelector('.a11y-widget');
+    const a11yMenu = document.querySelector('.a11y-menu');
+    if (a11yWidget && !a11yWidget.contains(e.target)) {
+      a11yMenu.classList.remove('show');
+    }
+
+    // 2. TTS Logic
     if(!ttsEnabled) return;
     
     // Jangan bacakan klik pada widget aksesibilitas

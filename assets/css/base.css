@@ -56,14 +56,17 @@ body {
   position: absolute;
   bottom: 60px;
   left: 0;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 200px;
+  gap: 8px;
+  width: 220px;
   transform: scale(0);
   transform-origin: bottom left;
   opacity: 0;
@@ -88,30 +91,49 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* Open on hover for desktop */
+@media (hover: hover) {
+  .a11y-widget:hover .a11y-menu {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 .a11y-menu h4 {
-  margin: 0 0 10px 0;
-  font-size: 1rem;
-  color: #1e3a8a;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 5px;
+  margin: 0 0 12px 0;
+  font-size: 1.05rem;
+  color: #0f172a;
+  font-weight: 700;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 8px;
 }
 .a11y-menu button {
-  background: #f8fafc;
-  border: 1px solid #cbd5e1;
-  padding: 8px;
-  border-radius: 6px;
+  background: transparent;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
   cursor: pointer;
   text-align: left;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #334155;
+  color: #475569;
   display: flex;
   align-items: center;
-  gap: 10px;
-  transition: 0.2s;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+.a11y-menu button i {
+  font-size: 1rem;
+  color: #3b82f6;
+  width: 20px;
+  text-align: center;
 }
 .a11y-menu button:hover {
-  background: #e2e8f0;
+  background: #f1f5f9;
+  color: #1e3a8a;
+  transform: translateX(4px);
 }
 
 /* A11y Modes */

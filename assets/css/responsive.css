@@ -1,79 +1,438 @@
-html,
-body {
+/* ============================================================
+   RESPONSIVE MASTER — Dream Blue Library
+   Breakpoints:
+     xs  : < 480px   (HP kecil)
+     sm  : < 768px   (HP biasa / tablet portrait)
+     md  : < 992px   (Tablet landscape)
+     lg  : < 1200px  (Laptop kecil)
+     xl  : < 1400px  (Laptop)
+     2xl : >= 1400px (Desktop besar)
+   ============================================================ */
+
+/* --- Global prevent horizontal scroll --- */
+html, body {
   overflow-x: hidden;
   width: 100%;
 }
 
-@media (max-width: 1350px) {
-  .nav-links-list {
-    gap: 0.5rem !important;
-  }
-  .nav-links-list > li > a,
-  .dropbtn {
-    font-size: 0.85rem !important;
-    padding: 0.5rem 0.6rem !important;
-  }
-  .logo-text {
-    font-size: 0.9rem !important;
-  }
-  .logo-text span {
-    font-size: 0.65rem !important;
-  }
-  .btn-search-pill {
-    padding: 0.4rem 0.8rem !important;
-    font-size: 0.8rem !important;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+/* ────────────────────────────────────────────────────────────
+   XL : Laptop ≤ 1400px
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 1400px) {
+  .video-presentation-container,
+  .networking-section,
+  .announcement-section .section-header,
+  .footer-container,
+  .footer-bottom {
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 
-
-@media (max-width: 768px) {
-  .top-bar {
-    flex-direction: column;
-    gap: 0.8rem;
-    padding: 0.8rem 5%;
-    text-align: center;
+/* ────────────────────────────────────────────────────────────
+   LG : Laptop kecil ≤ 1200px
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  /* Navbar */
+  .nav-links-list {
+    gap: 0.4rem !important;
+  }
+  .nav-links-list > li > a,
+  .dropbtn {
+    font-size: 0.82rem !important;
+    padding: 0.45rem 0.55rem !important;
+  }
+  .logo-text {
+    font-size: 0.88rem !important;
+  }
+  .logo-text span {
+    font-size: 0.63rem !important;
+  }
+  .btn-search-pill {
+    padding: 0.4rem 0.75rem !important;
+    font-size: 0.78rem !important;
   }
 
+  /* Hero */
+  .hero-content h1 {
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+  }
+
+  /* Chatbot window position */
+  .chatbot-window {
+    right: 100px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   MD : Tablet landscape ≤ 992px
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  /* News grid */
+  .j-news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer grid */
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem;
+  }
+
+  /* Video section */
+  .video-presentation-section {
+    background: #eff6ff;
+    padding: 60px 0;
+  }
+  .video-content-flex {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .video-text-side,
+  .video-player-side {
+    flex: unset;
+    width: 100%;
+  }
+  .video-title-main {
+    font-size: 2.6rem;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Stats strip */
+  .stats-strip {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .stat-item {
+    flex: 1 1 40%;
+    min-width: 120px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   SM : Tablet portrait / HP biasa ≤ 768px
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* ─── Navbar ─── */
+  .top-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.7rem 5%;
+    text-align: center;
+  }
   .top-bar-left {
     flex-wrap: wrap;
     justify-content: center;
-    font-size: 0.75rem;
-    line-height: 1.5;
+    font-size: 0.72rem;
   }
   .top-bar-right {
     justify-content: center;
     width: 100%;
   }
-
   .main-nav {
-    padding: 0.8rem 5%;
+    padding: 0.7rem 5%;
   }
-
   .nav-logo {
     min-width: 0;
   }
-
   .logo img {
-    height: 35px;
+    height: 34px;
   }
-
   .logo-text {
-    font-size: 0.85rem !important;
-    padding-left: 0.5rem;
+    font-size: 0.8rem !important;
+    padding-left: 0.4rem;
     white-space: normal !important;
     line-height: 1.2;
   }
-
   .logo-text span {
     display: none !important;
   }
-
   .nav-actions-right {
     flex: none;
   }
 
-  .footer-container {
+  /* ─── Hero ─── */
+  .hero-full-bg {
+    height: 65vh;
+    min-height: 400px;
+  }
+  .hero-content {
+    padding: 0 5%;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.6rem, 6vw, 2.6rem);
+  }
+  .hero-content p {
+    font-size: 1rem;
+    margin-bottom: 1.4rem;
+  }
+  .hero-badge {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.8rem;
+  }
+  .slider-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+  .prev-arrow { left: 12px; }
+  .next-arrow { right: 12px; }
+
+  /* ─── Sections ─── */
+  .section-title {
+    font-size: 1.65rem;
+    margin-bottom: 1.5rem;
+  }
+  .announcement-section {
+    padding: 50px 0;
+  }
+  .bg-blue-section {
+    padding: 50px 0;
+  }
+
+  /* ─── News ─── */
+  .j-news-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .j-news-grid {
     grid-template-columns: 1fr;
+  }
+  .j-img-box {
+    height: 190px;
+  }
+
+  /* ─── Partners ─── */
+  .networking-canvas {
+    padding: 2rem 0;
+  }
+  .partner-logo {
+    width: 110px !important;
+    height: 48px !important;
+  }
+
+  /* ─── Video ─── */
+  .video-presentation-section {
+    padding: 50px 0;
+  }
+  .video-title-main {
+    font-size: 2rem;
+  }
+  .video-title-sub {
+    font-size: 1.1rem;
+  }
+  .video-description {
+    font-size: 0.95rem;
+  }
+  .video-marquee-content {
+    font-size: 0.95rem;
+  }
+
+  /* ─── Stats ─── */
+  .stat-item {
+    flex: 1 1 45%;
+  }
+
+  /* ─── Footer ─── */
+  .footer-container {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem;
+    text-align: center !important;
+  }
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-col ul li,
+  .contact-info li {
+    justify-content: center;
     text-align: center;
+  }
+  .social-links {
+    justify-content: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+  .legal-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ─── Floating Actions ─── */
+  .floating-actions {
+    bottom: 20px;
+    right: 20px;
+    gap: 10px;
+  }
+  .whatsapp-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+  #backToTopBtn {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* ─── A11y Widget ─── */
+  .a11y-widget {
+    left: 14px;
+    bottom: 18px;
+  }
+  .a11y-toggler {
+    width: 44px;
+    height: 44px;
+    font-size: 1.15rem;
+  }
+
+  /* ─── Chatbot ─── */
+  .chatbot-toggler {
+    width: 62px;
+    height: 62px;
+  }
+  .chatbot-window {
+    width: calc(100vw - 24px);
+    right: 12px;
+    bottom: 90px;
+    border-radius: 20px;
+  }
+  .chatbox {
+    height: 260px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   XS : HP kecil ≤ 480px
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+
+  /* Hero */
+  .hero-full-bg {
+    height: 58vh;
+    min-height: 360px;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+  }
+  .hero-content p {
+    font-size: 0.88rem;
+  }
+
+  /* Section title */
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  /* News card */
+  .j-img-box {
+    height: 165px;
+  }
+
+  /* Stats — 1 kolom */
+  .stat-item {
+    flex: 1 1 100%;
+  }
+
+  /* Footer */
+  .footer-container {
+    gap: 1.4rem;
+  }
+
+  /* Video */
+  .video-title-main {
+    font-size: 1.7rem;
+  }
+  .video-title-sub {
+    font-size: 1rem;
+  }
+  .video-feature-list li {
+    font-size: 0.9rem;
+  }
+  .feat-icon-box {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  /* Quick replies chatbot */
+  .quick-reply-btn {
+    font-size: 0.76rem;
+    padding: 6px 11px;
+  }
+
+  /* Chatbot full width */
+  .chatbot-window {
+    width: calc(100vw - 16px);
+    right: 8px;
+    bottom: 82px;
+  }
+  .chatbot-toggler {
+    width: 56px;
+    height: 56px;
+  }
+  .chatbox {
+    height: 240px;
+  }
+
+  /* Floating actions lebih kecil */
+  .floating-actions {
+    bottom: 15px;
+    right: 14px;
+    gap: 8px;
+  }
+  .whatsapp-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.4rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   XXS : HP sangat kecil ≤ 360px
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.3rem;
+  }
+  .chatbot-window {
+    width: calc(100vw - 12px);
+    right: 6px;
+    border-radius: 16px;
+  }
+  .logo-text {
+    font-size: 0.72rem !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   Large Desktop ≥ 1400px — Constrain content width
+   ──────────────────────────────────────────────────────────── */
+@media (min-width: 1400px) {
+  .footer-container,
+  .footer-bottom,
+  .announcement-section .section-header,
+  .video-presentation-container {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

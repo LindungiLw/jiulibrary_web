@@ -80,6 +80,16 @@ const dict = {
     modRmNoteText:
       "Room usage is based on a 'First Come, First Served' system.",
 
+    // --- VIDEO SECTION ---
+    mqWelcome: "Welcome to Dream Blue Library",
+    mqHeart: "The Heart of Knowledge",
+    mqExplore: "Explore Our Spaces",
+    mqBorrow: "Digital & Physical Borrowing",
+    videoDesc: "Join our virtual tour to explore exciting activities at Dream Blue Library—from finding books via OPAC and storing your belongings securely, to unwinding in our gaming area.",
+    videoFeat1: "OPAC (Koha) Smart Search",
+    videoFeat2: "Easy Book Borrowing",
+    videoFeat3: "Card Games (Truth or Dare, etc)",
+
     // --- ANNOUNCEMENT SECTION ---
     annTitlePrefix: "Library",
     annTitleSuffix: "Announcements",
@@ -105,7 +115,7 @@ const dict = {
       "Integrated digital library to support research and learning at JIU.",
     ftrScanQR: "Scan to access",
     ftrQuickLinks: "Quick Links",
-    ftrCatalog: "(OPAC)",
+    ftrCatalog: "OPAC",
     ftrFAQ: "FAQ",
     ftrExternalLinks: "External Links",
     ftrMainCampus: "JIU Website",
@@ -197,6 +207,16 @@ const dict = {
     modRmNoteText:
       "Penggunaan ruangan berdasarkan sistem 'Siapa Cepat, Dia Dapat'.",
 
+    // --- VIDEO SECTION ---
+    mqWelcome: "Selamat Datang di Dream Blue Library",
+    mqHeart: "Jantung Pengetahuan",
+    mqExplore: "Jelajahi Ruangan Kami",
+    mqBorrow: "Peminjaman Digital & Fisik",
+    videoDesc: "Ikuti tur virtual kami untuk menjelajahi berbagai aktivitas seru di Dream Blue Library—mulai dari mencari buku lewat OPAC dan menyimpan barang dengan aman, hingga bersantai di area hiburan kami.",
+    videoFeat1: "Pencarian Cerdas OPAC (Koha)",
+    videoFeat2: "Peminjaman Buku Praktis",
+    videoFeat3: "Main Kartu (Truth or Dare, dll)",
+
     // --- ANNOUNCEMENT SECTION ---
     annTitlePrefix: "Pengumuman",
     annTitleSuffix: "Perpustakaan",
@@ -222,7 +242,7 @@ const dict = {
       "Perpustakaan digital terintegrasi untuk mendukung penelitian dan pembelajaran di JIU.",
     ftrScanQR: "Scan untuk akses",
     ftrQuickLinks: "Tautan Cepat",
-    ftrCatalog: "(OPAC)",
+    ftrCatalog: "OPAC",
     ftrFAQ: "FAQ",
     ftrExternalLinks: "Tautan Eksternal",
     ftrMainCampus: "Website JIU",

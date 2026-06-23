@@ -21,7 +21,7 @@
         <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
             <h4 data-i18n="ftrQuickLinks">Quick Links</h4>
             <ul>
-                <li><a href="http://lib.jiu.ac/" data-i18n="ftrCatalog">(OPAC)</a></li>
+                <li><a href="http://lib.jiu.ac/" data-i18n="ftrCatalog">OPAC</a></li>
                 <li><a href="fqa.html" data-i18n="ftrFAQ">FAQ</a></li>
             </ul>
         </div>

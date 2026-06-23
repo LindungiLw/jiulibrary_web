@@ -186,3 +186,213 @@
     flex-wrap: wrap;
   }
 }
+
+/* ════════════════════════════════════════════════════════════
+   VIDEO PRESENTATION SECTION
+   ════════════════════════════════════════════════════════════ */
+.video-presentation-section {
+  padding: 40px 0; /* Reduced padding */
+  /* Split background: 50% very light blue left, 50% white right */
+  background: linear-gradient(to right, #eff6ff 0%, #eff6ff 50%, #ffffff 50%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* MARQUEE SCROLLING TEXT */
+.video-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: transparent;
+  border-top: 1px solid rgba(37, 99, 235, 0.15);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+  color: #1e3a8a;
+  padding: 15px 0;
+  margin-bottom: 50px;
+  display: flex;
+  white-space: nowrap;
+}
+
+.video-marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 50s linear infinite;
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px; /* Crucial for seamless connection to next track */
+}
+
+.marquee-track span {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.85;
+}
+
+.marquee-track .separator {
+  color: #facc15; /* Yellow dot */
+  font-style: normal;
+  font-size: 1.2rem;
+  opacity: 1;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.video-presentation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.video-content-flex {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Left Side: Text */
+.video-text-side {
+  flex: 0.8; /* Takes 40% width */
+}
+
+.video-title-main {
+  font-family: var(--font-primary, 'Poppins', sans-serif);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.video-title-sub {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.video-description {
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 35px;
+  max-width: 95%;
+}
+
+.video-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.video-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.feat-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease;
+}
+
+.video-feature-list li:hover .feat-icon-box {
+  transform: translateY(-3px);
+}
+
+.bg-soft-blue { background-color: #dbeafe; }
+.text-blue { color: #2563eb; }
+
+.bg-soft-yellow { background-color: #fef9c3; }
+.text-yellow { color: #ca8a04; }
+
+.bg-soft-blue-dark { background-color: #e0e7ff; }
+.text-blue-dark { color: #4338ca; }
+
+.koha-logo-mask {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  background-color: currentColor;
+  -webkit-mask: url('../images/koha-logo.png') no-repeat center / contain;
+  mask: url('../images/koha-logo.png') no-repeat center / contain;
+}
+
+/* Right Side: Video */
+.video-player-side {
+  flex: 1.2; /* Takes 60% width */
+  position: relative;
+}
+
+.video-frame {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.youtube-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.youtube-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .video-presentation-section {
+    background: #eff6ff; /* Solid background for mobile */
+    padding: 60px 0;
+  }
+  .video-content-flex {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .video-title-main {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-presentation-section {
+    padding: 50px 0;
+  }
+  .video-title-main {
+    font-size: 2.2rem;
+  }
+  .video-title-sub {
+    font-size: 1.2rem;
+  }
+}

@@ -89,22 +89,22 @@
   overflow: visible; /* To let the badge overlap the bottom edge */
 }
 
+.jiu-ann-img-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+
 .jiu-ann-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 16px 16px 0 0;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* We need to clip the image overflow for scale effect but allow the badge to pop out, so we use an inner wrapper or just don't scale the image. Let's wrap the image in another overflow hidden box */
-.jiu-ann-img-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 16px 16px 0 0;
-  overflow: hidden;
-  z-index: 1;
+.jiu-ann-card:hover .jiu-ann-img {
+  transform: scale(1.08);
 }
 
 .jiu-ann-category-badge {
@@ -152,16 +152,40 @@
 }
 
 .jiu-ann-desc {
-  font-family: var(--font-primary, "Poppins", sans-serif);
-  font-size: 0.9rem;
   color: #64748b;
-  margin: 0;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 15px 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ─── Read More Button ─── */
+.jiu-ann-btn {
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.jiu-ann-btn i {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.jiu-ann-card:hover .jiu-ann-btn {
+  color: #1d4ed8;
+}
+
+.jiu-ann-card:hover .jiu-ann-btn i {
+  transform: translateX(4px);
 }
 
 /* RESPONSIVE */

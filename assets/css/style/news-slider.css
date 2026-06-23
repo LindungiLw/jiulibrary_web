@@ -10,6 +10,38 @@
   max-width: 1200px; 
   margin: 0 auto;
   padding: 0 5%;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- BACKGROUND GRAPHICS --- */
+.news-bg-graphics {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.graphic-icon {
+  position: absolute;
+  color: #ffffff;
+  opacity: 0.04;
+}
+
+.g-icon-1 { top: -5%; left: 2%; font-size: 16rem; transform: rotate(-15deg); }
+.g-icon-2 { top: 35%; right: -5%; font-size: 26rem; transform: rotate(15deg); opacity: 0.03; }
+.g-icon-3 { bottom: 5%; left: 25%; font-size: 12rem; transform: rotate(25deg); opacity: 0.02; }
+.g-icon-4 { top: 15%; left: 50%; font-size: 14rem; transform: rotate(-10deg); opacity: 0.03; }
+.g-icon-5 { bottom: -10%; right: 20%; font-size: 20rem; transform: rotate(-20deg); }
+.g-icon-6 { top: 60%; left: -8%; font-size: 22rem; transform: rotate(30deg); opacity: 0.03; }
+
+.koha-img-white {
+  filter: brightness(0) invert(1);
+  width: 1em;
+  height: auto;
 }
 
 /* --- VIEW ALL BUTTON (PILL YELLOW) --- */

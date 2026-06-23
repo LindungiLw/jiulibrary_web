@@ -207,7 +207,9 @@
   overflow: visible;
 }
 
-.search-wrapper.active {
+.search-wrapper.active,
+.search-wrapper:hover,
+.search-wrapper:focus-within {
   width: 280px;
   background: #ffffff;
   border-radius: 25px;
@@ -228,12 +230,22 @@
   visibility: hidden;
 }
 
-.search-wrapper.active input {
+.search-wrapper.active input,
+.search-wrapper:hover input,
+.search-wrapper:focus-within input {
   width: 100%;
   padding: 0 10px 0 15px;
   opacity: 1;
   visibility: visible;
   color: var(--clr-blue-1);
+}
+
+@media (max-width: 576px) {
+  .search-wrapper.active,
+  .search-wrapper:hover,
+  .search-wrapper:focus-within {
+    width: 200px;
+  }
 }
 
 .btn-search-icon-only {
@@ -273,6 +285,11 @@
   scroll-behavior: smooth;
   padding: 6px;
   box-sizing: border-box;
+}
+
+/* Force hide results when wrapper shrinks */
+.search-wrapper:not(.active):not(:hover):not(:focus-within) .nav-search-results {
+  display: none !important;
 }
 
 /* Scrollbar inside results */

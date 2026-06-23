@@ -41,20 +41,20 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
 
   <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
-  <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/base.css?v=1.2" />
 
-  <link rel="stylesheet" href="assets/css/navbar.css?v=2.1" />
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
   <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
   <link rel="stylesheet" href="assets/css/style/stats-strip.css?v=1.1" />
-  <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=2.0" />
-  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.5" />
-  <link rel="stylesheet" href="assets/css/sections.css?v=1.4" />
+  <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=2.1" />
+  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.7" />
+  <link rel="stylesheet" href="assets/css/sections.css?v=2.4" />
 
   <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
-  <link rel="stylesheet" href="assets/css/responsive.css?v=2.0" />
-  <link rel="stylesheet" href="assets/css/chatbot.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
+  <link rel="stylesheet" href="assets/css/chatbot.css?v=1.5" />
   
   <!-- Script Google Identity Services untuk SSO -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -514,6 +514,86 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
     </div>
   </section>
 
+  <!-- ═══ VIDEO PRESENTATION SECTION ═══════════════════════════════════════════════ -->
+  <section class="video-presentation-section">
+    
+    <!-- Marquee Banner -->
+    <div class="video-marquee-container">
+      <div class="video-marquee-content">
+        <!-- Track 1 -->
+        <div class="marquee-track">
+          <span><span data-i18n="mqWelcome">Welcome to Dream Blue Library</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqHeart">The Heart of Knowledge</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqExplore">Explore Our Spaces</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqBorrow">Digital & Physical Borrowing</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqWelcome">Welcome to Dream Blue Library</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqHeart">The Heart of Knowledge</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqExplore">Explore Our Spaces</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqBorrow">Digital & Physical Borrowing</span></span><span class="separator">✦</span>
+        </div>
+        <!-- Track 2 (Seamless clone) -->
+        <div class="marquee-track" aria-hidden="true">
+          <span><span data-i18n="mqWelcome">Welcome to Dream Blue Library</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqHeart">The Heart of Knowledge</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqExplore">Explore Our Spaces</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqBorrow">Digital & Physical Borrowing</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqWelcome">Welcome to Dream Blue Library</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqHeart">The Heart of Knowledge</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqExplore">Explore Our Spaces</span></span><span class="separator">✦</span>
+          <span><span data-i18n="mqBorrow">Digital & Physical Borrowing</span></span><span class="separator">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-presentation-container" data-aos="fade-up">
+      <div class="video-content-flex">
+        
+        <!-- Left Side: Text -->
+        <div class="video-text-side">
+          <h2 class="video-title-main" style="margin-bottom: 15px;">
+            The Heart of<br>Knowledge
+          </h2>
+          <h3 class="video-title-sub" style="margin-bottom: 25px; color: var(--clr-blue-1, #1e3a8a); font-weight: 500;">
+            Dream Blue Library
+          </h3>
+          <p class="video-description" data-i18n="videoDesc" style="margin-bottom: 30px;">
+            Join our virtual tour to explore exciting activities at Dream Blue Library from finding books via OPAC and storing your belongings securely, to unwinding in our gaming area.
+          </p>
+          <ul class="video-feature-list">
+            <li>
+              <div class="feat-icon-box bg-soft-blue">
+                <span class="text-blue" style="font-family: Georgia, serif; font-weight: bold; font-size: 1.4rem;">K</span>
+              </div>
+              <span data-i18n="videoFeat1">OPAC</span>
+            </li>
+            <li>
+              <div class="feat-icon-box bg-soft-yellow">
+                <i class="fas fa-book-reader text-yellow"></i>
+              </div>
+              <span data-i18n="videoFeat2">Easy Book Borrowing</span>
+            </li>
+            <li>
+              <div class="feat-icon-box bg-soft-blue-dark">
+                <i class="fas fa-layer-group text-blue-dark"></i>
+              </div>
+              <span data-i18n="videoFeat3">Card Games (Truth or Dare, etc)</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Right Side: Video -->
+        <div class="video-player-side">
+          <div class="video-frame">
+            <div class="youtube-wrapper">
+              <iframe src="https://www.youtube.com/embed/6JL5vO379yM?si=CLF5Fta2MvOBRki4&rel=0" title="The Heart Of Knowledge: Dream Blue Library" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section id="announcements" class="announcement-section">
     <div class="ann-container">
 
@@ -540,15 +620,25 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
               
               $isi_pendek = substr(strip_tags($row['isi']), 0, 90) . '...';
               $kategori = !empty($row['kategori']) ? htmlspecialchars($row['kategori']) : 'Announcement';
+              $delay = 100 + ($i * 100);
           ?>
-              <a href="detail-announcement.php?id=<?= $row['id'] ?>" class="jiu-ann-card">
+              <a href="detail-announcement.php?id=<?= $row['id'] ?>" class="jiu-ann-card" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
                 <div class="jiu-ann-img-wrapper">
-                  <img loading="lazy" src="<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>" class="jiu-ann-img" />
+                  <div class="jiu-ann-img-inner">
+                    <img loading="lazy" src="<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>" class="jiu-ann-img" />
+                  </div>
                   <span class="jiu-ann-category-badge"><?= $kategori ?></span>
                 </div>
                 <div class="jiu-ann-content">
                   <h3 class="jiu-ann-title"><?= htmlspecialchars($row['judul']) ?></h3>
                   <p class="jiu-ann-desc"><?= $isi_pendek ?></p>
+                  
+                  <!-- Spacer to push Read More to bottom -->
+                  <div style="flex-grow: 1;"></div>
+                  
+                  <div class="jiu-ann-btn">
+                    Read More <i class="fas fa-arrow-right"></i>
+                  </div>
                 </div>
               </a>
           <?php
@@ -563,7 +653,17 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
     </div>
   </section>
 
-  <section id="news" class="bg-blue-section">
+  <section id="news" class="bg-blue-section" style="overflow: hidden;">
+    <!-- Abstract Background Graphics -->
+    <div class="news-bg-graphics">
+      <i class="fas fa-book graphic-icon g-icon-1"></i>
+      <span class="graphic-icon g-icon-2" style="font-family: Georgia, serif; font-weight: bold; line-height: 1;">K</span>
+      <i class="fas fa-laptop graphic-icon g-icon-3"></i>
+      <i class="fas fa-search graphic-icon g-icon-4"></i>
+      <i class="fas fa-book-open graphic-icon g-icon-5"></i>
+      <i class="fas fa-bookmark graphic-icon g-icon-6"></i>
+    </div>
+
     <div class="news-container">
       <div class="news-header-flex">
         <div class="news-header-left">
@@ -672,7 +772,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <script>
     window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
   </script>
-  <script defer src="assets/js/dictionary.js?v=1.1"></script>
+  <script defer src="assets/js/dictionary.js?v=1.2"></script>
   <script defer src="assets/js/news.js?v=1.1"></script>
   <script defer src="assets/js/announcements.js?v=1.1"></script>
   <script defer src="assets/js/search.js?v=2.1"></script>
@@ -775,41 +875,56 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   </script>
 
   <!-- BlueBot Chatbot Window -->
-  <div class="chatbot-window">
+  <?php
+    $chat_user_name    = isset($_SESSION['user_name'])    ? htmlspecialchars($_SESSION['user_name'])    : 'Kamu';
+    $chat_user_picture = isset($_SESSION['user_picture']) ? htmlspecialchars($_SESSION['user_picture']) : '';
+    $chat_logged_in    = isset($_SESSION['user_status']) && $_SESSION['user_status'] === 'login';
+  ?>
+  <div class="chatbot-window"
+       data-user-name="<?php echo $chat_user_name; ?>"
+       data-user-picture="<?php echo $chat_user_picture; ?>"
+       data-logged-in="<?php echo $chat_logged_in ? 'true' : 'false'; ?>">
     <div class="chatbot-header">
-      <div class="chatbot-status">
-        <h3><img loading="lazy" src="assets/images/bluebot_mascot.webp" width="28" height="28" alt="BlueBot" style="width:28px; height:28px; object-fit:contain;"> BlueBot Assistant</h3>
-        <span>Online</span>
+      <div class="chatbot-header-info">
+        <div class="chatbot-header-avatar">
+          <img loading="lazy" src="assets/images/bluebot_mascot.webp" alt="BlueBot">
+        </div>
+        <div class="chatbot-header-text">
+          <h3>BlueBot Assistant</h3>
+          <span class="bot-status">Online &amp; siap bantu!</span>
+        </div>
       </div>
       <span class="close-btn"><i class="fas fa-times"></i></span>
     </div>
     <div class="chatbox">
       <div class="chat-msg bot">
-        <div class="msg-avatar" style="background:transparent;"><img loading="lazy" src="assets/images/bluebot_mascot.webp" width="30" height="30" alt="Bot" style="width:100%; height:100%; object-fit:contain;"></div>
+        <div class="msg-avatar" style="background:transparent;"><img loading="lazy" src="assets/images/bluebot_mascot.webp" alt="Bot" style="width:100%;height:100%;object-fit:contain;"></div>
         <div class="msg-wrapper">
-          <div class="msg-text">Halo! Saya BlueBot. Ada yang bisa saya bantu hari ini?</div>
-          <div class="msg-time">Online</div>
+          <div class="msg-text">Hallo, <?php echo $chat_logged_in ? $chat_user_name : 'Buddy'; ?>! 👋 Saya BlueBot, asisten perpustakaan Dream Blue Library. Ada yang bisa saya bantu hari ini?</div>
+          <div class="msg-time">Sekarang</div>
         </div>
       </div>
     </div>
     <div class="quick-replies-container">
+      <div class="quick-replies-label">Pertanyaan populer</div>
       <div class="quick-replies">
-        <span class="quick-reply-btn">Jam Buka</span>
-        <span class="quick-reply-btn">Cara Pinjam</span>
-        <span class="quick-reply-btn">OPAC</span>
-        <span class="quick-reply-btn">Hubungi Admin</span>
+        <span class="quick-reply-btn">🕗 Jam Buka</span>
+        <span class="quick-reply-btn">📚 Cara Pinjam</span>
+        <span class="quick-reply-btn">💸 Denda</span>
+        <span class="quick-reply-btn">📶 WiFi</span>
+        <span class="quick-reply-btn">🖥️ OPAC</span>
+        <span class="quick-reply-btn">💬 Hubungi Pustakawan</span>
       </div>
     </div>
     <div class="chat-input">
-      <input type="text" placeholder="Tulis pesan..." required />
+      <input type="text" placeholder="Ketik pertanyaanmu di sini..." required />
       <button><i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
 
   <!-- Accessibility Widget -->
   <?php include 'a11y-widget.php'; ?>
-
-  <script defer src="assets/js/chatbot.js?v=1.1"></script>
+  <script defer src="assets/js/chatbot.js?v=1.8"></script>
   <script src="assets/js/main.js?v=2.0"></script>
 </body>
 
