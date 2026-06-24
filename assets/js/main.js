@@ -51,31 +51,35 @@ function initHeroSlider() {
 
 
 const backToTopBtn = document.getElementById("backToTopBtn");
+const siteHeader   = document.querySelector(".site-header");
 
-if (backToTopBtn) {
-  window.addEventListener("scroll", () => {
-    if (
-      document.body.scrollTop > 300 ||
-      document.documentElement.scrollTop > 300
-    ) {
-      backToTopBtn.style.display = "flex";
-    } else {
-      backToTopBtn.style.display = "none";
-    }
-  });
+// ── Throttled scroll handler (1 listener, 1 RAF per frame) ──────────────
+// Prevents hundreds of redundant calls on mobile during fast scroll
+let scrollTicking = false;
+
+function handleScroll() {
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+  // Back-to-top button
+  if (backToTopBtn) {
+    backToTopBtn.style.display = scrollY > 300 ? "flex" : "none";
+  }
+
+  // Sticky header style
+  if (siteHeader) {
+    siteHeader.classList.toggle("scrolled", scrollY > 150);
+  }
+
+  scrollTicking = false;
 }
 
-// Add scrolled class to header
 window.addEventListener("scroll", () => {
-  const header = document.querySelector(".site-header");
-  if (header) {
-    if (window.scrollY > 150) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
+  if (!scrollTicking) {
+    requestAnimationFrame(handleScroll);
+    scrollTicking = true;
   }
-});
+}, { passive: true });
+
 
 function scrollToTop() {
   window.scrollTo({
@@ -84,10 +88,29 @@ function scrollToTop() {
   });
 }
 
+// ── YouTube Facade: muat iframe hanya saat diklik ─────────────────────────
+// Menghindari ~10 request YouTube (API, tracking, dll) saat halaman pertama dibuka
+function loadYouTube(el) {
+  const videoId = el.getAttribute("data-videoid");
+  if (!videoId) return;
+
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  iframe.title = el.getAttribute("aria-label") || "YouTube Video";
+  iframe.setAttribute("frameborder", "0");
+  iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+  iframe.setAttribute("allowfullscreen", "");
+  iframe.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;border:0;";
+
+  // Ganti facade dengan iframe
+  el.parentNode.replaceChild(iframe, el);
+  iframe.focus();
+}
+
 
 function initNetworkingSlider() {
-  const inner = document.querySelector(".marquee-inner");
-  const track = document.querySelector(".marquee-track");
+  const inner = document.querySelector("#networking .marquee-inner");
+  const track = document.querySelector("#networking .marquee-track");
   if (!inner || !track) return;
 
   // ── Auto-clone for seamless loop (replaces HTML duplicates) ───────
@@ -96,39 +119,43 @@ function initNetworkingSlider() {
   clone.setAttribute("aria-hidden", "true");
   clone.removeAttribute("id");
 
-  // Wrap both sets in a single flex container (one translateX = seamless)
+  // Wrap both sets in a single flex container → one translateX moves both
   const wrapper = document.createElement("div");
   wrapper.style.cssText = "display:flex;flex-wrap:nowrap;will-change:transform;";
-  // Move inner into wrapper, then append clone
   track.appendChild(wrapper);
   wrapper.appendChild(inner);
   wrapper.appendChild(clone);
 
   inner.style.animation = "none";
   clone.style.animation = "none";
-  track.style.cursor = "grab";
-  track.style.overflow = "hidden";
+  track.style.cursor    = "grab";
+  track.style.overflow  = "hidden";
 
   // ── State ──────────────────────────────────────────────────────────
   let pos        = 0;
-  const speed    = 0.6;        // ~36px/s at 60fps
+  const speed    = 0.6;   // ~36px/s at 60fps
   let extraVel   = 0;
   const friction = 0.92;
   let rafId      = null;
   let isVisible  = true;
-
   let isDragging = false;
   let lastDragX  = 0;
+  let setWidth   = 0;
 
-  let setWidth = 0;
-  function getSetWidth() {
-    setWidth = inner.scrollWidth;  // width of ONE set
+  function measureWidth() {
+    setWidth = inner.scrollWidth; // width of ONE set (clone is the second)
   }
-  window.addEventListener("load", () => {
-    getSetWidth();
-    startRAF();
+
+  // ── Fix: measure AFTER one frame so layout is settled ─────────────
+  // (Cannot use window load here — it already fired when we're called)
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {      // 2 frames = layout + paint settled
+      measureWidth();
+      startRAF();
+    });
   });
-  window.addEventListener("resize", getSetWidth);
+
+  window.addEventListener("resize", measureWidth);
 
   // ── Animation loop (pauses when section off-screen → saves mobile CPU) ──
   function tick() {
@@ -143,7 +170,7 @@ function initNetworkingSlider() {
     rafId = requestAnimationFrame(tick);
   }
 
-  function startRAF() { if (!rafId && isVisible) rafId = requestAnimationFrame(tick); }
+  function startRAF() { if (!rafId && isVisible && setWidth > 0) rafId = requestAnimationFrame(tick); }
   function stopRAF()  { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
 
   // Pause when section scrolled off-screen → saves battery on mobile
@@ -187,7 +214,7 @@ function initNetworkingSlider() {
 }
 
 
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   if (typeof AOS !== "undefined") {
     AOS.init({ duration: 800, once: true });
   }
@@ -241,7 +268,7 @@ function initCounters() {
     // Reset to 0 first (in case it already showed a number)
     counter.innerText = "0";
 
-    const duration = 2000; // 2 seconds
+    const duration = 1000; // 1 second (faster counting)
     const startTime = performance.now();
 
     const updateCount = (currentTime) => {

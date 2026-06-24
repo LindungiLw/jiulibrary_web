@@ -51,7 +51,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/style/stats-strip.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=2.1" />
   <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.7" />
-  <link rel="stylesheet" href="assets/css/sections.css?v=2.4" />
+  <link rel="stylesheet" href="assets/css/sections.css?v=2.5" />
   <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
   
@@ -278,7 +278,21 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
         <div class="video-player-side">
           <div class="video-frame">
             <div class="youtube-wrapper">
-              <iframe src="https://www.youtube.com/embed/6JL5vO379yM?si=CLF5Fta2MvOBRki4&rel=0" title="The Heart Of Knowledge: Dream Blue Library" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <!-- YouTube Facade: thumbnail ditampilkan dulu, iframe dimuat saat diklik -->
+              <!-- Hemat ~500KB+ resource YouTube saat halaman pertama dibuka di mobile -->
+              <div class="yt-facade" id="yt-facade-main"
+                   data-videoid="6JL5vO379yM"
+                   onclick="loadYouTube(this)"
+                   role="button" tabindex="0"
+                   aria-label="Play video: The Heart Of Knowledge - Dream Blue Library"
+                   onkeydown="if(event.key==='Enter'||event.key===' ') loadYouTube(this)">
+                <img src="https://i.ytimg.com/vi/6JL5vO379yM/hqdefault.jpg"
+                     alt="The Heart Of Knowledge: Dream Blue Library"
+                     loading="lazy" width="480" height="360" />
+                <button class="yt-play-btn" aria-hidden="true" tabindex="-1">
+                  <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7c-.8-2.9-3-5.2-5.8-6C55.8 0 34 0 34 0S12.2 0 7.3 1.7C4.6 2.5 2.3 4.8 1.5 7.7 0 12.8 0 24 0 24s0 11.2 1.5 16.3c.8 2.9 3 5.2 5.8 6C12.2 48 34 48 34 48s21.8 0 26.7-1.7c2.8-.8 5-3.1 5.8-6C68 35.2 68 24 68 24S68 12.8 66.5 7.7z" fill="#ff0000"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -515,7 +529,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <?php include 'chatbot-widget.php'; ?>
   <?php include 'a11y-widget.php'; ?>
   <script defer src="assets/js/chatbot.js?v=1.8"></script>
-  <script defer src="assets/js/main.js?v=2.0"></script>
+  <script defer src="assets/js/main.js?v=2.1"></script>
 </body>
 
 </html>
