@@ -1,16 +1,39 @@
+<?php
+session_start();
+require_once 'config.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>History - Dream Blue Library</title>
-    <link rel="stylesheet" href="assets/css/about.css" />
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    
+    <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/base.css?v=1.2" />
+    <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
+    <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
+    <link rel="stylesheet" href="assets/css/about.css" />
+    
+    <!-- Google Identity Services untuk SSO -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
+    <?php include 'navbar.php'; ?>
+
     <header class="about-header">
       <div class="container">
         <h1>History of the Library</h1>
@@ -98,12 +121,20 @@
       </div>
     </section>
 
-    <footer class="history-footer">
-      <div class="container">
-        <a href="index.php" class="back-btn"
-          ><i class="fas fa-arrow-left"></i> Back to Home</a
-        >
-      </div>
-    </footer>
+    <!-- Hapus back button custom lama agar tidak berantakan dengan footer utama -->
+
+    <?php include 'footer.php'; ?>
+    
+    <!-- BlueBot & A11y Widgets -->
+    <?php include 'chatbot-widget.php'; ?>
+    <?php include 'a11y-widget.php'; ?>
+
+    <!-- Scripts -->
+    <script>
+      window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
+    </script>
+    <script defer src="assets/js/dictionary.js?v=1.3"></script>
+    <script defer src="assets/js/main.js?v=2.0"></script>
+    <script defer src="assets/js/chatbot.js?v=1.8"></script>
   </body>
 </html>
