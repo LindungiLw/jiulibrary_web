@@ -190,11 +190,11 @@
                 <div class="simple-vertical-menu">
                   <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] == "login"): ?>
                     <?php if ($_SESSION['user_role'] == 'JIU Member'): ?>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSequLLEem6oikEgpUQxwsZSQjbN9wMpn-K96_ExIxjjV9mMFg/viewform?usp=sharing&ouid=111410603355060184073" class="service-item" data-i18n="subPaper">Research Paper</a>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfz138cLSHqkzgde63u_6HxphErBC-vvKiaFY5JMkQeQfFLzw/viewform?usp=sharing&ouid=111410603355060184073" class="service-item" data-i18n="subThesis">Thesis</a>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3blcJpmcKfrIzAv6FzvAQFfeAugnh1Gj79nqQYDH56eHa1g/viewform?usp=sharing&ouid=111410603355060184073" class="service-item" data-i18n="subProject">Final Project</a>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5YMD97SgI2wSRKuBJ9X6fwxTRuzfm4E7SOa92aCmIql7WVQ/viewform?usp=sharing&ouid=111410603355060184073" class="service-item" data-i18n="subIntern">Internship Report</a>
-                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdijIME3IRl3eK7bGUIwJiSVRisf6zGXSIQR1rSMqhCY4DF0w/viewform" class="service-item" data-i18n="subPortfolio">Portfolio</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSequLLEem6oikEgpUQxwsZSQjbN9wMpn-K96_ExIxjjV9mMFg/viewform?usp=sharing" target="_blank" class="service-item" data-i18n="subPaper">Research Paper</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfz138cLSHqkzgde63u_6HxphErBC-vvKiaFY5JMkQeQfFLzw/viewform?usp=sharing" target="_blank" class="service-item" data-i18n="subThesis">Thesis</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3blcJpmcKfrIzAv6FzvAQFfeAugnh1Gj79nqQYDH56eHa1g/viewform?usp=sharing" target="_blank" class="service-item" data-i18n="subProject">Final Project</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5YMD97SgI2wSRKuBJ9X6fwxTRuzfm4E7SOa92aCmIql7WVQ/viewform?usp=sharing" target="_blank" class="service-item" data-i18n="subIntern">Internship Report</a>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdijIME3IRl3eK7bGUIwJiSVRisf6zGXSIQR1rSMqhCY4DF0w/viewform" target="_blank" class="service-item" data-i18n="subPortfolio">Portfolio</a>
                     <?php else: ?>
                       <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subPaper">Research Paper</a>
                       <a href="javascript:alert('Access Denied: Only JIU Members can submit documents.')" class="service-item" data-i18n="subThesis">Thesis</a>

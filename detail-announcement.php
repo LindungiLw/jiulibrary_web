@@ -27,21 +27,23 @@ if ($ann) {
   <!-- Load FontAwesome Asynchronously (Local) -->
   <link rel="preload" href="assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="assets/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="assets/css/style/variable.css" />
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/navbar.css" />
+  <link rel="stylesheet" href="assets/css/fonts.css" />
+  <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/base.css?v=1.2" />
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
   <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
+  <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
   <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
   <style>
     .detail-container {
-      max-width: 1050px;
+      max-width: 1100px;
       margin: 120px auto 50px auto;
-      padding: 40px;
+      padding: 50px;
       background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-
+      border-radius: 24px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
     }
 
     .back-btn {
@@ -60,37 +62,39 @@ if ($ann) {
       transform: translateX(-5px);
     }
 
-
     .detail-layout {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 50px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       .detail-layout {
         flex-direction: row;
         align-items: flex-start;
       }
     }
 
-
     .detail-image-wrapper {
-      flex: 0 0 380px;
+      flex: 0 0 45%;
+      max-width: 480px;
       width: 100%;
       position: sticky;
       top: 100px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
     }
 
     .detail-image {
       width: 100%;
       height: auto;
-      max-height: 450px;
-      object-fit: contain;
-      border-radius: 12px;
-      background-color: #f8fafc;
-      padding: 5px;
-      border: 1px solid #e2e8f0;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .detail-image-wrapper:hover .detail-image {
+      transform: scale(1.04);
     }
 
     .detail-text-wrapper {
@@ -98,12 +102,12 @@ if ($ann) {
     }
 
     .detail-category {
-      background: #eff6ff;
-      color: #1e3a8a;
-      padding: 6px 16px;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 6px 14px;
       border-radius: 6px;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       display: inline-block;
@@ -111,23 +115,24 @@ if ($ann) {
     }
 
     .detail-title {
+      font-family: 'Georgia', serif;
       font-size: 2.8rem;
-      font-weight: 800;
+      font-weight: 700;
       color: #0f172a;
       margin-bottom: 15px;
-      line-height: 1.2;
+      line-height: 1.25;
       letter-spacing: -0.5px;
     }
 
     .simple-meta {
       color: #64748b;
-      font-size: 1rem;
+      font-size: 0.95rem;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #f1f5f9;
     }
 
     .simple-meta i {
@@ -136,10 +141,28 @@ if ($ann) {
     }
 
     .detail-content {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: #334155;
       line-height: 1.8;
       white-space: pre-wrap;
+      text-align: justify;
+    }
+
+    /* Reading Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 9999;
+    }
+    .progress-bar {
+      height: 4px;
+      background: linear-gradient(to right, #3b82f6, #0ea5e9);
+      width: 0%;
+      transition: width 0.1s ease-out;
     }
 
     .btn-error-back {
@@ -156,10 +179,32 @@ if ($ann) {
     .btn-error-back:hover {
       background: #152c66;
     }
+
+    @media (max-width: 768px) {
+      .detail-container {
+        padding: 30px 20px;
+        margin-top: 100px;
+        border-radius: 20px;
+      }
+      .detail-title {
+        font-size: 2.2rem;
+      }
+      .detail-image-wrapper {
+        position: static;
+        max-width: 100%;
+      }
+      .detail-layout {
+        gap: 30px;
+      }
+    }
   </style>
 </head>
 
 <body style="background-color: #f8fafc">
+  <div class="progress-container">
+    <div class="progress-bar" id="readingProgressBar"></div>
+  </div>
+
   <?php include 'navbar.php'; ?>
 
   <main class="container">
@@ -220,6 +265,14 @@ if ($ann) {
   <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/chatbot.js?v=1.8"></script>
 
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      document.getElementById('readingProgressBar').style.width = progress + '%';
+    });
+  </script>
 </body>
 
 </html>

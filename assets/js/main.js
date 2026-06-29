@@ -9,7 +9,7 @@ if (mobileMenu && navLinks) {
 
 function toggleDropdown(event, menuId) {
   event.preventDefault();
-  
+
   // Desktop mengandalkan CSS :hover murni, klik JS hanya untuk versi mobile
   if (window.innerWidth >= 992) return;
 
@@ -51,7 +51,7 @@ function initHeroSlider() {
 
 
 const backToTopBtn = document.getElementById("backToTopBtn");
-const siteHeader   = document.querySelector(".site-header");
+const siteHeader = document.querySelector(".site-header");
 
 // ── Throttled scroll handler (1 listener, 1 RAF per frame) ──────────────
 // Prevents hundreds of redundant calls on mobile during fast scroll
@@ -128,19 +128,19 @@ function initNetworkingSlider() {
 
   inner.style.animation = "none";
   clone.style.animation = "none";
-  track.style.cursor    = "grab";
-  track.style.overflow  = "hidden";
+  track.style.cursor = "grab";
+  track.style.overflow = "hidden";
 
   // ── State ──────────────────────────────────────────────────────────
-  let pos        = 0;
-  const speed    = 0.6;   // ~36px/s at 60fps
-  let extraVel   = 0;
+  let pos = 0;
+  const speed = 0.6;   // ~36px/s at 60fps
+  let extraVel = 0;
   const friction = 0.92;
-  let rafId      = null;
-  let isVisible  = true;
+  let rafId = null;
+  let isVisible = true;
   let isDragging = false;
-  let lastDragX  = 0;
-  let setWidth   = 0;
+  let lastDragX = 0;
+  let setWidth = 0;
 
   function measureWidth() {
     setWidth = inner.scrollWidth; // width of ONE set (clone is the second)
@@ -171,7 +171,7 @@ function initNetworkingSlider() {
   }
 
   function startRAF() { if (!rafId && isVisible && setWidth > 0) rafId = requestAnimationFrame(tick); }
-  function stopRAF()  { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+  function stopRAF() { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
 
   // Pause when section scrolled off-screen → saves battery on mobile
   const section = document.getElementById("networking");
@@ -187,14 +187,14 @@ function initNetworkingSlider() {
   // ── Drag helpers ──────────────────────────────────────────────────
   function onDragStart(x) {
     isDragging = true;
-    lastDragX  = x;
-    extraVel   = 0;
+    lastDragX = x;
+    extraVel = 0;
     track.style.cursor = "grabbing";
   }
   function onDragMove(x) {
     if (!isDragging) return;
     dragDelta = x - lastDragX;
-    extraVel  = dragDelta;
+    extraVel = dragDelta;
     lastDragX = x;
   }
   function onDragEnd() {
@@ -205,12 +205,12 @@ function initNetworkingSlider() {
   // ── Mouse events ──────────────────────────────────────────────────
   track.addEventListener("mousedown", (e) => { e.preventDefault(); onDragStart(e.clientX); });
   window.addEventListener("mousemove", (e) => { if (isDragging) onDragMove(e.clientX); });
-  window.addEventListener("mouseup",   ()  => { if (isDragging) onDragEnd(); });
+  window.addEventListener("mouseup", () => { if (isDragging) onDragEnd(); });
 
   // ── Touch events ──────────────────────────────────────────────────
   track.addEventListener("touchstart", (e) => { onDragStart(e.touches[0].clientX); }, { passive: true });
-  track.addEventListener("touchmove",  (e) => { onDragMove(e.touches[0].clientX);  }, { passive: true });
-  track.addEventListener("touchend",   onDragEnd);
+  track.addEventListener("touchmove", (e) => { onDragMove(e.touches[0].clientX); }, { passive: true });
+  track.addEventListener("touchend", onDragEnd);
 }
 
 
@@ -301,8 +301,8 @@ function initCounters() {
         // Fix: wait for AOS fade-in to finish (AOS duration = 800ms + delay)
         // so the element is fully visible before we start counting
         const aosParent = counter.closest("[data-aos]");
-        const aosDelay  = aosParent ? parseInt(aosParent.getAttribute("data-aos-delay") || "0", 10) : 0;
-        const aosDefer  = aosParent ? 850 + aosDelay : 0; // 800ms AOS duration + buffer
+        const aosDelay = aosParent ? parseInt(aosParent.getAttribute("data-aos-delay") || "0", 10) : 0;
+        const aosDefer = aosParent ? 850 + aosDelay : 0; // 800ms AOS duration + buffer
 
         setTimeout(() => animateCounter(counter), aosDefer);
       }
