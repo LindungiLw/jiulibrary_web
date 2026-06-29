@@ -35,56 +35,75 @@
   z-index: 1;
 }
 
-/* Vision Box */
-.vision-box {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, #172554 100%);
-  color: white;
-  padding: 60px 50px;
-  border-radius: 24px;
+/* Utilities */
+.align-items-stretch {
+  align-items: stretch;
+}
+.mb-50 {
+  margin-bottom: 50px;
+}
+.no-margin {
+  margin-bottom: 0 !important;
+}
+
+/* Vision Box Typographic */
+.vision-box.typographic {
+  background: transparent;
+  color: var(--primary-blue);
+  padding: 30px 40px;
   text-align: center;
-  margin-bottom: 60px;
-  box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.vision-box::before {
-  content: '"';
+.vision-box.typographic::before {
+  content: 'VISION';
   position: absolute;
-  top: -10px;
-  left: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 8rem;
-  color: rgba(255, 255, 255, 0.05);
-  font-family: Georgia, serif;
-  line-height: 1;
+  color: rgba(30, 58, 138, 0.04);
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.vision-icon {
-  font-size: 3rem;
-  color: var(--accent-yellow);
-  margin-bottom: 20px;
-  display: inline-block;
-  background: rgba(255,255,255,0.1);
-  width: 90px;
-  height: 90px;
-  line-height: 90px;
-  border-radius: 50%;
-}
-
-.vision-box h2 {
+.vision-box.typographic h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  margin-bottom: 25px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
-.vision-box p {
-  font-size: 1.25rem;
-  line-height: 1.8;
-  font-weight: 300;
-  max-width: 800px;
+.vision-box.typographic h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--accent-yellow);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.vision-box.typographic p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #1e293b;
+  max-width: 900px;
   margin: 0 auto;
-  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
 }
 
 /* Core Box (Mission, Goals, Targets) */

@@ -45,17 +45,17 @@ require_once 'config.php';
 
     <section class="vm-section">
       <div class="container">
-        <div class="vision-box" data-aos="zoom-in">
-          <i class="fas fa-eye vision-icon"></i>
-          <h2>Vision</h2>
-          <p>
-            A beacon of global literacy that embodies the harmony between faith,
-            knowledge, and service to transform the world.
-          </p>
-        </div>
+        <div class="grid-2 align-items-stretch mb-50">
+          <div class="vision-box typographic" data-aos="fade-right">
+            <h2>Vision</h2>
+            <p>
+              "A beacon of global literacy that embodies the harmony between faith,
+              knowledge, and service to transform the world."
+            </p>
+          </div>
 
-        <div class="core-box" data-aos="fade-up">
-          <h2 class="box-title"><i class="fas fa-bullseye"></i> Mission</h2>
+          <div class="core-box no-margin" data-aos="fade-left">
+            <h2 class="box-title"><i class="fas fa-bullseye"></i> Mission</h2>
           <ul class="custom-list">
             <li>
               To integrate faith-based and scientific literacy resources to
@@ -78,6 +78,7 @@ require_once 'config.php';
               impact on society.
             </li>
           </ul>
+          </div>
         </div>
 
         <div class="grid-2">
