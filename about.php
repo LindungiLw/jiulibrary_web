@@ -43,37 +43,40 @@ require_once 'config.php';
 
     <section class="narrative-section">
       <div class="container">
-        <div class="narrative-content">
-          <p>
-            The history of the establishment of the Jakarta International
-            University library is certainly inseparable from the background of
-            the establishment of the parent institution. The year 2006 marked
-            the beginning of the planning and preparation for the establishment
-            of Jakarta International University in conjunction with the Duranno
-            Indonesia Foundation. Land measuring 50,000 m2 was purchased in 2008
-            in the Deltamas area.
-          </p>
-          <p>
-            Through collaboration between architects from Korea and the United
-            States, the design of the future campus was completed in 2014 and
-            the main JIU building was completed in March 2017. The first batch
-            of students began registering in 2018. At that time, supporting
-            learning facilities such as a library, lecture halls, an auditorium,
-            a computer room, and others were already in place.
-          </p>
-          <p>
-            In June 2022, the struggle of all parties resulted in the merger
-            into Jakarta International University in Bekasi Regency, West Java
-            Province, organized by the Duranno Indonesia Foundation.
-          </p>
-          <p>
-            Starting from the Rector's Decrees in August 2022, the registration
-            process resulted in a library registration number (NPP) assigned by
-            the National Library of the Republic of Indonesia with
-            <strong>NPP: 3216202D0000001</strong>. Supported by The Nissi Group
-            and the Dream Blue Foundation, it is known as the
-            <strong>"Dream Blue Library"</strong>.
-          </p>
+        <div class="about-grid">
+          
+          <div class="about-image-wrapper" data-aos="fade-right">
+             <img src="assets/images/milestone.webp" alt="Dream Blue Library Milestone" class="about-featured-img">
+             <div class="about-experience-badge">
+               <span class="years">2006</span>
+               <span class="text">The Journey<br>Begins</span>
+             </div>
+          </div>
+          
+          <div class="narrative-content" data-aos="fade-left">
+            <h2 class="narrative-title">Our Beginnings</h2>
+            
+            <p class="lead-text">
+              The history of the establishment of the Jakarta International University library is certainly inseparable from the background of the establishment of the parent institution. 
+            </p>
+            
+            <p>
+              The year 2006 marked the beginning of the planning and preparation for the establishment of Jakarta International University in conjunction with the Duranno Indonesia Foundation. Land measuring 50,000 m2 was purchased in 2008 in the Deltamas area.
+            </p>
+            
+            <p>
+              Through collaboration between architects from Korea and the United States, the design of the future campus was completed in 2014 and the main JIU building was finished in March 2017. The first batch of students began registering in 2018 with complete supporting learning facilities already in place.
+            </p>
+            
+            <div class="highlight-box">
+              <p>In June 2022, the struggle of all parties resulted in the official merger into Jakarta International University in Bekasi Regency, West Java Province.</p>
+            </div>
+            
+            <p>
+              Starting from the Rector's Decrees in August 2022, the registration process resulted in a library registration number (NPP) assigned by the National Library of the Republic of Indonesia with <strong>NPP: 3216202D0000001</strong>. Supported by The Nissi Group and the Dream Blue Foundation, it is now proudly known as the <strong>"Dream Blue Library"</strong>.
+            </p>
+          </div>
+          
         </div>
       </div>
     </section>
