@@ -14,11 +14,17 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Announcements - Dream Blue Library</title>
+    <meta name="description" content="Lihat semua pengumuman resmi terbaru dari Dream Blue Library – Jakarta International University." />
     <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
-    
+
     <!-- Preload LCP Header Image for Maximum Speed -->
     <link rel="preload" href="assets/images/header all-annoucment.jpg" as="image">
-    
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="assets/css/fonts.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <link rel="stylesheet" href="assets/css/style/variable.css" />
@@ -28,6 +34,7 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
     <link rel="stylesheet" href="assets/css/style/news-slider.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
 </head>
 
 <body>

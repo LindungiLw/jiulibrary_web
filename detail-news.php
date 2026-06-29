@@ -120,7 +120,7 @@ if ($news) {
         }
 
         .detail-title {
-            font-family: 'Georgia', serif;
+            font-family: var(--font-primary, 'Poppins', sans-serif);
             font-size: 2.8rem;
             font-weight: 700;
             color: #0f172a;

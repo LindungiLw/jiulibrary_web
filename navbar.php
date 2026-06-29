@@ -173,7 +173,7 @@
 
                   <div class="dropdown-divider" style="height: 1px; background: #f1f5f9; margin: 5px 15px;"></div>
 
-                  <a href="fqa.html" class="service-item">
+                  <a href="fqa.php" class="service-item">
                     <span data-i18n="srvFAQ">F&Q</span>
                   </a>
                 </div>

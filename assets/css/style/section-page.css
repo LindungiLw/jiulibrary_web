@@ -1,6 +1,7 @@
 body {
   background-color: #f8fafc;
   scroll-behavior: smooth;
+  font-family: var(--font-primary, "Poppins", sans-serif);
 }
 
 /* --- 1. NAVBAR KACA --- */
