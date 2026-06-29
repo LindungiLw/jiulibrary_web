@@ -222,7 +222,7 @@
               <div class="dropdown-content auto-width-dropdown" id="aboutMenu">
                 <div class="simple-vertical-menu">
                   <a href="about.php" class="service-item" data-i18n="abtHistory">Brief History</a>
-                  <a href="vision-mision.html" class="service-item" data-i18n="abtVision">Vision & Mission</a>
+                  <a href="vision-mision.php" class="service-item" data-i18n="abtVision">Vision & Mission</a>
                   <a href="organizational-structure.html" class="service-item" data-i18n="abtStructure">Library Staff</a>
                   <a href="library-map.html" class="service-item" data-i18n="abtMap">Library Map</a>
                 </div>

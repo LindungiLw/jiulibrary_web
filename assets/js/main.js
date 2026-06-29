@@ -132,7 +132,7 @@ function initNetworkingSlider() {
 
   // ── State ──────────────────────────────────────────────────────────
   let pos = 0;
-  const speed = 0.6;   // ~36px/s at 60fps
+  const speed = 0.6;
   let extraVel = 0;
   const friction = 0.92;
   let rafId = null;

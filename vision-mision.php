@@ -1,20 +1,43 @@
+<?php
+session_start();
+require_once 'config.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vision & Mission - Dream Blue Library</title>
-    <link rel="stylesheet" href="assets/css/about.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <meta property="og:title" content="Vision & Mission - Dream Blue Library" />
+    <meta property="og:description" content="The foundation and future of Dream Blue Library" />
+    <meta property="og:image" content="assets/images/library-logo.webp" />
+    <link rel="icon" type="image/webp" href="assets/images/library-logo.webp" />
+
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/base.css?v=1.2" />
+    <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
+    <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
+    <link rel="stylesheet" href="assets/css/about.css?v=2.4" />
+    <link rel="stylesheet" href="assets/css/vision-mision.css?v=1.0" />
+    
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
+    <?php include 'navbar.php'; ?>
+
     <header class="about-header">
       <div class="container">
-        <h1>Core Values & Strategy</h1>
-        <p style="margin-top: 10px; font-size: 1.1rem; opacity: 0.9">
+        <h1 data-aos="fade-up">Core Values & Strategy</h1>
+        <p data-aos="fade-up" data-aos-delay="100" style="margin-top: 10px; font-size: 1.1rem; opacity: 0.9">
           The foundation and future of Dream Blue Library
         </p>
       </div>
@@ -22,7 +45,7 @@
 
     <section class="vm-section">
       <div class="container">
-        <div class="vision-box">
+        <div class="vision-box" data-aos="zoom-in">
           <i class="fas fa-eye vision-icon"></i>
           <h2>Vision</h2>
           <p>
@@ -31,7 +54,7 @@
           </p>
         </div>
 
-        <div class="core-box">
+        <div class="core-box" data-aos="fade-up">
           <h2 class="box-title"><i class="fas fa-bullseye"></i> Mission</h2>
           <ul class="custom-list">
             <li>
@@ -58,7 +81,7 @@
         </div>
 
         <div class="grid-2">
-          <div class="core-box">
+          <div class="core-box" data-aos="fade-right">
             <h2 class="box-title">
               <i class="fas fa-flag-checkered"></i> Goals
             </h2>
@@ -86,7 +109,7 @@
             </ul>
           </div>
 
-          <div class="core-box target-box">
+          <div class="core-box target-box" data-aos="fade-left">
             <h2 class="box-title"><i class="fas fa-chart-line"></i> Targets</h2>
             <ul class="custom-list">
               <li>
@@ -106,10 +129,10 @@
         </div>
 
         <div class="strategy-section">
-          <h2 class="section-heading">Strategic Plan</h2>
+          <h2 class="section-heading" data-aos="fade-up">Strategic Plan</h2>
 
           <div class="strategy-grid">
-            <div class="strategy-card">
+            <div class="strategy-card" data-aos="fade-up" data-aos-delay="100">
               <h3>Mission 1 & 2</h3>
               <ul class="custom-list small-list">
                 <li>
@@ -133,7 +156,7 @@
               </ul>
             </div>
 
-            <div class="strategy-card">
+            <div class="strategy-card" data-aos="fade-up" data-aos-delay="200">
               <h3>Mission 3</h3>
               <ul class="custom-list small-list">
                 <li>
@@ -153,7 +176,7 @@
               </ul>
             </div>
 
-            <div class="strategy-card">
+            <div class="strategy-card" data-aos="fade-up" data-aos-delay="300">
               <h3>Mission 4</h3>
               <ul class="custom-list small-list">
                 <li>
@@ -187,12 +210,18 @@
       </div>
     </section>
 
-    <footer class="history-footer">
-      <div class="container">
-        <a href="index.php" class="back-btn"
-          ><i class="fas fa-arrow-left"></i> Back to Home</a
-        >
-      </div>
-    </footer>
+    <?php include 'footer.php'; ?>
+    
+    <!-- BlueBot & A11y Widgets -->
+    <?php include 'chatbot-widget.php'; ?>
+    <?php include 'a11y-widget.php'; ?>
+
+    <!-- Scripts -->
+    <script>
+      window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
+    </script>
+    <script defer src="assets/js/dictionary.js?v=1.3"></script>
+    <script defer src="assets/js/main.js?v=2.0"></script>
+    <script defer src="assets/js/chatbot.js?v=1.8"></script>
   </body>
 </html>
