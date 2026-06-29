@@ -13,6 +13,11 @@ require_once 'config.php';
     <link rel="preload" href="assets/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
+    <meta property="og:title" content="History - Dream Blue Library" />
+    <meta property="og:description" content="Discover the milestones and journey of Dream Blue Library." />
+    <meta property="og:image" content="assets/images/library-logo.webp" />
+    <link rel="icon" type="image/webp" href="assets/images/library-logo.webp" />
+
     <link rel="stylesheet" href="assets/css/fonts.css" />
     
     <link
@@ -26,7 +31,7 @@ require_once 'config.php';
     <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
-    <link rel="stylesheet" href="assets/css/about.css" />
+    <link rel="stylesheet" href="assets/css/about.css?v=2.4" />
     
     <!-- Google Identity Services untuk SSO -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -83,37 +88,38 @@ require_once 'config.php';
 
     <section class="timeline-section">
       <div class="container">
-        <div class="section-title"><h2>Milestone Journey</h2></div>
+        <div class="section-title" data-aos="fade-up"><h2>Milestone Journey</h2></div>
+        
         <div class="horizontal-timeline">
-          <div class="timeline-node">
+          <div class="timeline-node" data-aos="zoom-in" data-aos-delay="100">
             <div class="node-desc node-up">
               <h4>Planning</h4>
               2006: Preparation with Duranno.
             </div>
             <div class="node-circle">2006</div>
           </div>
-          <div class="timeline-node">
+          <div class="timeline-node" data-aos="zoom-in" data-aos-delay="200">
             <div class="node-circle">2014</div>
             <div class="node-desc node-down">
               <h4>Design</h4>
               Campus design finalized.
             </div>
           </div>
-          <div class="timeline-node">
+          <div class="timeline-node" data-aos="zoom-in" data-aos-delay="300">
             <div class="node-desc node-up">
               <h4>Building</h4>
               2017: Main JIU building finished.
             </div>
             <div class="node-circle">2017</div>
           </div>
-          <div class="timeline-node">
+          <div class="timeline-node" data-aos="zoom-in" data-aos-delay="400">
             <div class="node-circle">2022</div>
             <div class="node-desc node-down">
               <h4>Status</h4>
               Official University status.
             </div>
           </div>
-          <div class="timeline-node">
+          <div class="timeline-node" data-aos="zoom-in" data-aos-delay="500">
             <div class="node-desc node-up">
               <h4>NPP</h4>
               Registered NPP: 3216202D0000001.

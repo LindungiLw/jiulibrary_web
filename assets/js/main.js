@@ -102,7 +102,6 @@ function loadYouTube(el) {
   iframe.setAttribute("allowfullscreen", "");
   iframe.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;border:0;";
 
-  // Ganti facade dengan iframe
   el.parentNode.replaceChild(iframe, el);
   iframe.focus();
 }
@@ -268,7 +267,7 @@ function initCounters() {
     // Reset to 0 first (in case it already showed a number)
     counter.innerText = "0";
 
-    const duration = 1000; // 1 second (faster counting)
+    const duration = 1000;
     const startTime = performance.now();
 
     const updateCount = (currentTime) => {
@@ -296,13 +295,13 @@ function initCounters() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const counter = entry.target;
-        obs.unobserve(counter); // Animate once only
+        obs.unobserve(counter);
 
         // Fix: wait for AOS fade-in to finish (AOS duration = 800ms + delay)
         // so the element is fully visible before we start counting
         const aosParent = counter.closest("[data-aos]");
         const aosDelay = aosParent ? parseInt(aosParent.getAttribute("data-aos-delay") || "0", 10) : 0;
-        const aosDefer = aosParent ? 850 + aosDelay : 0; // 800ms AOS duration + buffer
+        const aosDefer = aosParent ? 850 + aosDelay : 0;
 
         setTimeout(() => animateCounter(counter), aosDefer);
       }
