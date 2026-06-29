@@ -46,14 +46,22 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
   <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
-  <!-- Defer Non-Critical CSS for Mobile Speed -->
-  <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
-  <link rel="stylesheet" href="assets/css/style/stats-strip.css?v=1.1" />
-  <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=2.1" />
-  <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.7" />
   <link rel="stylesheet" href="assets/css/sections.css?v=2.5" />
-  <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
+
+  <!-- Defer Non-Critical CSS for Mobile Speed -->
+  <link rel="preload" href="assets/css/style/modal.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/style/stats-strip.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/style/announcements-slider.css?v=2.1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/style/news-slider.css?v=2.7" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/footer.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/style/stats-strip.css?v=1.1" />
+    <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=2.1" />
+    <link rel="stylesheet" href="assets/css/style/news-slider.css?v=2.7" />
+    <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
+  </noscript>
   
   <!-- Script Google Identity Services untuk SSO -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
