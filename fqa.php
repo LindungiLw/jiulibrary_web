@@ -228,6 +228,52 @@ require_once 'config.php';
       padding-top: 16px;
     }
 
+    /* ===== SEARCH BAR ===== */
+    .faq-search-wrapper {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .faq-search-input {
+      width: 100%;
+      padding: 16px 20px 16px 50px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      font-size: 1rem;
+      font-family: var(--font-primary, 'Poppins', sans-serif);
+      color: #1e293b;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .faq-search-input:focus {
+      outline: none;
+      border-color: var(--clr-blue-1, #273374);
+      box-shadow: 0 4px 12px rgba(39, 51, 116, 0.1);
+    }
+
+    .faq-search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    .faq-no-results {
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+      font-size: 1.1rem;
+      display: none;
+      background: white;
+      border-radius: 16px;
+      border: 1px dashed #cbd5e1;
+      margin-top: 20px;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .faq-page-header {
@@ -276,8 +322,14 @@ require_once 'config.php';
       </div>
     </div>
 
-    <!-- Right: Accordion -->
-    <div class="faq-accordion">
+    <!-- Right: Accordion & Search -->
+    <div class="faq-content-col">
+      <div class="faq-search-wrapper">
+        <i class="fas fa-search faq-search-icon"></i>
+        <input type="text" id="faqSearchInput" class="faq-search-input" placeholder="Search for answers (e.g., borrow, submit)...">
+      </div>
+
+      <div class="faq-accordion" id="faqAccordion">
 
       <div class="faq-item">
         <button class="faq-question">
@@ -355,22 +407,54 @@ require_once 'config.php';
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>
-            Submitting your academic work to the library is quick and easy! Here's how:
-          </p>
-          <ol style="margin: 8px 0 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
-            <li><strong>Sign in</strong> — Click the <em>Sign In</em> button on the top-right of the website and log in using your official <strong>JIU Google account</strong> (@student.jiu.ac.id or @jiu.ac.id).</li>
-            <li><strong>Go to Submit menu</strong> — On the navigation bar, click <em>Submit</em> and choose the type of document you want to submit: <em>Research Paper, Thesis, Final Project, Internship Report,</em> or <em>Portfolio</em>.</li>
-            <li><strong>Fill in the form</strong> — Complete the submission form with your document details (title, abstract, file, etc.) and click <em>Submit</em>.</li>
-          </ol>
-          <p style="margin-top: 12px; padding-top: 0; border-top: none;">
-            <i class="fas fa-info-circle" style="color: #3b82f6;"></i>
-            <strong>Note:</strong> The Submit menu is only accessible to active <strong>JIU Members</strong>. Make sure you are logged in with your institutional account before accessing this feature.
-          </p>
+          <div style="padding: 0 24px 24px;">
+            <p style="margin: 16px 0; border: none; padding: 0;">
+              Submitting your academic work to the library is quick and easy! Here's how:
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;">
+              <div style="display: flex; gap: 16px; align-items: flex-start;">
+                <div style="background: #e0f2fe; color: #0284c7; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; margin-top: 2px;">1</div>
+                <div>
+                  <h4 style="margin: 0 0 4px 0; color: #0f172a; font-size: 1rem;">Sign in</h4>
+                  <p style="margin: 0; padding: 0; border: none; color: #475569; font-size: 0.95rem; line-height: 1.6;">Click the <strong>Sign In</strong> button on the top-right of the website and log in using your official <strong>JIU Google account</strong> (@student.jiu.ac.id or @jiu.ac.id).</p>
+                </div>
+              </div>
+              
+              <div style="display: flex; gap: 16px; align-items: flex-start;">
+                <div style="background: #e0f2fe; color: #0284c7; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; margin-top: 2px;">2</div>
+                <div>
+                  <h4 style="margin: 0 0 4px 0; color: #0f172a; font-size: 1rem;">Go to Submit menu</h4>
+                  <p style="margin: 0; padding: 0; border: none; color: #475569; font-size: 0.95rem; line-height: 1.6;">On the navigation bar, click <strong>Submit</strong> and choose the type of document you want to submit: <em>Research Paper, Thesis, Final Project, Internship Report,</em> or <em>Portfolio</em>.</p>
+                </div>
+              </div>
+              
+              <div style="display: flex; gap: 16px; align-items: flex-start;">
+                <div style="background: #e0f2fe; color: #0284c7; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; margin-top: 2px;">3</div>
+                <div>
+                  <h4 style="margin: 0 0 4px 0; color: #0f172a; font-size: 1rem;">Fill in the form</h4>
+                  <p style="margin: 0; padding: 0; border: none; color: #475569; font-size: 0.95rem; line-height: 1.6;">Complete the submission form with your document details (title, abstract, file, etc.) and click <strong>Submit</strong>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 12px 16px; border-radius: 0 8px 8px 0;">
+              <p style="margin: 0; padding: 0; border: none; color: #92400e; font-size: 0.9rem; line-height: 1.5;">
+                <i class="fas fa-info-circle" style="color: #f59e0b; margin-right: 6px;"></i>
+                <strong>Note:</strong> The Submit menu is only accessible to active <strong>JIU Members</strong>. Make sure you are logged in with your institutional account before accessing this feature.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
+      <div class="faq-no-results" id="faqNoResults">
+        <i class="fas fa-search" style="font-size: 2rem; color: #cbd5e1; margin-bottom: 15px; display: block;"></i>
+        No frequently asked questions matched your search.
+      </div>
+
     </div>
+  </div>
   </main>
 
   <?php include 'footer.php'; ?>
@@ -405,6 +489,39 @@ require_once 'config.php';
           answer.style.maxHeight = null;
         }
       });
+    });
+
+    // Live Search Functionality
+    const searchInput = document.getElementById('faqSearchInput');
+    const faqItemsArray = document.querySelectorAll('.faq-item');
+    const noResults = document.getElementById('faqNoResults');
+
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase().trim();
+      let hasVisibleItems = false;
+
+      faqItemsArray.forEach(item => {
+        const questionText = item.querySelector('.faq-question span').textContent.toLowerCase();
+        const answerText = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+          item.style.display = 'block';
+          hasVisibleItems = true;
+        } else {
+          item.style.display = 'none';
+          // Close accordion if it's open but doesn't match search
+          if (item.classList.contains('active')) {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = null;
+          }
+        }
+      });
+
+      if (hasVisibleItems || searchTerm === '') {
+        noResults.style.display = 'none';
+      } else {
+        noResults.style.display = 'block';
+      }
     });
   </script>
 
