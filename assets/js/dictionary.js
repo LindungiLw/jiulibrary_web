@@ -7,6 +7,8 @@ const dict = {
     btnLogout: "Logout",
     btnProfile: "My Profile",
     btnLogin: "Sign In",
+    modLoginTitle: "Welcome Back!",
+    modLoginDesc: "Please log in using your Google account to access digital collections and library services.",
     modLoginFooterDesc: "Please log in using your institutional Google account. Public email addresses are not permitted.",
 
     // --- NAV MENU: MAIN ---
@@ -52,6 +54,14 @@ const dict = {
     abtVision: "Vision & Mission",
     abtStructure: "Library Staff",
     abtMap: "Library Map",
+
+    // --- PAGE HEADERS ---
+    hdrVisionTitle: "The Heart of Knowledge",
+    hdrVisionDesc: "The foundation and future of Dream Blue Library",
+    hdrOrgTitle: "Library Organization",
+    hdrOrgDesc: "Our Professional Management Team",
+    hdrMapTitle: "Library Floor Plan",
+    hdrMapDesc: "Explore the layout of Dream Blue Library",
 
     // --- HERO SECTION ---
     heroTagline: "Literacy Freely, Legacy Fully",
@@ -158,6 +168,8 @@ const dict = {
     btnLogout: "Keluar",
     btnProfile: "Profil Saya",
     btnLogin: "Masuk",
+    modLoginTitle: "Selamat Datang Kembali!",
+    modLoginDesc: "Silakan masuk menggunakan akun Google Anda untuk mengakses koleksi digital dan layanan perpustakaan.",
     modLoginFooterDesc: "Silakan masuk menggunakan akun Google institusi Anda. Akses tidak diizinkan untuk email publik.",
 
     // --- NAV MENU: MAIN ---
@@ -203,6 +215,14 @@ const dict = {
     abtVision: "Visi & Misi",
     abtStructure: "Staf Perpustakaan",
     abtMap: "Denah Perpustakaan",
+
+    // --- PAGE HEADERS ---
+    hdrVisionTitle: "Jantung Pengetahuan",
+    hdrVisionDesc: "Landasan dan masa depan Dream Blue Library",
+    hdrOrgTitle: "Struktur Organisasi",
+    hdrOrgDesc: "Tim Manajemen Profesional Kami",
+    hdrMapTitle: "Denah Lantai Perpustakaan",
+    hdrMapDesc: "Jelajahi tata ruang Dream Blue Library",
 
     // --- HERO SECTION ---
     heroTagline: "Literasi Bebas, Warisan Tuntas",

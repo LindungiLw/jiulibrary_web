@@ -36,8 +36,8 @@ require_once 'config.php';
 
     <header class="about-header">
       <div class="container">
-        <h1 data-aos="fade-up">Core Values & Strategy</h1>
-        <p data-aos="fade-up" data-aos-delay="100" style="margin-top: 10px; font-size: 1.1rem; opacity: 0.9">
+        <h1 data-aos="fade-up" data-i18n="hdrVisionTitle">Core Values & Strategy</h1>
+        <p data-aos="fade-up" data-aos-delay="100" data-i18n="hdrVisionDesc" style="margin-top: 10px; font-size: 1.1rem; opacity: 0.9">
           The foundation and future of Dream Blue Library
         </p>
       </div>

@@ -36,8 +36,8 @@ require_once 'config.php';
 
     <header class="about-header">
       <div class="container">
-        <h1>Library Organization</h1>
-        <p style="margin-top: 10px; font-size: 1.1rem; opacity: 0.9">Our Professional Management Team</p>
+        <h1 data-i18n="hdrOrgTitle">Library Organization</h1>
+        <p data-i18n="hdrOrgDesc" style="margin-top: 10px; font-size: 1.1rem; opacity: 0.9">Our Professional Management Team</p>
       </div>
     </header>
 
