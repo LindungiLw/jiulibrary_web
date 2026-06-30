@@ -126,48 +126,42 @@
                     </div>
 
                     <div class="nested-content">
-                      <div class="service-item-complex">
+                      <a href="service-digital.php" class="service-item-complex" style="text-decoration: none;">
                         <i class="fas fa-laptop-code" style="color: #3b82f6;"></i>
                         <div>
-                          <strong data-i18n="srvDigital">Digital Collection</strong>
-                          <span data-i18n="srvDigitalDesc">Online access to e-books and digital resources</span>
+                          <strong data-i18n="srvDigital" style="color: #1e293b;">Digital Collection</strong>
+                          <span data-i18n="srvDigitalDesc" style="color: #64748b;">Online access to e-books and digital resources</span>
                         </div>
-                      </div>
-                      <div class="service-item-complex">
-                        <i class="fas fa-leaf" style="color: #10b981;"></i>
-                        <div>
-                          <strong data-i18n="srvHealing">Healing Corner</strong>
-                          <span data-i18n="srvHealingDesc">A fun space to relax and refresh your mind</span>
-                        </div>
-                      </div>
-                      <div class="service-item-complex">
+                      </a>
+
+                      <a href="service-circulation.php" class="service-item-complex" style="text-decoration: none;">
                         <i class="fas fa-book-reader" style="color: #6366f1;"></i>
                         <div>
-                          <strong data-i18n="srvCirculation">Circulation</strong>
-                          <span data-i18n="srvCirculationDesc">Borrow, renew, and return physical library materials</span>
+                          <strong data-i18n="srvCirculation" style="color: #1e293b;">Circulation</strong>
+                          <span data-i18n="srvCirculationDesc" style="color: #64748b;">Borrow, renew, and return physical library materials</span>
                         </div>
-                      </div>
-                      <div class="service-item-complex">
+                      </a>
+                      <a href="service-consultation.php" class="service-item-complex" style="text-decoration: none;">
                         <i class="fas fa-user-tie" style="color: #f59e0b;"></i>
                         <div>
-                          <strong data-i18n="srvConsultation">Consultation</strong>
-                          <span data-i18n="srvConsultationDesc">Get expert research assistance from librarians</span>
+                          <strong data-i18n="srvConsultation" style="color: #1e293b;">Consultation</strong>
+                          <span data-i18n="srvConsultationDesc" style="color: #64748b;">Get expert research assistance from librarians</span>
                         </div>
-                      </div>
-                      <div class="service-item-complex">
+                      </a>
+                      <a href="service-turnitin.php" class="service-item-complex" style="text-decoration: none;">
                         <i class="fas fa-check-double" style="color: #ef4444;"></i>
                         <div>
-                          <strong data-i18n="srvTurnitin">Turnitin</strong>
-                          <span data-i18n="srvTurnitinDesc">Check your work for originality and prevent plagiarism</span>
+                          <strong data-i18n="srvTurnitin" style="color: #1e293b;">Turnitin</strong>
+                          <span data-i18n="srvTurnitinDesc" style="color: #64748b;">Check your work for originality and prevent plagiarism</span>
                         </div>
-                      </div>
-                      <div class="service-item-complex">
+                      </a>
+                      <a href="service-print-scan.php" class="service-item-complex" style="text-decoration: none;">
                         <i class="fas fa-print" style="color: #8b5cf6;"></i>
                         <div>
-                          <strong data-i18n="srvPrinter">Printer and Scan</strong>
-                          <span data-i18n="srvPrinterDesc">Self-service printing, scanning, and copying facilities</span>
+                          <strong data-i18n="srvPrinter" style="color: #1e293b;">Printer and Scan</strong>
+                          <span data-i18n="srvPrinterDesc" style="color: #64748b;">Self-service printing, scanning, and copying facilities</span>
                         </div>
-                      </div>
+                      </a>
                     </div>
                   </div>
 

@@ -160,10 +160,10 @@
 .nav-links-list {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 1rem; /* Reduced from 1.5rem */
   align-items: center;
   margin: 0;
-  padding: 0.4rem 2rem;
+  padding: 0.4rem 1.2rem; /* Reduced from 2rem */
   background: rgba(255, 255, 255, 0.5); /* Inner pill */
   border: 1px solid rgba(15, 23, 42, 0.1);
   border-radius: 50px;
@@ -173,7 +173,7 @@
 .dropbtn {
   color: var(--clr-blue-1) !important;
   text-decoration: none !important;
-  font-size: 0.95rem;
+  font-size: 0.9rem; /* Reduced from 0.95rem */
   font-weight: 600;
   padding: 0.4rem 0.5rem;
   position: relative;
@@ -194,6 +194,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
 }
 
 .search-wrapper {
@@ -207,12 +208,20 @@
   width: 45px;
   height: 45px;
   overflow: visible;
+  z-index: 50;
+}
+
+@media (min-width: 992px) {
+  .search-wrapper {
+    position: absolute;
+    right: 0;
+  }
 }
 
 .search-wrapper.active,
 .search-wrapper:hover,
 .search-wrapper:focus-within {
-  width: 280px;
+  width: 220px;
   background: #ffffff;
   border-radius: 25px;
   border: 1px solid rgba(0, 0, 0, 0.1);
