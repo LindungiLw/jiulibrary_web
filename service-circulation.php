@@ -31,7 +31,7 @@ require_once 'config.php';
       .service-header {
         background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
         color: white;
-        padding: 80px 0 60px;
+        padding: 140px 0 60px;
         text-align: center;
         border-bottom-left-radius: 40px;
         border-bottom-right-radius: 40px;
@@ -39,31 +39,75 @@ require_once 'config.php';
       .service-header h1 { font-size: 2.5rem; margin-bottom: 15px; }
       .service-header p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
       
-      .service-content { padding: 60px 0; }
+      .service-content { padding: 60px 0; background-color: #f8fafc; }
       
-      .rules-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 30px;
-        background: white;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .section-title h2 {
+        font-size: 2.2rem;
+        color: #1e293b;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+      .section-title p {
+        color: #64748b;
+        font-size: 1.1rem;
+      }
+      
+      .circulation-table-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
         border-radius: 12px;
         overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        background: white;
       }
-      .rules-table th { background: #f8fafc; padding: 15px 20px; text-align: left; color: #1e293b; font-weight: 600; border-bottom: 2px solid #e2e8f0; }
-      .rules-table td { padding: 15px 20px; border-bottom: 1px solid #e2e8f0; color: #475569; }
-      .rules-table tr:last-child td { border-bottom: none; }
-      .rules-table tr:hover { background: #f1f5f9; }
-      
+      .circulation-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .circulation-table th {
+        background: #9b7eb5; /* Purple header matching the image */
+        color: white;
+        font-size: 1.25rem;
+        font-weight: 700;
+        padding: 20px 25px;
+        text-align: left;
+        border-right: 1px solid rgba(255,255,255,0.3);
+      }
+      .circulation-table th:last-child {
+        border-right: none;
+      }
+      .circulation-table td {
+        padding: 20px 25px;
+        font-size: 1.15rem;
+        color: #334155;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .circulation-table .info-cell {
+        background: #b79ecc; /* Lighter purple for left column */
+        color: #1e293b;
+        font-weight: 600;
+        border-right: 1px solid white;
+        width: 35%;
+      }
+      .circulation-table tr:last-child td {
+        border-bottom: none;
+      }
+
       .info-box {
-        background: #eff6ff;
+        max-width: 800px;
+        margin: 40px auto 0;
+        background: white;
         border-left: 4px solid #3b82f6;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 40px;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.03);
       }
-      .info-box h4 { color: #1e3a8a; margin-bottom: 10px; font-size: 1.1rem; }
-      .info-box p { color: #334155; font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px; }
+      .info-box h4 { color: #1e3a8a; margin-bottom: 10px; font-size: 1.2rem; }
+      .info-box p { color: #475569; font-size: 1.05rem; line-height: 1.6; margin-bottom: 0; }
     </style>
   </head>
   <body>
@@ -80,43 +124,40 @@ require_once 'config.php';
       <div class="container">
         <div class="section-title">
           <h2>Borrowing Rules & Policies</h2>
-          <p>Please observe the following limits based on your membership type.</p>
+          <p>Please observe the following library circulation guidelines.</p>
         </div>
         
-        <table class="rules-table">
-          <thead>
-            <tr>
-              <th>Member Type</th>
-              <th>Max Items</th>
-              <th>Loan Duration</th>
-              <th>Renewals Allowed</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Undergraduate Students</td>
-              <td>5 Books</td>
-              <td>14 Days</td>
-              <td>1 Time (Online/Offline)</td>
-            </tr>
-            <tr>
-              <td>Graduate Students</td>
-              <td>7 Books</td>
-              <td>21 Days</td>
-              <td>2 Times</td>
-            </tr>
-            <tr>
-              <td>Lecturers / Staff</td>
-              <td>10 Books</td>
-              <td>30 Days</td>
-              <td>2 Times</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="circulation-table-wrapper">
+          <table class="circulation-table">
+            <thead>
+              <tr>
+                <th class="text-center" style="text-align: center;">Information</th>
+                <th class="text-center" style="text-align: center;">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="info-cell">Maximum Books</td>
+                <td>Up to 5 books per borrowing</td>
+              </tr>
+              <tr>
+                <td class="info-cell">Loan Period</td>
+                <td>2 weeks from the borrowing date</td>
+              </tr>
+              <tr>
+                <td class="info-cell">Late Fine</td>
+                <td>IDR 1,000/book per day</td>
+              </tr>
+              <tr>
+                <td class="info-cell">Fine Calculation</td>
+                <td>Calculated from the day after due date</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="info-box">
-          <h4><i class="fas fa-exclamation-circle"></i> Fines and Lost Books</h4>
-          <p>A fine of <strong>Rp 2,000 per day</strong> applies for overdue items. Please ensure you return or renew your materials on time.</p>
+          <h4><i class="fas fa-info-circle" style="color: #3b82f6; margin-right: 8px;"></i> Additional Information</h4>
           <p>If a book is lost, the borrower is responsible for replacing the book with the exact same edition or paying the original purchase price plus administrative fees.</p>
         </div>
       </div>

@@ -126,41 +126,20 @@
                     </div>
 
                     <div class="nested-content">
-                      <a href="service-digital.php" class="service-item-complex" style="text-decoration: none;">
-                        <i class="fas fa-laptop-code" style="color: #3b82f6;"></i>
-                        <div>
-                          <strong data-i18n="srvDigital" style="color: #1e293b;">Digital Collection</strong>
-                          <span data-i18n="srvDigitalDesc" style="color: #64748b;">Online access to e-books and digital resources</span>
-                        </div>
+                      <a href="service-digital.php" class="service-item">
+                        <span data-i18n="srvDigital">Digital Collection</span>
                       </a>
-
-                      <a href="service-circulation.php" class="service-item-complex" style="text-decoration: none;">
-                        <i class="fas fa-book-reader" style="color: #6366f1;"></i>
-                        <div>
-                          <strong data-i18n="srvCirculation" style="color: #1e293b;">Circulation</strong>
-                          <span data-i18n="srvCirculationDesc" style="color: #64748b;">Borrow, renew, and return physical library materials</span>
-                        </div>
+                      <a href="service-circulation.php" class="service-item">
+                        <span data-i18n="srvCirculation">Circulation</span>
                       </a>
-                      <a href="service-consultation.php" class="service-item-complex" style="text-decoration: none;">
-                        <i class="fas fa-user-tie" style="color: #f59e0b;"></i>
-                        <div>
-                          <strong data-i18n="srvConsultation" style="color: #1e293b;">Consultation</strong>
-                          <span data-i18n="srvConsultationDesc" style="color: #64748b;">Get expert research assistance from librarians</span>
-                        </div>
+                      <a href="service-consultation.php" class="service-item">
+                        <span data-i18n="srvConsultation">Consultation</span>
                       </a>
-                      <a href="service-turnitin.php" class="service-item-complex" style="text-decoration: none;">
-                        <i class="fas fa-check-double" style="color: #ef4444;"></i>
-                        <div>
-                          <strong data-i18n="srvTurnitin" style="color: #1e293b;">Turnitin</strong>
-                          <span data-i18n="srvTurnitinDesc" style="color: #64748b;">Check your work for originality and prevent plagiarism</span>
-                        </div>
+                      <a href="service-turnitin.php" class="service-item">
+                        <span data-i18n="srvTurnitin">Turnitin</span>
                       </a>
-                      <a href="service-print-scan.php" class="service-item-complex" style="text-decoration: none;">
-                        <i class="fas fa-print" style="color: #8b5cf6;"></i>
-                        <div>
-                          <strong data-i18n="srvPrinter" style="color: #1e293b;">Printer and Scan</strong>
-                          <span data-i18n="srvPrinterDesc" style="color: #64748b;">Self-service printing, scanning, and copying facilities</span>
-                        </div>
+                      <a href="service-print-scan.php" class="service-item">
+                        <span data-i18n="srvPrinter">Printer and Scan</span>
                       </a>
                     </div>
                   </div>

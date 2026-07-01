@@ -31,7 +31,7 @@ require_once 'config.php';
       .service-header {
         background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
         color: white;
-        padding: 80px 0 60px;
+        padding: 140px 0 60px;
         text-align: center;
         border-bottom-left-radius: 40px;
         border-bottom-right-radius: 40px;
@@ -43,51 +43,63 @@ require_once 'config.php';
       
       .consultation-wrapper {
         display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
+        justify-content: center;
         margin-top: 30px;
       }
-      .topics-section {
-        flex: 1;
-        min-width: 300px;
-      }
       .booking-section {
-        flex: 1;
-        min-width: 300px;
+        width: 100%;
+        max-width: 600px;
         background: white;
-        padding: 30px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding: 50px 40px;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        border: 1px solid rgba(59, 130, 246, 0.1);
       }
+      .booking-section h2 { margin-bottom: 15px; color: #0f172a; text-align: center; font-size: 2.2rem; font-weight: 800; }
+      .booking-section p.subtitle { color: #64748b; margin-bottom: 40px; text-align: center; line-height: 1.6; font-size: 1.1rem; }
       
-      .topic-list { list-style: none; padding: 0; }
-      .topic-list li {
-        margin-bottom: 15px;
-        padding: 15px;
-        background: #f8fafc;
-        border-radius: 8px;
+      .contact-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .btn-contact {
         display: flex;
         align-items: center;
-        gap: 15px;
-      }
-      .topic-list i { color: #f59e0b; font-size: 1.5rem; }
-      
-      .btn-book {
-        display: block;
+        gap: 20px;
         width: 100%;
-        background: #f59e0b;
-        color: white;
-        border: none;
-        padding: 15px;
-        border-radius: 8px;
-        font-size: 1.1rem;
+        background: white;
+        color: #1e3a8a;
+        padding: 15px 25px;
+        border-radius: 16px;
+        border: 2px solid #e2e8f0;
+        font-size: 1.15rem;
         font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s;
-        text-align: center;
+        transition: all 0.3s ease;
         text-decoration: none;
       }
-      .btn-book:hover { background: #d97706; }
+      .btn-contact .icon-wrapper {
+        width: 50px;
+        height: 50px;
+        background: #eff6ff;
+        color: #3b82f6;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        transition: all 0.3s ease;
+      }
+      .btn-contact:hover {
+        transform: translateY(-4px);
+        border-color: #3b82f6;
+        box-shadow: 0 15px 30px rgba(59, 130, 246, 0.12);
+        color: #3b82f6;
+      }
+      .btn-contact:hover .icon-wrapper {
+        background: #3b82f6;
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -103,41 +115,26 @@ require_once 'config.php';
     <section class="service-content">
       <div class="container">
         <div class="consultation-wrapper">
-          <div class="topics-section">
-            <h2 style="margin-bottom: 20px; color: #1e293b;">How We Can Help</h2>
-            <ul class="topic-list">
-              <li>
-                <i class="fas fa-search"></i>
-                <div>
-                  <strong>Literature Search Strategies</strong><br>
-                  <small>Learn how to effectively find relevant papers in academic databases.</small>
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-quote-right"></i>
-                <div>
-                  <strong>Citation & Mendeley</strong><br>
-                  <small>Assistance with reference management and proper citation formatting.</small>
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-file-contract"></i>
-                <div>
-                  <strong>Academic Integrity</strong><br>
-                  <small>Guidance on paraphrasing and avoiding accidental plagiarism.</small>
-                </div>
-              </li>
-            </ul>
-          </div>
-          
           <div class="booking-section">
-            <h2 style="margin-bottom: 20px; color: #1e293b; text-align: center;">Book a Session</h2>
-            <p style="color: #64748b; margin-bottom: 25px; text-align: center;">Schedule a 30-minute 1-on-1 session with our librarians (Online via Google Meet or Offline at the library).</p>
+            <h2>Book a Session</h2>
+            <p class="subtitle">Schedule a 30-minute 1-on-1 session with our librarians. Reach out to us via any of the channels below:</p>
             
-            <a href="mailto:admin@jiulibrary.ac?subject=Research Consultation Request" class="btn-book">
-              <i class="fas fa-calendar-check"></i> Email to Book a Schedule
-            </a>
-            <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #94a3b8;">*Please book at least 2 days in advance.</p>
+            <div class="contact-buttons">
+              <a href="mailto:sena44@jiu.ac?subject=Research Consultation Request" class="btn-contact">
+                <div class="icon-wrapper"><i class="fas fa-envelope"></i></div> 
+                Email (sena44@jiu.ac)
+              </a>
+              <a href="https://chat.google.com/" target="_blank" class="btn-contact">
+                <div class="icon-wrapper"><i class="fas fa-comments"></i></div> 
+                Google Chat (sena44@jiu.ac)
+              </a>
+              <a href="https://wa.me/6281260173697" target="_blank" class="btn-contact">
+                <div class="icon-wrapper"><i class="fab fa-whatsapp"></i></div> 
+                WhatsApp (+62 812-6017-3697)
+              </a>
+            </div>
+            
+            <p style="text-align: center; margin-top: 35px; font-size: 0.95rem; color: #94a3b8;"><i class="fas fa-info-circle"></i> Please book at least 2 days in advance.</p>
           </div>
         </div>
       </div>

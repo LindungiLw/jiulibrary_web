@@ -31,7 +31,7 @@ require_once 'config.php';
       .service-header {
         background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
         color: white;
-        padding: 80px 0 60px;
+        padding: 140px 0 60px;
         text-align: center;
         border-bottom-left-radius: 40px;
         border-bottom-right-radius: 40px;
