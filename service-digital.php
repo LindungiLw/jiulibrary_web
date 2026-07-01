@@ -32,7 +32,10 @@ require_once 'config.php';
     <style>
       .service-hero {
         position: relative;
-        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        background: linear-gradient(to bottom, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.2) 100%),
+                    url('assets/images/services-photo/digital_collections.png');
+        background-size: cover;
+        background-position: center;
         color: white;
         padding: 140px 0 80px;
         text-align: center;

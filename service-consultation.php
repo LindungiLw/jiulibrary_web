@@ -29,7 +29,10 @@ require_once 'config.php';
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
       .service-header {
-        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        background: linear-gradient(to bottom, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.2) 100%),
+                    url('assets/images/services-photo/consultation.png');
+        background-size: cover;
+        background-position: center;
         color: white;
         padding: 140px 0 60px;
         text-align: center;

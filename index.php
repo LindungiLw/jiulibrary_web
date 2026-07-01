@@ -19,9 +19,9 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dream Blue Library - Jakarta International University</title>
+  <title>Dream Blue Library • Jakarta International University</title>
   <meta name="description" content="Welcome to Dream Blue Library, the official library of Jakarta International University (JIU). Access various information, news, book collections, and e-journals for students and researchers." />
-  <meta property="og:title" content="Dream Blue Library - Jakarta International University" />
+  <meta property="og:title" content="Dream Blue Library • Jakarta International University" />
   <meta property="og:description" content="Welcome to Dream Blue Library, the official library of Jakarta International University (JIU)." />
   <meta property="og:image" content="assets/images/library-logo.webp" />
   <link rel="icon" type="image/webp" href="assets/images/library-logo.webp" />
