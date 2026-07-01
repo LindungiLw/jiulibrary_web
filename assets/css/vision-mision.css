@@ -6,28 +6,44 @@
   overflow: hidden;
 }
 
-/* Optional background decorations */
-.vm-section::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(30, 58, 138, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
-  border-radius: 50%;
-  z-index: 0;
+/* Optional background decorations removed per request */
+
+/* Header Watermark and 3D Folded Paper Effect */
+.vm-header-v2 {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  padding-bottom: 80px;
+  background: 
+    /* Fold 1 (Top Left to Bottom Right) */
+    linear-gradient(115deg, transparent 40%, rgba(0, 0, 0, 0.08) 40.5%, rgba(0, 0, 0, 0) 45%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.05) 0%, transparent 40%),
+    /* Fold 2 (Bottom Left to Top Right) */
+    linear-gradient(-60deg, transparent 50%, rgba(0, 0, 0, 0.08) 50.5%, rgba(0, 0, 0, 0) 55%),
+    linear-gradient(-60deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    /* Fold 3 (Steep Vertical Fold) */
+    linear-gradient(25deg, transparent 65%, rgba(0, 0, 0, 0.06) 65.5%, rgba(0, 0, 0, 0) 70%),
+    linear-gradient(25deg, rgba(255, 255, 255, 0.04) 0%, transparent 65%),
+    /* Base Color */
+    var(--primary-blue) !important;
 }
-.vm-section::after {
-  content: '';
+
+.vm-watermark {
   position: absolute;
-  bottom: -150px;
-  left: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
-  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  min-width: 1000px;
+  height: 100%;
   z-index: 0;
+  pointer-events: none;
+}
+
+.vm-header-v2 .container {
+  position: relative;
+  z-index: 1;
 }
 
 .vm-section .container {
@@ -186,7 +202,6 @@
 
 .target-box {
   background: linear-gradient(to bottom, #ffffff, #f8fafc);
-  border-top: 4px solid var(--accent-yellow);
 }
 .target-box .box-title i {
   color: var(--primary-blue);
@@ -221,16 +236,14 @@
   background: white;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid var(--primary-blue);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   height: 100%;
 }
 
 .strategy-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-left-color: var(--accent-yellow);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(100, 116, 139, 0.15);
 }
 
 .strategy-card h3 {

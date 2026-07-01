@@ -46,92 +46,129 @@ require_once 'config.php';
       
       .turnitin-box {
         background: white;
-        padding: 50px;
-        border-radius: 24px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        max-width: 800px;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        max-width: 700px;
         margin: 0 auto;
         border: 1px solid rgba(59, 130, 246, 0.1);
       }
       .turnitin-box h2 {
         color: #0f172a;
-        font-size: 2.2rem;
+        font-size: 2rem;
         font-weight: 800;
         text-align: center;
       }
-      .icon-header {
-        width: 80px;
-        height: 80px;
-        background: #eff6ff;
-        color: #3b82f6;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.5rem;
-        margin: 0 auto 20px;
+      .policy-desc {
+        color: #475569;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
       }
       
+      .limit-wrapper {
+        text-align: center;
+      }
+
       .similarity-limit {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
-        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        gap: 10px;
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
         color: white;
-        padding: 15px 35px;
-        border-radius: 50px;
-        font-size: 1.5rem;
+        padding: 12px 30px;
+        border-radius: 12px;
+        font-size: 1.25rem;
         font-weight: 700;
-        margin: 25px auto 40px;
-        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        margin: 25px auto 35px;
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        transition: transform 0.3s ease;
+      }
+      .similarity-limit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 25px rgba(37, 99, 235, 0.3);
       }
       
       .steps-container {
         text-align: left;
-        margin-top: 20px;
-        padding-top: 35px;
+        margin-top: 15px;
+        padding-top: 30px;
         border-top: 1px solid #e2e8f0;
       }
       .steps-container h3 {
         color: #1e293b;
-        margin-bottom: 25px;
-        font-size: 1.4rem;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
         font-weight: 700;
+        text-align: center;
       }
       .step-item {
         display: flex;
-        gap: 20px;
-        margin-bottom: 20px;
-        background: #f8fafc;
-        padding: 20px 25px;
+        gap: 18px;
+        margin-bottom: 15px;
+        background: white;
+        padding: 15px 20px;
         border-radius: 16px;
         transition: all 0.3s ease;
-        border: 1px solid transparent;
+        border: 1px solid #e2e8f0;
       }
       .step-item:hover {
-        transform: translateX(5px);
-        background: white;
+        transform: translateY(-3px);
         border-color: #3b82f6;
-        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.08);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.08);
       }
       .step-number {
-        background: #eff6ff;
+        background: #f8fafc;
         color: #3b82f6;
-        width: 45px;
-        height: 45px;
-        border-radius: 12px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: 800;
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         flex-shrink: 0;
+        border: 2px solid #eff6ff;
+        transition: all 0.3s ease;
+      }
+      .step-item:hover .step-number {
+        background: #3b82f6;
+        color: white;
+        border-color: #3b82f6;
       }
       .step-text {
         color: #475569;
-        font-size: 1.05rem;
-        line-height: 1.6;
+        font-size: 1rem;
+        line-height: 1.5;
         align-self: center;
+      }
+      
+      .btn-turnitin-email {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: white;
+        color: #3b82f6;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 2px solid #3b82f6;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        margin-top: 10px;
+      }
+      .btn-turnitin-email:hover {
+        background: #3b82f6;
+        color: white;
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        transform: translateY(-2px);
       }
     </style>
   </head>
@@ -148,25 +185,29 @@ require_once 'config.php';
     <section class="service-content">
       <div class="container">
         <div class="turnitin-box">
-          <div class="icon-header"><i class="fas fa-file-shield"></i></div>
           <h2>Academic Integrity Policy</h2>
-          <p style="color: #64748b; margin-top: 15px; text-align: center; font-size: 1.1rem;">The maximum allowed similarity index for final projects, theses, and research papers at JIU is:</p>
+          <p class="policy-desc">To uphold the highest standards of academic excellence, JIU requires all final projects, theses, and research papers to maintain strict originality. The maximum acceptable similarity index is:</p>
           
-          <div style="text-align: center;">
+          <div class="limit-wrapper">
             <div class="similarity-limit">
-              <i class="fas fa-percentage"></i> Maximum 24% Similarity
+              Maximum 24% Similarity
             </div>
           </div>
           
           <div class="steps-container">
-            <h3>How to check your document:</h3>
+            <h3>How to check your document</h3>
             <div class="step-item">
               <div class="step-number">1</div>
               <div class="step-text">Save your document in <strong>PDF or DOCX</strong> format. Make sure to remove the bibliography/references list to avoid false positives.</div>
             </div>
             <div class="step-item">
               <div class="step-number">2</div>
-              <div class="step-text">Email your document to <strong style="color:#3b82f6;">sena44@jiu.ac</strong> with the subject: <br><em>Turnitin Check - [Your Student ID]</em>.</div>
+              <div class="step-text">
+                Email your document with the subject: <em>Turnitin Check - [Your Student ID]</em>.<br>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=library@jiu.ac&su=Turnitin%20Check%20-%20%5BYour%20Student%20ID%5D" target="_blank" class="btn-turnitin-email">
+                  <i class="fas fa-envelope"></i> Send Email
+                </a>
+              </div>
             </div>
             <div class="step-item">
               <div class="step-number">3</div>

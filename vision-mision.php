@@ -27,14 +27,20 @@ require_once 'config.php';
     <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
     <link rel="stylesheet" href="assets/css/about.css?v=2.4" />
-    <link rel="stylesheet" href="assets/css/vision-mision.css?v=1.0" />
+    <link rel="stylesheet" href="assets/css/vision-mision.css?v=1.6" />
     
     <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
     <?php include 'navbar.php'; ?>
 
-    <header class="about-header">
+    <header class="about-header vm-header-v2">
+      <!-- Curved Watermark Text via SVG -->
+      <svg class="vm-watermark" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
+        <path id="text-curve" d="M 50 160 Q 500 20 950 160" fill="transparent" />
+        <text font-family="'Poppins', sans-serif" font-weight="900" font-size="80" fill="rgba(255,255,255,0.06)" letter-spacing="0.1em"><textPath href="#text-curve" startOffset="50%" text-anchor="middle">VISION &amp; MISSION</textPath></text>
+      </svg>
+      
       <div class="container">
         <h1 data-aos="fade-up" data-i18n="hdrVisionTitle">Core Values & Strategy</h1>
         <p data-aos="fade-up" data-aos-delay="100" data-i18n="hdrVisionDesc" style="margin-top: 10px; font-size: 1.1rem; opacity: 0.9">

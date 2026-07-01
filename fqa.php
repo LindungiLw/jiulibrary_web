@@ -333,11 +333,11 @@ require_once 'config.php';
 
       <div class="faq-item">
         <button class="faq-question">
-          <span>Who can use the Dream Blue Library facilities?</span>
+          <span>How to use Dream Blue Digital?</span>
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>Our library facilities are primarily available to all active students, faculty, and staff of Jakarta International University. We also welcome external researchers and guests, provided they have prior approval from the library administration.</p>
+          <p>To use Dream Blue Digital, simply log in to our digital portal using your student or staff credentials. Once logged in, you can search our entire digital collection, read e-books, access academic journals, and manage your saved resources.</p>
         </div>
       </div>
 

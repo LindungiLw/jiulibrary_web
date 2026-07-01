@@ -53,56 +53,70 @@ require_once 'config.php';
         width: 100%;
         max-width: 600px;
         background: white;
-        padding: 50px 40px;
-        border-radius: 24px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        padding: 30px 25px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.05);
         border: 1px solid rgba(59, 130, 246, 0.1);
       }
-      .booking-section h2 { margin-bottom: 15px; color: #0f172a; text-align: center; font-size: 2.2rem; font-weight: 800; }
-      .booking-section p.subtitle { color: #64748b; margin-bottom: 40px; text-align: center; line-height: 1.6; font-size: 1.1rem; }
+      .booking-section h2 { margin-bottom: 10px; color: #0f172a; text-align: center; font-size: 1.8rem; font-weight: 800; }
+      .booking-section p.subtitle { color: #64748b; margin-bottom: 25px; text-align: center; line-height: 1.5; font-size: 1rem; }
       
       .contact-buttons {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+        gap: 15px;
       }
       .btn-contact {
         display: flex;
         align-items: center;
-        gap: 20px;
-        width: 100%;
+        justify-content: center;
+        gap: 12px;
+        width: 250px;
         background: white;
-        color: #1e3a8a;
-        padding: 15px 25px;
-        border-radius: 16px;
-        border: 2px solid #e2e8f0;
-        font-size: 1.15rem;
+        padding: 10px 15px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        font-size: 1rem;
         font-weight: 600;
         transition: all 0.3s ease;
         text-decoration: none;
       }
+      .btn-contact span {
+        color: #1e3a8a;
+        transition: all 0.3s ease;
+      }
       .btn-contact .icon-wrapper {
-        width: 50px;
-        height: 50px;
-        background: #eff6ff;
-        color: #3b82f6;
-        border-radius: 12px;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         transition: all 0.3s ease;
       }
       .btn-contact:hover {
         transform: translateY(-4px);
-        border-color: #3b82f6;
-        box-shadow: 0 15px 30px rgba(59, 130, 246, 0.12);
-        color: #3b82f6;
       }
-      .btn-contact:hover .icon-wrapper {
-        background: #3b82f6;
-        color: white;
-      }
+      
+      /* Email Button Colors */
+      .btn-email .icon-wrapper { background: #fce8e6; color: #ea4335; }
+      .btn-email:hover { border-color: #ea4335; box-shadow: 0 15px 30px rgba(234, 67, 53, 0.12); }
+      .btn-email:hover .icon-wrapper { background: #ea4335; color: white; }
+      .btn-email:hover span { color: #ea4335; }
+
+      /* Google Chat Button Colors */
+      .btn-gchat .icon-wrapper { background: #e6f4ea; color: #0f9d58; }
+      .btn-gchat:hover { border-color: #0f9d58; box-shadow: 0 15px 30px rgba(15, 157, 88, 0.12); }
+      .btn-gchat:hover .icon-wrapper { background: #0f9d58; color: white; }
+      .btn-gchat:hover span { color: #0f9d58; }
+
+      /* WhatsApp Button Colors */
+      .btn-wa .icon-wrapper { background: #eafbf0; color: #25d366; }
+      .btn-wa:hover { border-color: #25d366; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.12); }
+      .btn-wa:hover .icon-wrapper { background: #25d366; color: white; }
+      .btn-wa:hover span { color: #25d366; }
     </style>
   </head>
   <body>
@@ -120,20 +134,20 @@ require_once 'config.php';
         <div class="consultation-wrapper">
           <div class="booking-section">
             <h2>Book a Session</h2>
-            <p class="subtitle">Schedule a 30-minute 1-on-1 session with our librarians. Reach out to us via any of the channels below:</p>
+            <p class="subtitle">Reach out to us via any of the channels below:</p>
             
             <div class="contact-buttons">
-              <a href="mailto:sena44@jiu.ac?subject=Research Consultation Request" class="btn-contact">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sena44@jiu.ac&su=Research%20Consultation%20Request" target="_blank" class="btn-contact btn-email">
                 <div class="icon-wrapper"><i class="fas fa-envelope"></i></div> 
-                Email (sena44@jiu.ac)
+                <span>Email</span>
               </a>
-              <a href="https://chat.google.com/" target="_blank" class="btn-contact">
+              <a href="https://chat.google.com/" target="_blank" class="btn-contact btn-gchat">
                 <div class="icon-wrapper"><i class="fas fa-comments"></i></div> 
-                Google Chat (sena44@jiu.ac)
+                <span>Google Chat</span>
               </a>
-              <a href="https://wa.me/6281260173697" target="_blank" class="btn-contact">
+              <a href="https://wa.me/6281260173697" target="_blank" class="btn-contact btn-wa">
                 <div class="icon-wrapper"><i class="fab fa-whatsapp"></i></div> 
-                WhatsApp (+62 812-6017-3697)
+                <span>WhatsApp</span>
               </a>
             </div>
             
