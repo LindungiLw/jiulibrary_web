@@ -47,11 +47,11 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
   <link rel="stylesheet" href="assets/css/base.css?v=1.2" />
 
-  <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
+  <link rel="stylesheet" href="assets/css/navbar.css?v=2.4" />
   <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
   <link rel="stylesheet" href="assets/css/sections.css?v=2.5" />
-  <link rel="stylesheet" href="assets/css/responsive.css?v=3.1" />
+  <link rel="stylesheet" href="assets/css/responsive.css?v=3.2" />
 
   <!-- Defer Non-Critical CSS for Mobile Speed -->
   <link rel="preload" href="assets/css/style/modal.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">

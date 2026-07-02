@@ -1060,19 +1060,22 @@
     box-sizing: border-box;
   }
 
-  .service-item, .nested-trigger {
-    padding: 6px 4px;
-    font-size: 0.7rem;
+  .service-item, .nested-trigger, .lang-option {
+    padding: 8px 6px !important;
+    font-size: 0.82rem !important;
     color: var(--clr-blue-1);
     background: rgba(15, 23, 42, 0.03);
-    border-radius: 6px;
+    border-radius: 8px;
     text-align: center;
-    border: 1px solid rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(15, 23, 42, 0.06);
     display: flex;
     justify-content: center;
     align-items: center;
     word-break: break-word;
-    line-height: 1.2;
+    line-height: 1.3;
+  }
+  .lang-name {
+    font-size: 0.82rem !important;
   }
 
   .service-item:hover {

@@ -76,6 +76,21 @@ img, video, iframe {
    MD : Tablet landscape ≤ 992px
    ──────────────────────────────────────────────────────────── */
 @media (max-width: 992px) {
+  /* Mobile Navbar Menu Typography Normalization */
+  .nav-links-list > li > a,
+  .dropbtn {
+    font-size: 0.98rem !important;
+    font-weight: 600 !important;
+    padding: 10px 15px !important;
+  }
+  .service-item, .nested-trigger, .lang-option {
+    font-size: 0.82rem !important;
+    padding: 8px 6px !important;
+  }
+  .lang-name {
+    font-size: 0.82rem !important;
+  }
+
   /* News grid */
   .j-news-grid {
     grid-template-columns: repeat(2, 1fr);
