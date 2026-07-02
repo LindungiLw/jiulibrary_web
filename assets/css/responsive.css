@@ -129,19 +129,21 @@ img, video, iframe {
 
   /* ─── Navbar ─── */
   .top-bar {
-    flex-direction: column;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.35rem 4%;
     gap: 0.5rem;
-    padding: 0.7rem 5%;
-    text-align: center;
   }
   .top-bar-left {
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: 0.72rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    font-size: 0.75rem;
   }
   .top-bar-right {
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-end;
+    width: auto !important;
+    gap: 0.6rem;
   }
   .main-nav {
     padding: 0.7rem 5%;
@@ -324,6 +326,17 @@ img, video, iframe {
    XS : HP kecil ≤ 480px
    ──────────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
+
+  /* Top Bar XS */
+  .top-bar {
+    padding: 0.3rem 3%;
+  }
+  .top-bar-left {
+    font-size: 0.68rem;
+  }
+  .top-bar-right {
+    gap: 0.4rem;
+  }
 
   /* Hero */
   .hero-full-bg {

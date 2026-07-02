@@ -51,7 +51,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <link rel="stylesheet" href="assets/css/hero.css?v=1.1" />
 
   <link rel="stylesheet" href="assets/css/sections.css?v=2.5" />
-  <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
+  <link rel="stylesheet" href="assets/css/responsive.css?v=3.1" />
 
   <!-- Defer Non-Critical CSS for Mobile Speed -->
   <link rel="preload" href="assets/css/style/modal.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">

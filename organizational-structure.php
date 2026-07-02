@@ -70,7 +70,7 @@ function getStaff($code, $staff_data) {
     <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
     <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
-    <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
+    <link rel="stylesheet" href="assets/css/responsive.css?v=3.1" />
     <link rel="stylesheet" href="assets/css/about.css?v=2.5" />
     
     <script src="https://accounts.google.com/gsi/client" async defer></script>

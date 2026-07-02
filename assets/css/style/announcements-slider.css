@@ -1,13 +1,11 @@
-/* =========================================
-   SECTION PENGUMUMAN (ANNOUNCEMENTS - GRID)
-========================================= */
+/* announcement */
 .announcement-section {
   padding: 80px 0;
   position: relative;
   background-color: #f8fafc;
 }
 
-/* CONTAINER */
+/* Container */
 .ann-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -45,6 +43,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
 }
+
 .btn-view-ann-pill:hover {
   background-color: #1d4ed8;
   color: #ffffff;
@@ -72,7 +71,8 @@
   height: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: visible; /* Allowing badge to overlap */
+  overflow: visible;
+  /* Allowing badge to overlap */
 }
 
 .jiu-ann-card:hover {
@@ -86,7 +86,8 @@
   width: 100%;
   height: 220px;
   border-radius: 16px 16px 0 0;
-  overflow: visible; /* To let the badge overlap the bottom edge */
+  overflow: visible;
+  /* To let the badge overlap the bottom edge */
 }
 
 .jiu-ann-img-inner {
@@ -119,13 +120,14 @@
   font-size: 0.8rem;
   font-weight: 700;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   font-family: var(--font-primary, "Poppins", sans-serif);
 }
 
 /* ─── Text area ─── */
 .jiu-ann-content {
-  padding: 28px 20px 20px; /* 28px top padding accommodates the overlapping badge */
+  padding: 28px 20px 20px;
+  /* 28px top padding accommodates the overlapping badge */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -147,6 +149,7 @@
   overflow: hidden;
   transition: color 0.3s;
 }
+
 .jiu-ann-card:hover .jiu-ann-title {
   color: #2563eb;
 }
@@ -201,6 +204,7 @@
     align-items: flex-start;
     gap: 15px;
   }
+
   .ann-grid {
     grid-template-columns: 1fr;
   }

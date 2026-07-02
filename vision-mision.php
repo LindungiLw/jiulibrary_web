@@ -25,7 +25,7 @@ require_once 'config.php';
     <link rel="stylesheet" href="assets/css/navbar.css?v=2.3" />
     <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
-    <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
+    <link rel="stylesheet" href="assets/css/responsive.css?v=3.1" />
     <link rel="stylesheet" href="assets/css/about.css?v=2.4" />
     <link rel="stylesheet" href="assets/css/vision-mision.css?v=1.6" />
     

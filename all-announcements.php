@@ -34,7 +34,7 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
     <link rel="stylesheet" href="assets/css/style/news-slider.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
-    <link rel="stylesheet" href="assets/css/responsive.css?v=3.0" />
+    <link rel="stylesheet" href="assets/css/responsive.css?v=3.1" />
 </head>
 
 <body>
