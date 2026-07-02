@@ -200,7 +200,7 @@ try {
     <?php include 'footer.php'; ?>
     
     <script src="assets/js/dictionary.js"></script>
-    <script src="assets/js/navbar.js"></script>
+    <script defer src="assets/js/main.js?v=2.2"></script>
     <script>
       // Quick inline script to handle dynamic language switching for DB content
       document.addEventListener("DOMContentLoaded", () => {

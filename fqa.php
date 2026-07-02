@@ -468,7 +468,7 @@ require_once 'config.php';
     window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
   </script>
   <script defer src="assets/js/dictionary.js?v=1.3"></script>
-  <script defer src="assets/js/main.js?v=2.0"></script>
+  <script defer src="assets/js/main.js?v=2.2"></script>
   <script defer src="assets/js/chatbot.js?v=1.8"></script>
 
   <script>

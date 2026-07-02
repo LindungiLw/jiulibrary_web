@@ -25,6 +25,14 @@ function toggleDropdown(event, menuId) {
 }
 
 window.addEventListener("click", function (event) {
+  // Tutup mobile navbar jika klik di luar tombol hamburger dan di luar menu navigasi
+  if (navLinks && navLinks.classList.contains("active")) {
+    if (!event.target.closest("#mobile-menu") && !event.target.closest("#nav-links")) {
+      navLinks.classList.remove("active");
+    }
+  }
+
+  // Tutup dropdown menu jika klik di luar elemen dropdown
   if (!event.target.closest(".dropdown")) {
     const dropdowns = document.getElementsByClassName("dropdown-content");
     for (let i = 0; i < dropdowns.length; i++) {
