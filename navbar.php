@@ -119,33 +119,24 @@
 
               <div class="dropdown-content auto-width-dropdown" id="servicesMenu">
                 <div class="simple-vertical-menu">
-                  <div class="nested-dropdown">
-                    <div class="service-item nested-trigger" style="cursor: default;">
-                      <span data-i18n="srvType">Type of Services</span>
-                      <i class="fas fa-chevron-right" style="font-size: 0.7rem; color: #94a3b8;"></i>
-                    </div>
-
-                    <div class="nested-content">
-                      <a href="service-digital.php" class="service-item">
-                        <span data-i18n="srvDigital">Digital Collection</span>
-                      </a>
-                      <a href="service-circulation.php" class="service-item">
-                        <span data-i18n="srvCirculation">Circulation</span>
-                      </a>
-                      <a href="service-consultation.php" class="service-item">
-                        <span data-i18n="srvConsultation">Consultation</span>
-                      </a>
-                      <a href="service-turnitin.php" class="service-item">
-                        <span data-i18n="srvTurnitin">Turnitin</span>
-                      </a>
-                      <a href="service-print-scan.php" class="service-item">
-                        <span data-i18n="srvPrinter">Printer and Scan</span>
-                      </a>
-                      <a href="service-opening-hours.php" class="service-item">
-                        <span data-i18n="srvOpeningHours">Opening Hours</span>
-                      </a>
-                    </div>
-                  </div>
+                  <a href="service-digital.php" class="service-item">
+                    <span data-i18n="srvDigital">Digital Collection</span>
+                  </a>
+                  <a href="service-circulation.php" class="service-item">
+                    <span data-i18n="srvCirculation">Circulation</span>
+                  </a>
+                  <a href="service-consultation.php" class="service-item">
+                    <span data-i18n="srvConsultation">Consultation</span>
+                  </a>
+                  <a href="service-turnitin.php" class="service-item">
+                    <span data-i18n="srvTurnitin">Turnitin</span>
+                  </a>
+                  <a href="service-print-scan.php" class="service-item">
+                    <span data-i18n="srvPrinter">Printer and Scan</span>
+                  </a>
+                  <a href="service-opening-hours.php" class="service-item">
+                    <span data-i18n="srvOpeningHours">Opening Hours</span>
+                  </a>
 
                   <div class="dropdown-divider" style="height: 1px; background: #f1f5f9; margin: 5px 15px;"></div>
 
