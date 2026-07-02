@@ -41,6 +41,7 @@ const dict = {
     srvTurnitinDesc: "Check your work for originality and prevent plagiarism",
     srvPrinter: "Printer and Scan",
     srvPrinterDesc: "Self-service printing, scanning, and copying facilities",
+    srvOpeningHours: "Opening Hours",
     srvFAQ: "F&Q",
 
     // --- NAV MENU: SUB-SUBMIT ---
@@ -202,6 +203,7 @@ const dict = {
     srvTurnitinDesc: "Periksa keaslian karya dan hindari plagiarisme",
     srvPrinter: "Cetak dan Pindai",
     srvPrinterDesc: "Fasilitas mandiri cetak, pindai, dan fotokopi",
+    srvOpeningHours: "Jam Operasional",
     srvFAQ: "Tanya Jawab (F&Q)",
 
     // --- NAV MENU: SUB-SUBMIT ---

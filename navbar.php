@@ -141,6 +141,9 @@
                       <a href="service-print-scan.php" class="service-item">
                         <span data-i18n="srvPrinter">Printer and Scan</span>
                       </a>
+                      <a href="service-opening-hours.php" class="service-item">
+                        <span data-i18n="srvOpeningHours">Opening Hours</span>
+                      </a>
                     </div>
                   </div>
 
@@ -280,3 +283,29 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal Opening Hours -->
+    <div id="modalHours" class="modal-hours">
+      <div class="modal-content-hours">
+        <span class="close-modal" onclick="closeModal('modalHours')">&times;</span>
+        <div class="modal-header">
+          <i class="fas fa-clock"></i>
+          <h3 data-i18n="modHourTitle">Opening Hours</h3>
+        </div>
+        <div class="schedule-list">
+          <div class="day-row">
+            <span class="day-name">Mon - Fri</span>
+            <span class="day-time">08:00 - 17:00 <br> <small class="mod-hour-break">Break</small> <br> 18:00 - 21:00</span>
+          </div>
+          <div class="day-row">
+            <span class="day-name">Saturday</span>
+            <span class="day-time">08:00 - 17:00</span>
+          </div>
+          <div class="day-row closed">
+            <span class="day-name">Sunday</span>
+            <span class="day-time" data-i18n="modHourClosed">Closed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
