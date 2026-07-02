@@ -51,7 +51,7 @@ try {
         background-size: cover;
         background-position: center;
         color: white;
-        padding: 140px 0 60px;
+        padding: 140px 0 120px;
         text-align: center;
         border-bottom-left-radius: 40px;
         border-bottom-right-radius: 40px;
@@ -59,63 +59,97 @@ try {
       .service-header h1 { font-size: 2.5rem; margin-bottom: 15px; }
       .service-header p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
       
-      .service-content { padding: 60px 0; background-color: #f8fafc; min-height: 50vh; }
+      .service-content { background-color: #ffffff; min-height: 50vh; padding-bottom: 80px; }
       
       .hours-wrapper {
-        max-width: 700px;
-        margin: 0 auto;
+        max-width: 1000px;
+        margin: -80px auto 0;
+        position: relative;
+        z-index: 10;
+        padding: 0 20px;
       }
       
-      .hours-card {
-        background: white;
-        border-radius: 12px;
-        padding: 40px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        border: 1px solid #e2e8f0;
+      .schedule-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
       }
-      
-      .schedule-list {
+
+      .day-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 15px 35px rgba(148, 163, 184, 0.08); /* Minimalist gray shadow */
+        border: 1px solid rgba(226, 232, 240, 0.8);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         display: flex;
         flex-direction: column;
-        gap: 20px;
-      }
-      
-      .day-row {
-        display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding-bottom: 20px;
-        border-bottom: 1px dashed #cbd5e1;
+        text-align: center;
       }
       
-      .day-row:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
+      .day-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(148, 163, 184, 0.15);
+      }
+      
+      .day-icon {
+        width: 60px;
+        height: 60px;
+        background: #f1f5f9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #3b82f6;
+        margin-bottom: 20px;
+      }
+      
+      .day-card.closed .day-icon {
+        background: #f8fafc;
+        color: #94a3b8;
       }
       
       .day-name {
+        font-family: 'Poppins', sans-serif;
         font-weight: 700;
+        font-size: 1.4rem;
         color: #1e293b;
-        font-size: 1.1rem;
+        margin-bottom: 25px;
       }
       
-      .day-time {
-        text-align: right;
-        color: #475569;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-      
-      .mod-hour-break {
+      .day-card.closed .day-name {
         color: #94a3b8;
-        background: #f1f5f9;
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 0.8rem;
       }
       
-      .closed .day-name { color: #94a3b8; }
-      .closed .day-time { color: #ef4444; font-weight: 700; }
+      .shift-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+      }
+      
+      .shift-item {
+        background: #f8fafc;
+        padding: 12px;
+        border-radius: 12px;
+        color: #475569;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid #f1f5f9;
+      }
+      
+      .closed-badge {
+        background: #f1f5f9;
+        color: #64748b;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 12px;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
     </style>
   </head>
   <body>
@@ -130,31 +164,35 @@ try {
     
     <section class="service-content">
       <div class="container hours-wrapper">
-        <div class="hours-card">
-          <div class="schedule-list">
-            <?php foreach ($hours_list as $h): ?>
-              <div class="day-row <?php echo $h['is_closed'] ? 'closed' : ''; ?>">
-                <span class="day-name">
-                  <span class="lang-en" style="display:none;"><?php echo htmlspecialchars($h['day_name_en']); ?></span>
-                  <span class="lang-id" style="display:none;"><?php echo htmlspecialchars($h['day_name_id']); ?></span>
-                </span>
-                <span class="day-time">
-                  <?php 
-                    if ($h['is_closed']) {
-                        echo "Closed";
-                    } else {
-                        $shifts = [];
-                        if (!empty(trim($h['time_pagi']))) $shifts[] = htmlspecialchars(trim($h['time_pagi']));
-                        if (!empty(trim($h['time_siang']))) $shifts[] = htmlspecialchars(trim($h['time_siang']));
-                        if (!empty(trim($h['time_malam']))) $shifts[] = htmlspecialchars(trim($h['time_malam']));
-                        
-                        echo implode(' <br> <small class="mod-hour-break">Break</small> <br> ', $shifts);
-                    }
-                  ?>
-                </span>
+        <div class="schedule-grid">
+          <?php foreach ($hours_list as $h): ?>
+            <div class="day-card <?php echo $h['is_closed'] ? 'closed' : ''; ?>">
+              <div class="day-icon">
+                <i class="far <?php echo $h['is_closed'] ? 'fa-calendar-times' : 'fa-calendar-check'; ?>"></i>
               </div>
-            <?php endforeach; ?>
-          </div>
+              
+              <span class="day-name">
+                <span class="lang-en" style="display:none;"><?php echo htmlspecialchars($h['day_name_en']); ?></span>
+                <span class="lang-id" style="display:none;"><?php echo htmlspecialchars($h['day_name_id']); ?></span>
+              </span>
+              
+              <?php if ($h['is_closed']): ?>
+                <span class="closed-badge">Closed</span>
+              <?php else: ?>
+                <div class="shift-list">
+                  <?php if (!empty(trim((string)$h['time_pagi']))): ?>
+                    <div class="shift-item"><?php echo htmlspecialchars(trim((string)$h['time_pagi'])); ?></div>
+                  <?php endif; ?>
+                  <?php if (!empty(trim((string)$h['time_siang']))): ?>
+                    <div class="shift-item"><?php echo htmlspecialchars(trim((string)$h['time_siang'])); ?></div>
+                  <?php endif; ?>
+                  <?php if (!empty(trim((string)$h['time_malam']))): ?>
+                    <div class="shift-item"><?php echo htmlspecialchars(trim((string)$h['time_malam'])); ?></div>
+                  <?php endif; ?>
+                </div>
+              <?php endif; ?>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>

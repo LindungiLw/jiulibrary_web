@@ -53,51 +53,30 @@ require_once 'config.php';
         margin: 0 auto;
         border: 1px solid rgba(59, 130, 246, 0.1);
       }
-      .turnitin-box h2 {
+      .turnitin-header-summary {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+      .turnitin-header-summary h2 {
         color: #0f172a;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 800;
-        text-align: center;
+        margin: 0 0 10px 0;
+        font-family: 'Poppins', sans-serif;
       }
-      .policy-desc {
-        color: #475569;
-        margin-top: 15px;
-        text-align: center;
-        font-size: 1.05rem;
-        line-height: 1.6;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+      .highlight-percent {
+        color: #2563eb;
       }
-      
-      .limit-wrapper {
-        text-align: center;
+      .turnitin-header-summary p {
+        color: #64748b;
+        font-size: 1rem;
+        margin: 0;
       }
 
-      .similarity-limit {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-        color: white;
-        padding: 12px 30px;
-        border-radius: 12px;
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin: 25px auto 35px;
-        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-        transition: transform 0.3s ease;
-      }
-      .similarity-limit:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 25px rgba(37, 99, 235, 0.3);
-      }
-      
       .steps-container {
         text-align: left;
-        margin-top: 15px;
-        padding-top: 30px;
-        border-top: 1px solid #e2e8f0;
+        padding-top: 25px;
+        border-top: 1px solid #f1f5f9;
       }
       .steps-container h3 {
         color: #1e293b;
@@ -185,13 +164,9 @@ require_once 'config.php';
     <section class="service-content">
       <div class="container">
         <div class="turnitin-box">
-          <h2>Academic Integrity Policy</h2>
-          <p class="policy-desc">To uphold the highest standards of academic excellence, JIU requires all final projects, theses, and research papers to maintain strict originality. The maximum acceptable similarity index is:</p>
-          
-          <div class="limit-wrapper">
-            <div class="similarity-limit">
-              Maximum 24% Similarity
-            </div>
+          <div class="turnitin-header-summary">
+            <h2>Maximum Similarity Threshold: <span class="highlight-percent">24%</span></h2>
+            <p>Applicable for all JIU final projects, theses, and research papers.</p>
           </div>
           
           <div class="steps-container">

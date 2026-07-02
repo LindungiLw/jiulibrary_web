@@ -75,39 +75,63 @@ require_once 'config.php';
       }
       
       .price-card {
-        background: white;
-        border-radius: 12px;
-        padding: 40px 30px 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        border: 1px solid #e2e8f0;
-        position: relative;
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 35px 35px 30px;
+        box-shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
+        border: 1px solid #f1f5f9;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       
-      .pill-title {
-        position: absolute;
-        top: 25px;
-        left: 30px;
-        padding: 6px 15px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+      .price-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
       }
-      .pill-dark { background: #1e293b; color: white; }
-      .pill-light { background: #93c5fd; color: white; }
+      
+      .card-header-title {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f8fafc;
+      }
+      .card-header-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+      .icon-dark { background: #f1f5f9; color: #1e293b; }
+      .icon-blue { background: #eff6ff; color: #3b82f6; }
+      .card-header-text h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+      }
+      .card-header-text p {
+        font-size: 0.82rem;
+        color: #64748b;
+        margin: 3px 0 0;
+      }
       
       .price-list {
         list-style: none;
         padding: 0;
-        margin-top: 30px;
+        margin-top: 10px;
       }
       .price-list li {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 15px 0;
-        border-bottom: 1px dashed #cbd5e1;
+        padding: 16px 0;
+        border-bottom: 1px solid #f1f5f9; /* solid soft line instead of stiff dashed line */
         font-size: 0.95rem;
         color: #475569;
       }
@@ -115,93 +139,11 @@ require_once 'config.php';
       .price-list i {
         color: #3b82f6;
         margin-right: 12px;
-        width: 15px;
+        width: 16px;
         text-align: center;
       }
       .price-val { font-weight: 700; color: #1e293b; font-size: 1.1rem; }
-      .price-val span { font-size: 0.7rem; font-weight: 500; color: #94a3b8; margin-left: 2px; }
-      
-      .rules-card {
-        background: #f8fafc;
-        border-radius: 12px;
-        padding: 50px 30px 30px;
-        border: 1px solid #e2e8f0;
-        position: relative;
-        display: flex;
-        gap: 30px;
-        align-items: flex-start;
-        margin-bottom: 60px;
-      }
-      .rules-card .pill-title {
-        top: 20px;
-        left: -10px;
-        background: #1e293b;
-        color: white;
-      }
-      .rules-card::before {
-        content: '';
-        position: absolute;
-        top: 48px;
-        left: -10px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #0f172a #0f172a transparent transparent;
-      }
-      
-      .fee-box {
-        background: white;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-        border: 1px solid #e2e8f0;
-        flex: 0 0 30%;
-      }
-      .fee-box .fee-title {
-        font-size: 0.8rem;
-        font-weight: 700;
-        color: #64748b;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-      }
-      .fee-box .fee-title i { margin-right: 5px; }
-      .fee-box .fee-amount {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #1e293b;
-      }
-      .fee-box .fee-amount span {
-        font-size: 0.75rem;
-        color: #94a3b8;
-        font-weight: 500;
-      }
-      
-      .policy-list {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-      .policy-item {
-        background: #fee2e2;
-        border: 1px solid #fca5a5;
-        padding: 18px 20px;
-        border-radius: 8px;
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-      }
-      .policy-item i { color: #ef4444; margin-top: 3px; font-size: 1.1rem; }
-      .policy-content h4 {
-        color: #b91c1c;
-        font-size: 0.95rem;
-        margin: 0 0 5px 0;
-        font-weight: 700;
-      }
-      .policy-content p {
-        color: #991b1b;
-        font-size: 0.85rem;
-        margin: 0;
-      }
+      .price-val span { font-size: 0.75rem; font-weight: 500; color: #94a3b8; margin-left: 4px; }
       
       .compliance-section {
         display: flex;
@@ -210,10 +152,11 @@ require_once 'config.php';
       }
       .compliance-image {
         flex: 0 0 45%;
-        border-radius: 16px;
+        border-radius: 20px;
         overflow: hidden;
         position: relative;
-        height: 250px;
+        height: 280px;
+        box-shadow: 0 15px 35px rgba(148, 163, 184, 0.1);
       }
       .compliance-image img {
         width: 100%;
@@ -223,41 +166,44 @@ require_once 'config.php';
       .compliance-overlay {
         position: absolute;
         bottom: 0; left: 0; right: 0;
-        padding: 30px 20px 20px;
+        padding: 40px 20px 20px;
         background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
         color: white;
       }
-      .compliance-overlay h3 { margin: 0 0 5px 0; font-size: 1.2rem; font-weight: 700; }
-      .compliance-overlay p { margin: 0; font-size: 0.85rem; opacity: 0.9; }
+      .compliance-overlay h3 { margin: 0 0 5px 0; font-size: 1.3rem; font-weight: 700; }
+      .compliance-overlay p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
       
       .compliance-text { flex: 1; }
       .compliance-text h2 {
-        font-size: 1.4rem;
-        color: #1e3a8a;
+        font-size: 1.5rem;
+        color: #1e293b;
         margin-bottom: 15px;
         font-weight: 700;
+        font-family: 'Poppins', sans-serif;
       }
       .compliance-text p {
-        font-size: 0.9rem;
-        color: #475569;
+        font-size: 0.95rem;
+        color: #64748b;
         line-height: 1.6;
         margin-bottom: 25px;
       }
       .compliance-badges { display: flex; gap: 20px; }
       .compliance-badge {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         font-weight: 700;
-        color: #475569;
+        color: #3b82f6;
+        background: #eff6ff;
+        padding: 8px 16px;
+        border-radius: 20px;
         display: flex;
         align-items: center;
         gap: 8px;
+        border: 1px solid #dbeafe;
       }
-      .compliance-badge i { color: #1e3a8a; font-size: 1.1rem; }
-
+      .compliance-badge i { font-size: 1.1rem; }
+      
       @media (max-width: 768px) {
         .price-sections { grid-template-columns: 1fr; }
-        .rules-card { flex-direction: column; }
-        .fee-box { width: 100%; }
         .compliance-section { flex-direction: column; }
         .compliance-image { height: 200px; width: 100%; }
       }
@@ -265,23 +211,29 @@ require_once 'config.php';
   </head>
   <body>
     <?php include 'navbar.php'; ?>
-
+    
     <header class="service-header">
       <div class="container">
         <h1>Printing & Scanning Facilities</h1>
         <p>Self-service printing, copying, and scanning available at the Library IT Corner.</p>
       </div>
     </header>
-
+    
     <section class="service-content">
       <div class="container">
         <div class="pricelist-wrapper">
           <h2 class="section-title">PRICELIST AT JIU LIBRARY</h2>
-
+          
           <div class="price-sections">
             <!-- Using Library Paper -->
             <div class="price-card">
-              <div class="pill-title pill-dark">USING LIBRARY PAPER</div>
+              <div class="card-header-title">
+                <div class="card-header-icon icon-dark"><i class="fas fa-print"></i></div>
+                <div class="card-header-text">
+                  <h3>Using library paper</h3>
+                  <p>Paper provided by JIU Library</p>
+                </div>
+              </div>
               <ul class="price-list">
                 <li>
                   <div><i class="far fa-file-alt"></i> Print/Photo Copy (one side)</div>
@@ -300,7 +252,13 @@ require_once 'config.php';
             
             <!-- If you bring your paper -->
             <div class="price-card">
-              <div class="pill-title pill-light">IF YOU BRING YOUR PAPER</div>
+              <div class="card-header-title">
+                <div class="card-header-icon icon-blue"><i class="far fa-file-alt"></i></div>
+                <div class="card-header-text">
+                  <h3>If you bring your paper</h3>
+                  <p>Using personal blank paper</p>
+                </div>
+              </div>
               <ul class="price-list">
                 <li>
                   <div><i class="far fa-file-alt"></i> Print/Photo Copy (one side)</div>
@@ -318,49 +276,21 @@ require_once 'config.php';
             </div>
           </div>
           
-          <!-- Other Fees & Rules -->
-          <div class="rules-card">
-            <div class="pill-title">OTHER FEES & RULES</div>
-            
-            <div class="fee-box">
-              <div class="fee-title"><i class="far fa-clock"></i> LATE FEE</div>
-              <div class="fee-amount">Rp1,000<span>/day/book</span></div>
-            </div>
-            
-            <div class="policy-list">
-              <div class="policy-item">
-                <i class="fas fa-exclamation-triangle"></i>
-                <div class="policy-content">
-                  <h4>Book Loss Policy</h4>
-                  <p>If you lose the library book, you have to pay 100% of the original price of the book!</p>
-                </div>
-              </div>
-              <div class="policy-item">
-                <i class="fas fa-exclamation-circle"></i>
-                <div class="policy-content">
-                  <h4>Damage Policy</h4>
-                  <p>If you damage a library book, you have to repair it and pay if badly damaged!</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Compliance Section -->
+
+          <!-- Facility Section -->
           <div class="compliance-section">
             <div class="compliance-image">
               <img src="assets/images/services-photo/printed.jpg" alt="Library Facilities" />
               <div class="compliance-overlay">
-                <h3>World-Class Facilities</h3>
-                <p>Empowering your academic journey.</p>
+                <h3>Print & Scan Station</h3>
+                <p>Ready to help with your documents.</p>
               </div>
             </div>
             <div class="compliance-text">
-              <h2>Library Compliance & Excellence</h2>
-              <p>Our printing and scanning services are maintained to the highest institutional standards, ensuring your documents are rendered with professional precision. By utilizing our facilities, you contribute to the sustainability of our shared resource ecosystem.</p>
-              <div class="compliance-badges">
-                <div class="compliance-badge"><i class="far fa-check-circle"></i> CERTIFIED PAPER</div>
-                <div class="compliance-badge"><i class="fab fa-envira"></i> ECO-EFFICIENT</div>
-              </div>
+              <h2>Self-Service Facilities</h2>
+              <p>We provide easy-to-use printers and scanners for all your academic needs. Whether you need to print an assignment or copy a page from a library book, our IT Corner is always ready to assist you.</p>
+            
             </div>
           </div>
 
