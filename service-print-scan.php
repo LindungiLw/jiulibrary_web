@@ -44,29 +44,27 @@ require_once 'config.php';
       
       .service-content { padding: 60px 0; background-color: #f8fafc; }
       
-      .pricelist-container {
-        background: white;
-        padding: 50px;
-        border-radius: 24px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        max-width: 900px;
+      .pricelist-wrapper {
+        padding: 50px 0;
+        max-width: 1000px;
         margin: 0 auto;
-        border: 1px solid rgba(59, 130, 246, 0.1);
-        position: relative;
-        overflow: hidden;
       }
-      .paylater-tag {
-        position: absolute;
-        top: 50px;
-        right: -65px;
-        background: #ef4444;
-        color: white;
-        padding: 12px 60px;
-        transform: rotate(45deg);
-        font-weight: 800;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+      .section-title {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #64748b;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 50px;
         letter-spacing: 1px;
+      }
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: #64748b;
+        margin: 15px auto 0;
       }
       
       .price-sections {
@@ -74,75 +72,194 @@ require_once 'config.php';
         grid-template-columns: 1fr 1fr;
         gap: 30px;
         margin-bottom: 40px;
-        margin-top: 20px;
       }
       
-      .price-group {
-        background: #f8fafc;
-        border-radius: 16px;
-        padding: 25px;
+      .price-card {
+        background: white;
+        border-radius: 12px;
+        padding: 40px 30px 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         border: 1px solid #e2e8f0;
         position: relative;
-        margin-top: 20px;
       }
-      .group-title {
-        background: #3b82f6;
-        color: white;
-        display: inline-block;
-        padding: 8px 25px;
-        border-radius: 30px;
-        font-weight: 700;
-        font-size: 1.1rem;
+      
+      .pill-title {
         position: absolute;
-        top: -20px;
-        left: 20px;
-        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        top: 25px;
+        left: 30px;
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
+      .pill-dark { background: #1e293b; color: white; }
+      .pill-light { background: #93c5fd; color: white; }
       
-      .price-list { list-style: none; padding: 0; margin: 20px 0 0 0; }
-      .price-list li {
-        display: flex;
-        justify-content: space-between;
-        padding: 12px 0;
-        border-bottom: 1px dashed #cbd5e1;
-        color: #334155;
-        font-size: 1.05rem;
-      }
-      .price-list li:last-child { border-bottom: none; }
-      .price-val { font-weight: 700; color: #0f172a; }
-      
-      .other-group {
-        background: #eff6ff;
-        border-radius: 16px;
-        padding: 35px 30px 25px;
-        border-left: 5px solid #1e3a8a;
-        position: relative;
+      .price-list {
+        list-style: none;
+        padding: 0;
         margin-top: 30px;
       }
-      .other-group .group-title {
-        background: #1e3a8a;
-        box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+      .price-list li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px dashed #cbd5e1;
+        font-size: 0.95rem;
+        color: #475569;
       }
-      .other-list { list-style: none; padding: 0; margin: 0; }
-      .other-list li {
-        padding: 10px 0;
-        font-size: 1.1rem;
-        color: #334155;
+      .price-list li:last-child { border-bottom: none; }
+      .price-list i {
+        color: #3b82f6;
+        margin-right: 12px;
+        width: 15px;
+        text-align: center;
       }
-      .warning-text { color: #ef4444 !important; font-weight: 600; }
-      .warning-text i { margin-right: 8px; }
+      .price-val { font-weight: 700; color: #1e293b; font-size: 1.1rem; }
+      .price-val span { font-size: 0.7rem; font-weight: 500; color: #94a3b8; margin-left: 2px; }
+      
+      .rules-card {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 50px 30px 30px;
+        border: 1px solid #e2e8f0;
+        position: relative;
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        margin-bottom: 60px;
+      }
+      .rules-card .pill-title {
+        top: 20px;
+        left: -10px;
+        background: #1e293b;
+        color: white;
+      }
+      .rules-card::before {
+        content: '';
+        position: absolute;
+        top: 48px;
+        left: -10px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #0f172a #0f172a transparent transparent;
+      }
+      
+      .fee-box {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        border: 1px solid #e2e8f0;
+        flex: 0 0 30%;
+      }
+      .fee-box .fee-title {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #64748b;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+      .fee-box .fee-title i { margin-right: 5px; }
+      .fee-box .fee-amount {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #1e293b;
+      }
+      .fee-box .fee-amount span {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        font-weight: 500;
+      }
+      
+      .policy-list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .policy-item {
+        background: #fee2e2;
+        border: 1px solid #fca5a5;
+        padding: 18px 20px;
+        border-radius: 8px;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      .policy-item i { color: #ef4444; margin-top: 3px; font-size: 1.1rem; }
+      .policy-content h4 {
+        color: #b91c1c;
+        font-size: 0.95rem;
+        margin: 0 0 5px 0;
+        font-weight: 700;
+      }
+      .policy-content p {
+        color: #991b1b;
+        font-size: 0.85rem;
+        margin: 0;
+      }
+      
+      .compliance-section {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+      .compliance-image {
+        flex: 0 0 45%;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        height: 250px;
+      }
+      .compliance-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .compliance-overlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 30px 20px 20px;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+      }
+      .compliance-overlay h3 { margin: 0 0 5px 0; font-size: 1.2rem; font-weight: 700; }
+      .compliance-overlay p { margin: 0; font-size: 0.85rem; opacity: 0.9; }
+      
+      .compliance-text { flex: 1; }
+      .compliance-text h2 {
+        font-size: 1.4rem;
+        color: #1e3a8a;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+      .compliance-text p {
+        font-size: 0.9rem;
+        color: #475569;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+      .compliance-badges { display: flex; gap: 20px; }
+      .compliance-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #475569;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .compliance-badge i { color: #1e3a8a; font-size: 1.1rem; }
 
       @media (max-width: 768px) {
         .price-sections { grid-template-columns: 1fr; }
-        .paylater-tag { 
-          position: static; 
-          transform: none; 
-          text-align: center; 
-          border-radius: 12px; 
-          margin-bottom: 30px; 
-          display: block; 
-          padding: 15px;
-        }
+        .rules-card { flex-direction: column; }
+        .fee-box { width: 100%; }
+        .compliance-section { flex-direction: column; }
+        .compliance-image { height: 200px; width: 100%; }
       }
     </style>
   </head>
@@ -158,47 +275,95 @@ require_once 'config.php';
 
     <section class="service-content">
       <div class="container">
-        <div class="pricelist-container">
-          <div class="paylater-tag">
-             Paylater is not accepted
-          </div>
-
-          <h2 style="font-size: 2.2rem; color: #1e3a8a; font-weight: 800; margin-bottom: 40px; text-align: center;">PRICELIST AT JIU LIBRARY</h2>
+        <div class="pricelist-wrapper">
+          <h2 class="section-title">PRICELIST AT JIU LIBRARY</h2>
 
           <div class="price-sections">
             <!-- Using Library Paper -->
-            <div class="price-group">
-              <div class="group-title">Using Library Paper</div>
+            <div class="price-card">
+              <div class="pill-title pill-dark">USING LIBRARY PAPER</div>
               <ul class="price-list">
-                <li><span><i class="fas fa-file-alt" style="color: #64748b; margin-right: 8px;"></i> Print/Photo Copy (one side)</span> <span class="price-val">: Rp300/paper</span></li>
-                <li><span><i class="fas fa-copy" style="color: #64748b; margin-right: 8px;"></i> Print/Photo Copy (both sides)</span> <span class="price-val">: Rp500/paper</span></li>
-                <li><span><i class="fas fa-file" style="color: #64748b; margin-right: 8px;"></i> Buy blank paper</span> <span class="price-val">: Rp100/paper</span></li>
+                <li>
+                  <div><i class="far fa-file-alt"></i> Print/Photo Copy (one side)</div>
+                  <div class="price-val">Rp300<span>/paper</span></div>
+                </li>
+                <li>
+                  <div><i class="fas fa-file-import"></i> Print/Photo Copy (both sides)</div>
+                  <div class="price-val">Rp500<span>/paper</span></div>
+                </li>
+                <li>
+                  <div><i class="far fa-plus-square"></i> Buy blank paper</div>
+                  <div class="price-val">Rp100<span>/paper</span></div>
+                </li>
               </ul>
             </div>
             
             <!-- If you bring your paper -->
-            <div class="price-group">
-              <div class="group-title">If you bring your paper</div>
+            <div class="price-card">
+              <div class="pill-title pill-light">IF YOU BRING YOUR PAPER</div>
               <ul class="price-list">
-                <li><span><i class="fas fa-file-alt" style="color: #64748b; margin-right: 8px;"></i> Print/Photo Copy (one side)</span> <span class="price-val">: Rp200/paper</span></li>
-                <li><span><i class="fas fa-copy" style="color: #64748b; margin-right: 8px;"></i> Print/Photo Copy (both sides)</span> <span class="price-val">: Rp400/paper</span></li>
-                <li><span><i class="fas fa-file" style="color: #64748b; margin-right: 8px;"></i> Buy blank paper</span> <span class="price-val">: Rp100/paper</span></li>
+                <li>
+                  <div><i class="far fa-file-alt"></i> Print/Photo Copy (one side)</div>
+                  <div class="price-val">Rp200<span>/paper</span></div>
+                </li>
+                <li>
+                  <div><i class="fas fa-file-import"></i> Print/Photo Copy (both sides)</div>
+                  <div class="price-val">Rp400<span>/paper</span></div>
+                </li>
+                <li>
+                  <div><i class="far fa-plus-square"></i> Buy blank paper</div>
+                  <div class="price-val">Rp100<span>/paper</span></div>
+                </li>
               </ul>
             </div>
           </div>
           
-          <!-- Other -->
-          <div class="other-group">
-            <div class="group-title">Other</div>
-            <ul class="other-list">
-              <li style="display: flex; gap: 15px;">
-                <strong style="width: 100px;">Late Fee</strong> 
-                <span class="price-val">: Rp1,000/day/book</span>
-              </li>
-              <li class="warning-text"><i class="fas fa-exclamation-circle"></i> If you lose the library book, you have to pay 100% of the original price of the book!</li>
-              <li class="warning-text"><i class="fas fa-exclamation-circle"></i> If you damage a library book, you have to repair it and pay if badly damaged!</li>
-            </ul>
+          <!-- Other Fees & Rules -->
+          <div class="rules-card">
+            <div class="pill-title">OTHER FEES & RULES</div>
+            
+            <div class="fee-box">
+              <div class="fee-title"><i class="far fa-clock"></i> LATE FEE</div>
+              <div class="fee-amount">Rp1,000<span>/day/book</span></div>
+            </div>
+            
+            <div class="policy-list">
+              <div class="policy-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div class="policy-content">
+                  <h4>Book Loss Policy</h4>
+                  <p>If you lose the library book, you have to pay 100% of the original price of the book!</p>
+                </div>
+              </div>
+              <div class="policy-item">
+                <i class="fas fa-exclamation-circle"></i>
+                <div class="policy-content">
+                  <h4>Damage Policy</h4>
+                  <p>If you damage a library book, you have to repair it and pay if badly damaged!</p>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- Compliance Section -->
+          <div class="compliance-section">
+            <div class="compliance-image">
+              <img src="assets/images/services-photo/printed.jpg" alt="Library Facilities" />
+              <div class="compliance-overlay">
+                <h3>World-Class Facilities</h3>
+                <p>Empowering your academic journey.</p>
+              </div>
+            </div>
+            <div class="compliance-text">
+              <h2>Library Compliance & Excellence</h2>
+              <p>Our printing and scanning services are maintained to the highest institutional standards, ensuring your documents are rendered with professional precision. By utilizing our facilities, you contribute to the sustainability of our shared resource ecosystem.</p>
+              <div class="compliance-badges">
+                <div class="compliance-badge"><i class="far fa-check-circle"></i> CERTIFIED PAPER</div>
+                <div class="compliance-badge"><i class="fab fa-envira"></i> ECO-EFFICIENT</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
