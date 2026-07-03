@@ -35,6 +35,105 @@ const homeDataI18n = {
       badge: "Facility",
     },
     {
+      name: "About Library",
+      keywords: ["about", "library", "info", "history", "background"],
+      url: "about.php",
+      type: "page",
+      icon: "fa-info-circle",
+      color: "#3b82f6",
+      badge: "Page",
+    },
+    {
+      name: "Library Profile",
+      keywords: ["profile", "facility", "service", "overview"],
+      url: "profile.php",
+      type: "page",
+      icon: "fa-building",
+      color: "#8b5cf6",
+      badge: "Page",
+    },
+    {
+      name: "Vision & Mission",
+      keywords: ["vision", "mission", "purpose", "goal"],
+      url: "vision-mision.php",
+      type: "page",
+      icon: "fa-bullseye",
+      color: "#ec4899",
+      badge: "Page",
+    },
+    {
+      name: "Organizational Structure & Our Team",
+      keywords: ["structure", "staff", "team", "organization", "librarian", "head"],
+      url: "organizational-structure.php",
+      type: "page",
+      icon: "fa-users",
+      color: "#06b6d4",
+      badge: "Page",
+    },
+    {
+      name: "Library Map & Floor Plan",
+      keywords: ["map", "location", "floor", "plan", "room", "layout"],
+      url: "library-map.php",
+      type: "page",
+      icon: "fa-map-marked-alt",
+      color: "#10b981",
+      badge: "Page",
+    },
+    {
+      name: "FAQ (Help & Answers)",
+      keywords: ["faq", "question", "answer", "help", "guide"],
+      url: "fqa.php",
+      type: "page",
+      icon: "fa-question-circle",
+      color: "#f59e0b",
+      badge: "Page",
+    },
+    {
+      name: "Circulation Service",
+      keywords: ["circulation", "borrow", "return", "book", "loan"],
+      url: "service-circulation.php",
+      type: "page",
+      icon: "fa-sync-alt",
+      color: "#3b82f6",
+      badge: "Service",
+    },
+    {
+      name: "Consultation & Research Guidance",
+      keywords: ["consultation", "research", "guidance", "help", "thesis"],
+      url: "service-consultation.php",
+      type: "page",
+      icon: "fa-comments",
+      color: "#8b5cf6",
+      badge: "Service",
+    },
+    {
+      name: "Digital Access & E-Resources",
+      keywords: ["digital", "ebook", "journal", "online", "repository", "resource"],
+      url: "service-digital.php",
+      type: "page",
+      icon: "fa-laptop",
+      color: "#06b6d4",
+      badge: "Service",
+    },
+    {
+      name: "Turnitin Plagiarism Check",
+      keywords: ["turnitin", "plagiarism", "check", "similarity", "paper"],
+      url: "service-turnitin.php",
+      type: "page",
+      icon: "fa-check-double",
+      color: "#10b981",
+      badge: "Service",
+    },
+    {
+      name: "Print & Scan Service",
+      keywords: ["print", "scan", "copy", "printer", "scanner"],
+      url: "service-print-scan.php",
+      type: "page",
+      icon: "fa-print",
+      color: "#f97316",
+      badge: "Service",
+    },
+    {
       name: "Announcements",
       keywords: ["announcement", "notice", "info", "update"],
       target: "announcements",
@@ -89,6 +188,105 @@ const homeDataI18n = {
       icon: "fa-door-open",
       color: "#10b981",
       badge: "Fasilitas",
+    },
+    {
+      name: "Tentang Perpustakaan",
+      keywords: ["tentang", "info", "sejarah", "profil", "latar belakang"],
+      url: "about.php",
+      type: "page",
+      icon: "fa-info-circle",
+      color: "#3b82f6",
+      badge: "Halaman",
+    },
+    {
+      name: "Profil Perpustakaan",
+      keywords: ["profil", "fasilitas", "layanan", "perpustakaan"],
+      url: "profile.php",
+      type: "page",
+      icon: "fa-building",
+      color: "#8b5cf6",
+      badge: "Halaman",
+    },
+    {
+      name: "Visi & Misi",
+      keywords: ["visi", "misi", "tujuan", "sasaran", "arah"],
+      url: "vision-mision.php",
+      type: "page",
+      icon: "fa-bullseye",
+      color: "#ec4899",
+      badge: "Halaman",
+    },
+    {
+      name: "Struktur Organisasi & Tim Kami",
+      keywords: ["struktur", "organisasi", "tim", "staf", "staff", "pustakawan", "kepala"],
+      url: "organizational-structure.php",
+      type: "page",
+      icon: "fa-users",
+      color: "#06b6d4",
+      badge: "Halaman",
+    },
+    {
+      name: "Peta & Denah Perpustakaan",
+      keywords: ["peta", "denah", "lokasi", "lantai", "tata letak", "ruangan"],
+      url: "library-map.php",
+      type: "page",
+      icon: "fa-map-marked-alt",
+      color: "#10b981",
+      badge: "Halaman",
+    },
+    {
+      name: "FAQ (Tanya Jawab)",
+      keywords: ["faq", "tanya", "jawab", "pertanyaan", "bantuan", "panduan"],
+      url: "fqa.php",
+      type: "page",
+      icon: "fa-question-circle",
+      color: "#f59e0b",
+      badge: "Halaman",
+    },
+    {
+      name: "Layanan Sirkulasi (Peminjaman)",
+      keywords: ["sirkulasi", "pinjam", "peminjaman", "kembali", "pengembalian", "buku"],
+      url: "service-circulation.php",
+      type: "page",
+      icon: "fa-sync-alt",
+      color: "#3b82f6",
+      badge: "Layanan",
+    },
+    {
+      name: "Layanan Konsultasi & Riset",
+      keywords: ["konsultasi", "bimbingan", "riset", "penelitian", "skripsi", "tugas akhir"],
+      url: "service-consultation.php",
+      type: "page",
+      icon: "fa-comments",
+      color: "#8b5cf6",
+      badge: "Layanan",
+    },
+    {
+      name: "Akses Digital & E-Resources",
+      keywords: ["digital", "ebook", "jurnal", "online", "repositori", "sumber daya"],
+      url: "service-digital.php",
+      type: "page",
+      icon: "fa-laptop",
+      color: "#06b6d4",
+      badge: "Layanan",
+    },
+    {
+      name: "Layanan Cek Plagiasi Turnitin",
+      keywords: ["turnitin", "plagiasi", "cek", "similiarity", "kemiripan", "skripsi"],
+      url: "service-turnitin.php",
+      type: "page",
+      icon: "fa-check-double",
+      color: "#10b981",
+      badge: "Layanan",
+    },
+    {
+      name: "Layanan Cetak & Pindai (Print/Scan)",
+      keywords: ["print", "scan", "cetak", "pindai", "fotokopi", "printer"],
+      url: "service-print-scan.php",
+      type: "page",
+      icon: "fa-print",
+      color: "#f97316",
+      badge: "Layanan",
     },
     {
       name: "Pengumuman",
@@ -244,9 +442,9 @@ async function liveSearchHomeNav() {
           </div>
           <div class="sri-body">
             <span class="sri-title">${item.name}</span>
-            <span class="sri-sub">${item.type === "modal" ? "Quick Access" : "Page Section"}</span>
+            <span class="sri-sub">${item.url ? "Direct Page Link" : item.type === "modal" ? "Quick Access" : "Page Section"}</span>
           </div>
-          <span class="sri-badge" style="background:#f1f5f9; color:#475569;">${s.menuBadge}</span>
+          <span class="sri-badge" style="background:#f1f5f9; color:#475569;">${item.badge || s.menuBadge}</span>
         </div>`;
     });
   }
@@ -314,11 +512,13 @@ function executeNavigation(item) {
   const input = document.getElementById("navSearchInput");
   const suggestionBox = document.getElementById("navSearchSuggestions");
 
-  wrapper.classList.remove("active");
-  input.value = "";
-  suggestionBox.style.display = "none";
+  if (wrapper) wrapper.classList.remove("active");
+  if (input) input.value = "";
+  if (suggestionBox) suggestionBox.style.display = "none";
 
-  if (item.type === "modal") {
+  if (item.url) {
+    window.location.href = item.url;
+  } else if (item.type === "modal") {
     openModal(item.target);
   } else {
     const targetEl = document.getElementById(item.target);
@@ -327,6 +527,8 @@ function executeNavigation(item) {
       const elementPosition = targetEl.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    } else {
+      window.location.href = "index.php#" + item.target;
     }
   }
 }

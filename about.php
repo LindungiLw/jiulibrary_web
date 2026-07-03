@@ -27,7 +27,7 @@ require_once 'config.php';
     
     <link rel="stylesheet" href="assets/css/style/variable.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/base.css?v=1.2" />
-    <link rel="stylesheet" href="assets/css/navbar.css?v=2.5" />
+    <link rel="stylesheet" href="assets/css/navbar.css?v=2.7" />
     <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/responsive.css?v=3.2" />

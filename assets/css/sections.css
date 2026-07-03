@@ -203,8 +203,7 @@
   width: 100%;
   overflow: hidden;
   background-color: transparent;
-  border-top: 1px solid rgba(37, 99, 235, 0.15);
-  border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+  border: none;
   color: #1e3a8a;
   padding: 15px 0;
   margin-bottom: 50px;

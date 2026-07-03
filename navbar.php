@@ -300,3 +300,6 @@
       </div>
     </div>
 
+    <!-- Include Search JS automatically on all pages using navbar -->
+    <script defer src="assets/js/search.js?v=2.2"></script>
+
