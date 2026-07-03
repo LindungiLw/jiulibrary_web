@@ -52,7 +52,7 @@ if (isset($_SESSION['error_msg'])) {
 
     <link rel="stylesheet" href="assets/css/style/variable.css" />
     <link rel="stylesheet" href="assets/css/base.css?v=1.1" />
-    <link rel="stylesheet" href="assets/css/navbar.css?v=2.4" />
+    <link rel="stylesheet" href="assets/css/navbar.css?v=2.5" />
     <link rel="stylesheet" href="assets/css/footer.css?v=1.1" />
     <link rel="stylesheet" href="assets/css/responsive.css?v=3.2" />
     <link rel="stylesheet" href="assets/css/profile.css?v=1.0" />

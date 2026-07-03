@@ -1082,4 +1082,71 @@
     background: rgba(15, 23, 42, 0.08);
     transform: none;
   }
+
+  /* Override Top Bar Dropdowns (Language & User Profile) to open as floating popups on Mobile */
+  .top-bar-right .dropdown {
+    position: relative !important;
+  }
+  .top-bar-right .dropdown-content {
+    position: absolute !important;
+    top: calc(100% + 6px) !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 140px !important;
+    min-width: 140px !important;
+    max-width: 160px !important;
+    background: #ffffff !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 8px !important;
+    padding: 6px !important;
+    margin: 0 !important;
+    z-index: 999999 !important;
+  }
+  .top-bar-right .dropdown-content.show {
+    display: block !important;
+  }
+  .top-bar-right .dropdown-content .services-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+  .top-bar-right .dropdown-content .lang-option {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 6px 10px !important;
+    background: #f8fafc !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    border-radius: 6px !important;
+    text-align: left !important;
+  }
+  .top-bar-right #userMenu {
+    width: 160px !important;
+    min-width: 160px !important;
+  }
+  .top-bar-right #userMenu .simple-vertical-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+  .top-bar-right #userMenu .profile-menu-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 6px 10px !important;
+    background: #f8fafc !important;
+    border-radius: 6px !important;
+  }
+
+  /* Compact button display on small screens: show only flag + chevron */
+  .btn-lang-top .current-lang-text {
+    display: none !important;
+  }
+  .btn-lang-top {
+    padding: 2px 6px !important;
+    gap: 4px !important;
+  }
 }

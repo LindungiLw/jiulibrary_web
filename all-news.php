@@ -25,7 +25,7 @@ $query_semua_berita = $koneksi->query("SELECT * FROM berita ORDER BY tanggal DES
 
     <link rel="stylesheet" href="assets/css/style/variable.css" />
     <link rel="stylesheet" href="assets/css/base.css?v=<?php echo time(); ?>" />
-    <link rel="stylesheet" href="assets/css/navbar.css?v=2.4" />
+    <link rel="stylesheet" href="assets/css/navbar.css?v=2.5" />
     <link rel="stylesheet" href="assets/css/style/modal.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/style/news-slider.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
