@@ -49,8 +49,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #facc15;
-  color: #1e3a8a;
+  background-color: var(--clr-yellow-1, #e9be2b);
+  color: var(--clr-blue-1, #273374);
   font-weight: 700;
   padding: 10px 24px;
   border-radius: 50px;
@@ -58,13 +58,13 @@
   font-family: var(--font-primary, "Poppins", sans-serif);
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.2);
+  box-shadow: 0 4px 14px rgba(233, 190, 43, 0.25);
 }
 .btn-view-news-pill:hover {
-  background-color: #eab308;
-  color: #1e3a8a;
+  background-color: var(--clr-yellow-2, #cfa823);
+  color: var(--clr-blue-1, #273374);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(250, 204, 21, 0.4);
+  box-shadow: 0 6px 20px rgba(233, 190, 43, 0.4);
 }
 
 .news-header-flex {
@@ -163,8 +163,8 @@
 }
 
 .jiu-news-btn {
-  background-color: #facc15;
-  color: #0f172a;
+  background-color: var(--clr-yellow-1, #e9be2b);
+  color: var(--clr-blue-1, #273374);
   font-family: var(--font-primary, "Poppins", sans-serif);
   font-weight: 700;
   font-size: 0.85rem;
@@ -183,7 +183,7 @@
   transition: transform 0.3s ease;
 }
 .jiu-news-card:hover .jiu-news-btn {
-  background-color: #eab308;
+  background-color: var(--clr-yellow-2, #cfa823);
   color: #ffffff;
 }
 .jiu-news-card:hover .jiu-news-btn i {

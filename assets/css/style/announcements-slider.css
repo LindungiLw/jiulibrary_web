@@ -32,7 +32,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #2563eb;
+  background-color: var(--clr-blue-1, #273374);
   color: #ffffff;
   font-weight: 600;
   padding: 10px 24px;
@@ -41,14 +41,14 @@
   font-family: var(--font-primary, "Poppins", sans-serif);
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 14px rgba(39, 51, 116, 0.25);
 }
 
 .btn-view-ann-pill:hover {
-  background-color: #1d4ed8;
+  background-color: var(--clr-blue-2, #1e285d);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 6px 20px rgba(39, 51, 116, 0.35);
 }
 
 /* --- GRID LAYOUT --- */
@@ -113,8 +113,8 @@
   bottom: 0;
   left: 20px;
   transform: translateY(50%);
-  background-color: #facc15;
-  color: #0f172a;
+  background-color: var(--clr-yellow-1, #e9be2b);
+  color: var(--clr-blue-1, #273374);
   padding: 5px 14px;
   border-radius: 6px;
   font-size: 0.8rem;
@@ -151,7 +151,7 @@
 }
 
 .jiu-ann-card:hover .jiu-ann-title {
-  color: #2563eb;
+  color: var(--clr-blue-1, #273374);
 }
 
 .jiu-ann-desc {

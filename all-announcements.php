@@ -31,7 +31,7 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
     <link rel="stylesheet" href="assets/css/base.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/navbar.css?v=2.7" />
     <link rel="stylesheet" href="assets/css/style/modal.css?v=1.1" />
-    <link rel="stylesheet" href="assets/css/style/news-slider.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="assets/css/style/announcements-slider.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/style/section-page.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="assets/css/responsive.css?v=3.2" />

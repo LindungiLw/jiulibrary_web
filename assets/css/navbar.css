@@ -173,20 +173,24 @@
 .dropbtn {
   color: var(--clr-blue-1) !important;
   text-decoration: none !important;
-  font-size: 0.9rem; /* Reduced from 0.95rem */
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.4rem 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
   position: relative;
   background: transparent;
   cursor: pointer;
   border: none;
   font-family: var(--font-primary);
   white-space: nowrap !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links-list > li > a:hover,
 .dropbtn:hover {
-  color: var(--clr-yellow-2) !important;
+  color: var(--clr-blue-1) !important;
+  background: rgba(39, 51, 116, 0.08);
+  transform: translateY(-1px);
 }
 
 .nav-actions-right {

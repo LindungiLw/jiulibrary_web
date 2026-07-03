@@ -171,11 +171,23 @@ body {
   flex-grow: 1; /* Biar tombol baca selalu di bawah */
 }
 
+.jiu-ann-badge {
+  display: inline-block;
+  background-color: var(--clr-yellow-1, #e9be2b);
+  color: var(--clr-blue-1, #273374);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
 .jiu-news-title,
 .jiu-ann-title {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1e3a8a;
+  color: var(--clr-blue-1, #273374);
   margin-bottom: 10px;
   /* Mencegah judul terlalu panjang ngerusak layout */
   display: -webkit-box;
@@ -187,17 +199,20 @@ body {
 .jiu-news-btn,
 .jiu-ann-btn {
   margin-top: auto; /* Dorong ke paling bawah */
-  color: #2563eb;
+  color: var(--clr-blue-1, #273374);
   font-weight: 600;
   font-size: 0.9rem;
+  transition: color 0.3s ease;
 }
 
-.jiu-ann-btn i {
+.jiu-ann-btn i,
+.jiu-news-btn i {
   margin-left: 6px;
   transition: transform 0.3s ease;
 }
 
-.section-page-grid .jiu-ann-card:hover .jiu-ann-btn i {
+.section-page-grid .jiu-ann-card:hover .jiu-ann-btn i,
+.section-page-grid .jiu-news-card:hover .jiu-news-btn i {
   transform: translateX(4px);
 }
 
