@@ -190,7 +190,7 @@
                 <div class="simple-vertical-menu">
                   <a href="about.php" class="service-item" data-i18n="abtHistory">Brief History</a>
                   <a href="vision-mision.php" class="service-item" data-i18n="abtVision">Vision & Mission</a>
-                  <a href="organizational-structure.php" class="service-item" data-i18n="abtStructure">Library Staff</a>
+                  <a href="organizational-structure.php" class="service-item" data-i18n="abtStructure">Our Team</a>
                   <a href="library-map.php" class="service-item" data-i18n="abtMap">Library Map</a>
                 </div>
               </div>

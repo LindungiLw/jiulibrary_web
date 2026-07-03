@@ -53,7 +53,7 @@ const dict = {
     // --- NAV MENU: SUB-ABOUT ---
     abtHistory: "Brief History",
     abtVision: "Vision & Mission",
-    abtStructure: "Library Staff",
+    abtStructure: "Our Team",
     abtMap: "Library Map",
 
     // --- PAGE HEADERS ---
@@ -204,7 +204,7 @@ const dict = {
     srvPrinter: "Cetak dan Pindai",
     srvPrinterDesc: "Fasilitas mandiri cetak, pindai, dan fotokopi",
     srvOpeningHours: "Jam Operasional",
-    srvFAQ: "Tanya Jawab (F&Q)",
+    srvFAQ: "Pertanyaan Umum",
 
     // --- NAV MENU: SUB-SUBMIT ---
     subPaper: "Makalah Riset",
@@ -215,7 +215,7 @@ const dict = {
     // --- NAV MENU: SUB-ABOUT ---
     abtHistory: "Sejarah Singkat",
     abtVision: "Visi & Misi",
-    abtStructure: "Staf Perpustakaan",
+    abtStructure: "Tim Kami",
     abtMap: "Denah Perpustakaan",
 
     // --- PAGE HEADERS ---

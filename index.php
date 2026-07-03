@@ -450,7 +450,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <script>
     window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
   </script>
-  <script defer src="assets/js/dictionary.js?v=1.3"></script>
+  <script defer src="assets/js/dictionary.js?v=1.4"></script>
   <script defer src="assets/js/news.js?v=1.1"></script>
   <script defer src="assets/js/announcements.js?v=1.1"></script>
   <script defer src="assets/js/search.js?v=2.1"></script>
