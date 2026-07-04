@@ -21,6 +21,9 @@
 .chatbot-toggler:hover {
   transform: scale(1.12);
 }
+.chatbot-toggler * {
+  pointer-events: none;
+}
 .chatbot-toggler i {
   font-size: 1.4rem;
   background: linear-gradient(135deg, #1e3a8a, #3b82f6);

@@ -199,6 +199,8 @@ try {
     
     <?php include 'footer.php'; ?>
     
+    <?php include 'chatbot-widget.php'; ?>
+    <?php include 'a11y-widget.php'; ?>
     <script defer src="assets/js/dictionary.js?v=1.4"></script>
     <script defer src="assets/js/main.js?v=2.2"></script>
     <script>

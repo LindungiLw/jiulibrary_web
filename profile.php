@@ -154,5 +154,7 @@ if (isset($_SESSION['error_msg'])) {
 
     <?php include 'footer.php'; ?>
 
+    <?php include 'chatbot-widget.php'; ?>
+    <?php include 'a11y-widget.php'; ?>
 </body>
 </html>

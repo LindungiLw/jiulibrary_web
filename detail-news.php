@@ -262,7 +262,6 @@ if ($news) {
     </script>
     <script defer src="assets/js/dictionary.js?v=1.4"></script>
     <script defer src="assets/js/main.js?v=2.2"></script>
-    <script defer src="assets/js/chatbot.js?v=1.8"></script>
     <script>
         window.addEventListener('scroll', () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;

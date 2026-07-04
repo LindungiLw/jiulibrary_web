@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const chatbotToggler = document.querySelector('.chatbot-toggler');
+    if (window.chatbotInitialized) return;
+    window.chatbotInitialized = true;
+
+    const chatbotTogglers = document.querySelectorAll('.chatbot-toggler');
+    const chatbotToggler = chatbotTogglers[0];
     const chatbotWindow = document.querySelector('.chatbot-window');
     const closeBtn = document.querySelector('.close-btn');
     const chatbox = document.querySelector('.chatbox');
@@ -7,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.querySelector('.chat-input button');
     const tooltip = document.querySelector('.chatbot-tooltip');
 
-    if (!chatbotToggler || !chatbotWindow) return;
+    if (!chatbotTogglers.length || !chatbotWindow) return;
 
     // ── Tooltip ─────────────────────────────────────────────
     if (tooltip) {
@@ -47,38 +51,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const openChatbot = () => {
         chatbotWindow.classList.add('active');
         if (tooltip) tooltip.classList.remove('show');
-        if (chatbotToggler.querySelector('img')) {
-            chatbotToggler.innerHTML = '<i class="fas fa-times"></i>';
-        }
+        chatbotTogglers.forEach(t => {
+            if (t.querySelector('img')) {
+                t.innerHTML = '<i class="fas fa-times"></i>';
+            }
+        });
     };
     const closeChatbot = () => {
         chatbotWindow.classList.remove('active');
-        if (chatbotToggler.querySelector('i.fa-times')) {
-            chatbotToggler.innerHTML = '<div class="chatbot-tooltip"></div><img src="assets/images/bluebot_mascot.webp" alt="BlueBot" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.25));transition:opacity .3s;">';
-        }
+        chatbotTogglers.forEach(t => {
+            if (t.querySelector('i.fa-times')) {
+                t.innerHTML = '<div class="chatbot-tooltip"></div><img src="assets/images/bluebot_mascot.webp" alt="BlueBot" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.25));transition:opacity .3s;">';
+            }
+        });
     };
 
-    chatbotToggler.addEventListener('click', () =>
-        chatbotWindow.classList.contains('active') ? closeChatbot() : openChatbot()
-    );
-    closeBtn.addEventListener('click', closeChatbot);
+    chatbotTogglers.forEach(t => {
+        t.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chatbotWindow.classList.contains('active') ? closeChatbot() : openChatbot();
+        });
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeChatbot);
 
     // Click outside
     document.addEventListener('click', (e) => {
         if (chatbotWindow.classList.contains('active') &&
-            !chatbotWindow.contains(e.target) &&
-            !chatbotToggler.contains(e.target)) {
-            closeChatbot();
+            !chatbotWindow.contains(e.target)) {
+            let clickedToggler = false;
+            chatbotTogglers.forEach(t => { if (t.contains(e.target)) clickedToggler = true; });
+            if (!clickedToggler) closeChatbot();
         }
     });
 
-    // Hover (desktop only)
-    let hoverTimer;
-    if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
-        chatbotToggler.addEventListener('mouseenter', () => { clearTimeout(hoverTimer); openChatbot(); });
-        chatbotToggler.addEventListener('mouseleave', () => { hoverTimer = setTimeout(closeChatbot, 350); });
-        chatbotWindow.addEventListener('mouseenter', () => clearTimeout(hoverTimer));
-        chatbotWindow.addEventListener('mouseleave', () => { hoverTimer = setTimeout(closeChatbot, 350); });
+    // Hover tooltip (desktop only)
+    if (window.matchMedia && window.matchMedia('(hover: hover)').matches && tooltip) {
+        chatbotTogglers.forEach(t => {
+            t.addEventListener('mouseenter', () => {
+                if (!chatbotWindow.classList.contains('active')) {
+                    tooltip.classList.add('show');
+                }
+            });
+            t.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('show');
+            });
+        });
     }
 
     // ── Response Database (Local) ─────────────────────────────

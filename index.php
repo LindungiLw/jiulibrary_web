@@ -515,7 +515,6 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <!-- Accessibility Widget -->
   <?php include 'chatbot-widget.php'; ?>
   <?php include 'a11y-widget.php'; ?>
-  <script defer src="assets/js/chatbot.js?v=1.8"></script>
   <script defer src="assets/js/main.js?v=2.2"></script>
 </body>
 
