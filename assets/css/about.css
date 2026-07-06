@@ -887,3 +887,276 @@ body {
     padding: 8px 15px;
   }
 }
+
+/* =========================================================
+   ORGANIZATION CHART — MOBILE RESPONSIVE
+   Compact grid layout — peers stay side-by-side
+   ========================================================= */
+
+/* ─── Tablet ≤ 768px ─── */
+@media (max-width: 768px) {
+  .org-section {
+    padding: 50px 0;
+  }
+
+  .org-section .container {
+    overflow-x: hidden !important;
+  }
+
+  .custom-tree-layout {
+    min-width: unset !important;
+    width: 100%;
+    padding: 10px 5px;
+    gap: 0;
+  }
+
+  /* Default row — center items */
+  .ct-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    align-items: center;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  /* Middle row — 3 items in a row (Builder1 | Head | Builder2) */
+  .ct-middle-row {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+
+  /* Org boxes — compact cards */
+  .org-box {
+    min-width: unset !important;
+    width: auto !important;
+    padding: 10px 14px !important;
+    font-size: 0.82rem;
+    border-radius: 10px;
+  }
+
+  .org-box .role {
+    font-size: 0.82rem;
+    margin-bottom: 2px;
+  }
+
+  .org-box .name {
+    font-size: 0.75rem;
+  }
+
+  /* Hide horizontal arrows on mobile */
+  .ct-arrow-right,
+  .ct-arrow-left {
+    display: none;
+  }
+
+  /* Hide fixed-width horizontal lines */
+  .ct-line-h {
+    display: none !important;
+  }
+
+  /* Hide side-by-side arrow rows */
+  .ct-row[style*="justify-content: space-between"] {
+    display: none !important;
+  }
+
+  /* Vertical connectors — shorter */
+  .ct-line-v {
+    width: 2px;
+    height: 16px;
+    background-color: #60a5fa;
+    flex-shrink: 0;
+  }
+
+  /* Head box wrapper */
+  .ct-col {
+    align-items: center;
+    width: auto;
+  }
+
+  /* ── Peer rows: Librarians (2 items), Services (3 items) ── */
+  /* Keep items side by side in a flex row */
+  .ct-row[style*="gap: 40px"],
+  .ct-row[style*="gap: 20px"] {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  /* Service boxes — compact text */
+  .box-service {
+    min-width: unset !important;
+    padding: 10px 10px !important;
+  }
+
+  .box-service .role {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .box-service .role span {
+    font-size: 0.72em !important;
+  }
+
+  /* Reduce hover effect on touch */
+  .org-box:hover {
+    transform: scale(1.02) translateY(-2px);
+  }
+
+  /* About header responsive */
+  .about-header {
+    padding: 130px 0 40px;
+  }
+
+  .about-header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ─── Small phone ≤ 480px — Even more compact ─── */
+@media (max-width: 480px) {
+  .org-section {
+    padding: 35px 0;
+  }
+
+  .custom-tree-layout {
+    padding: 5px 2px;
+  }
+
+  /* Compact cards for small screens */
+  .org-box {
+    padding: 8px 10px !important;
+    border-radius: 8px;
+  }
+
+  .org-box .role {
+    font-size: 0.76rem;
+  }
+
+  .org-box .name {
+    font-size: 0.7rem;
+  }
+
+  /* Middle row — stack to 1-col if too tight, 
+     but keep the Head centered prominently */
+  .ct-middle-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+
+  .ct-middle-row .ct-col {
+    order: -1; /* Head box comes first */
+  }
+
+  /* Builders go into a 2-col row below the Head */
+  .ct-middle-row .box-builder {
+    width: 42vw !important;
+    max-width: 160px;
+  }
+
+  /* Insert connector before builders row */
+  .ct-middle-row .ct-col .ct-line-v {
+    height: 12px;
+  }
+
+  /* Librarians — 2 columns side by side */
+  .ct-row[style*="gap: 40px"] .org-box {
+    width: 42vw !important;
+    max-width: 160px;
+  }
+
+  /* Services — 3 compact columns */
+  .ct-row[style*="gap: 20px"] {
+    gap: 5px !important;
+  }
+
+  .ct-row[style*="gap: 20px"] .org-box {
+    width: 30vw !important;
+    max-width: 120px;
+    padding: 8px 6px !important;
+  }
+
+  .box-service .role {
+    font-size: 0.68rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .box-service .role span {
+    font-size: 0.65em !important;
+  }
+
+  .ct-line-v {
+    height: 12px;
+  }
+
+  /* Header */
+  .about-header {
+    padding: 120px 0 30px;
+  }
+
+  .about-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .about-header p {
+    font-size: 0.95rem !important;
+  }
+
+  /* Profile modal — compact */
+  .profile-modal-content {
+    width: 95% !important;
+    max-width: 340px !important;
+  }
+
+  .profile-modal-info {
+    padding: 60px 20px 30px !important;
+  }
+
+  #modalProfileName {
+    font-size: 1.1rem !important;
+  }
+
+  .pm-contact {
+    font-size: 0.8rem !important;
+    padding: 8px 14px !important;
+  }
+}
+
+/* ─── Very small phone ≤ 360px ─── */
+@media (max-width: 360px) {
+  .org-box {
+    padding: 7px 8px !important;
+  }
+
+  .org-box .role {
+    font-size: 0.7rem;
+  }
+
+  .org-box .name {
+    font-size: 0.65rem;
+  }
+
+  .ct-middle-row .box-builder {
+    width: 40vw !important;
+    max-width: 140px;
+  }
+
+  .ct-row[style*="gap: 40px"] .org-box {
+    width: 40vw !important;
+    max-width: 140px;
+  }
+
+  .ct-row[style*="gap: 20px"] .org-box {
+    width: 28vw !important;
+    max-width: 105px;
+    padding: 6px 5px !important;
+  }
+
+  .box-service .role {
+    font-size: 0.62rem !important;
+  }
+}
+
