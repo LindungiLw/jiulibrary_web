@@ -1125,7 +1125,7 @@ body {
   }
 }
 
-/* ─── Very small phone ≤ 360px ─── */
+/* Very small phone ≤ 360px */
 @media (max-width: 360px) {
   .org-box {
     padding: 7px 8px !important;
