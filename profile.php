@@ -6,7 +6,7 @@ $koneksi = getKoneksi();
 
 // Check if user is logged in
 if (!isset($_SESSION['user_status']) || $_SESSION['user_status'] !== "login") {
-    $_SESSION['error_msg'] = "Silakan login terlebih dahulu untuk mengakses profil.";
+    $_SESSION['error_msg'] = "Please log in first to access your profile.";
     header("Location: index.php");
     exit();
 }

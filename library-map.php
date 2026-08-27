@@ -142,7 +142,7 @@ require_once 'config.php';
           <div class="map-image-wrapper">
             <img
               src="assets/images/map-library.webp"
-              alt="Denah Dream Blue Library"
+              alt="Dream Blue Library Floor Plan"
               class="modern-map-image"
             />
           </div>
@@ -161,6 +161,6 @@ require_once 'config.php';
       window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
     </script>
     <script defer src="assets/js/dictionary.js?v=1.4"></script>
-    <script defer src="assets/js/main.js?v=2.2"></script>
+    <script defer src="assets/js/main.js?v=2.3"></script>
   </body>
 </html>

@@ -242,9 +242,9 @@ if ($news) {
             <?php else: ?>
                 <div class="error-state">
                     <i class="fas fa-newspaper" style="font-size: 5rem; color: #cbd5e1; margin-bottom: 20px;"></i>
-                    <h2 style="color: #1e293b; font-size: 2rem;">Berita Tidak Ditemukan</h2>
-                    <p style="color: #64748b;">Maaf, artikel yang Anda cari mungkin telah dihapus atau dipindahkan.</p>
-                    <a href="index.php" class="btn-error-back">Kembali ke Beranda</a>
+                    <h2 style="color: #1e293b; font-size: 2rem;">Oops! News Not Found</h2>
+                    <p style="color: #64748b;">The article you are looking for might have been removed or is temporarily unavailable.</p>
+                    <a href="index.php" class="btn-error-back">Back to Homepage</a>
                 </div>
             <?php endif; ?>
 
@@ -261,7 +261,7 @@ if ($news) {
       window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
     </script>
     <script defer src="assets/js/dictionary.js?v=1.4"></script>
-    <script defer src="assets/js/main.js?v=2.2"></script>
+    <script defer src="assets/js/main.js?v=2.3"></script>
     <script>
         window.addEventListener('scroll', () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;

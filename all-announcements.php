@@ -8,13 +8,13 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
 ?>
 
 <!doctype html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Announcements - Dream Blue Library</title>
-    <meta name="description" content="Lihat semua pengumuman resmi terbaru dari Dream Blue Library – Jakarta International University." />
+    <meta name="description" content="View all the latest official announcements from Dream Blue Library – Jakarta International University." />
     <link rel="icon" type="image/png" href="assets/images/library-logo.webp" />
 
     <!-- Preload LCP Header Image for Maximum Speed -->
@@ -90,7 +90,7 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
             echo 
             " <div style='grid-column: 1 / -1; text-align: center; padding: 50px; color: #64748b;'>
         <i class='fas fa-box-open' style='font-size: 3rem; margin-bottom: 15px; color:#cbd5e1;'></i>
-        <h2 style='color:#475569;' data-i18n='annEmpty'>Belum ada pengumuman</h2>
+        <h2 style='color:#475569;' data-i18n='annEmpty'>No announcements yet</h2>
       </div>";
         }
         ?>
@@ -108,7 +108,7 @@ $query_semua = $koneksi->query("SELECT * FROM pengumuman ORDER BY id DESC");
       window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
     </script>
     <script defer src="assets/js/dictionary.js?v=1.4"></script>
-    <script defer src="assets/js/main.js?v=2.2"></script>
+    <script defer src="assets/js/main.js?v=2.3"></script>
 </body>
 
 </html>
