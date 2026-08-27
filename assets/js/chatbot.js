@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Response Database (Local) ─────────────────────────────
     const BUDDY = "Hallo, Buddy! 👋 ";
     const WA_BTN = `<br><a href='https://wa.me/6281260173697' target='_blank' style='display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 16px;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;'><i class='fab fa-whatsapp'></i> Chat Pustakawan</a>`;
+    const WA_BTN_EN = `<br><a href='https://wa.me/6281260173697' target='_blank' style='display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 16px;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;'><i class='fab fa-whatsapp'></i> Chat with Librarian</a>`;
     const SUBMIT_BTN = `<br><a href='#' onclick='window.scrollTo({top:0, behavior:"smooth"}); return false;' style='display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 16px;background:#3b82f6;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;box-shadow:0 2px 4px rgba(59,130,246,0.3);'><i class='fas fa-arrow-up'></i> Ke Menu Submit</a>`;
     const SUBMIT_BTN_EN = `<br><a href='#' onclick='window.scrollTo({top:0, behavior:"smooth"}); return false;' style='display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 16px;background:#3b82f6;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;box-shadow:0 2px 4px rgba(59,130,246,0.3);'><i class='fas fa-arrow-up'></i> Open Submit Menu</a>`;
 
@@ -225,13 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
             "best member": BUDDY + "The <b>Best Member &amp; Reading Ambassador</b> program is evaluated based on activity, loans, and visits at the end of each semester. Prize: <b>book vouchers</b>!",
             "ambassador": BUDDY + "<b>Reading Ambassador</b> is an award for the most diligent readers and visitors. <b>Book vouchers</b> await!",
             "our daily bread": BUDDY + "<b>Our Daily Bread</b> is a spiritual devotional collection published every 3 months. <b>2 copies</b> are available for free for the first ones to grab!",
-            "admin": BUDDY + "Want to chat directly with a Librarian? I'll connect you!" + WA_BTN,
-            "wa": BUDDY + "Want to chat directly with a Librarian? I'll connect you!" + WA_BTN,
-            "whatsapp": BUDDY + "Here is the contact for Dream Blue Library's Librarian:" + WA_BTN,
-            "librarian": BUDDY + "Want to chat directly with a Librarian? I'll connect you!" + WA_BTN,
-            "contact": BUDDY + "Contact the Dream Blue Library Librarian:" + WA_BTN,
+            "admin": BUDDY + "Want to chat directly with a Librarian? I'll connect you!" + WA_BTN_EN,
+            "wa": BUDDY + "Want to chat directly with a Librarian? I'll connect you!" + WA_BTN_EN,
+            "whatsapp": BUDDY + "Here is the contact for Dream Blue Library's Librarian:" + WA_BTN_EN,
+            "librarian": BUDDY + "Want to chat directly with a Librarian? I'll connect you!" + WA_BTN_EN,
+            "contact": BUDDY + "Contact the Dream Blue Library Librarian:" + WA_BTN_EN,
             "help": BUDDY + "I'm here to help! Try asking about hours, how to borrow, WiFi, or other facilities.",
-            "default": BUDDY + "Oops, it seems I don't know the answer to that. Try keywords like <b>'Hours'</b>, <b>'Fine'</b>, <b>'WiFi'</b>, or <b>'Borrow'</b>. Or contact the Librarian directly:" + WA_BTN
+            "default": BUDDY + "Oops, it seems I don't know the answer to that. Try keywords like <b>'Hours'</b>, <b>'Fine'</b>, <b>'WiFi'</b>, or <b>'Borrow'</b>. Or contact the Librarian directly:" + WA_BTN_EN
         }
     };
 

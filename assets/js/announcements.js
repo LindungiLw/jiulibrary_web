@@ -26,7 +26,7 @@ function renderAnnouncements() {
     const displayTitle = currentLang === "id" ? ann.title : ann.titleEn;
     const displayDesc = currentLang === "id" ? ann.desc : ann.descEn;
     const readMoreText =
-      currentLang === "id" ? dict.id.readMore : dict.en.readMore;
+      currentLang === "id" ? dict.id.newsBtnRead : dict.en.newsBtnRead;
 
     container.innerHTML += `
       <div class="announce-card">

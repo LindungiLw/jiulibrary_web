@@ -27,7 +27,7 @@ function renderNews() {
   dummyNews.forEach((news) => {
     const displayTitle = currentLang === "id" ? news.title : news.titleEn;
     const readMoreText =
-      currentLang === "id" ? dict.id.readMore : dict.en.readMore;
+      currentLang === "id" ? dict.id.newsBtnRead : dict.en.newsBtnRead;
 
     container.innerHTML += `
       <div class="news-card">

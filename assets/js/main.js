@@ -278,6 +278,9 @@ function initCounters() {
     const duration = 1000;
     const startTime = performance.now();
 
+    const numberLocale =
+      localStorage.getItem("library_lang") === "id" ? "id-ID" : "en-US";
+
     const updateCount = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
@@ -286,12 +289,12 @@ function initCounters() {
       const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const currentVal = Math.ceil(easeOut * target);
 
-      counter.innerText = currentVal.toLocaleString("id-ID");
+      counter.innerText = currentVal.toLocaleString(numberLocale);
 
       if (progress < 1) {
         requestAnimationFrame(updateCount);
       } else {
-        counter.innerText = target.toLocaleString("id-ID");
+        counter.innerText = target.toLocaleString(numberLocale);
       }
     };
     requestAnimationFrame(updateCount);
