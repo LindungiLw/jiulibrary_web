@@ -202,7 +202,7 @@ try {
     <?php include 'chatbot-widget.php'; ?>
     <?php include 'a11y-widget.php'; ?>
     <script defer src="assets/js/dictionary.js?v=1.4"></script>
-    <script defer src="assets/js/main.js?v=2.2"></script>
+    <script defer src="assets/js/main.js?v=2.3"></script>
     <script>
       // Quick inline script to handle dynamic language switching for DB content
       document.addEventListener("DOMContentLoaded", () => {

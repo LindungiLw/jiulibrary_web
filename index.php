@@ -451,8 +451,8 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
     window.BASE_URL = "<?php echo defined('BASE_URL') ? BASE_URL : ''; ?>";
   </script>
   <script defer src="assets/js/dictionary.js?v=1.4"></script>
-  <script defer src="assets/js/news.js?v=1.1"></script>
-  <script defer src="assets/js/announcements.js?v=1.1"></script>
+  <script defer src="assets/js/news.js?v=1.2"></script>
+  <script defer src="assets/js/announcements.js?v=1.2"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var swiperAnnouncements = new Swiper(".swiper-announcements", {
@@ -515,7 +515,7 @@ $query_berita = $koneksi->query("SELECT * FROM berita ORDER BY id DESC LIMIT 5")
   <!-- Accessibility Widget -->
   <?php include 'chatbot-widget.php'; ?>
   <?php include 'a11y-widget.php'; ?>
-  <script defer src="assets/js/main.js?v=2.2"></script>
+  <script defer src="assets/js/main.js?v=2.3"></script>
 </body>
 
 </html>
